@@ -11,3 +11,7 @@ wheels/
 
 # Data
 data
+
+# Test Files
+test.py
+test.ipynb

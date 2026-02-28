@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Collect Senatsprotokille Imgs",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/data_collection/senatsprotokolle_collection/image_scraping.py",
+            "console": "integratedTerminal",
+            "args": ["-m", "data/raw_data/UGreifswald Senatsprotokolle/Protokolle_1799/METS.xml",
+                     "-o", "data/raw_data/UGreifswald Senatsprotokolle/Protokolle_1799/images"]
+        },
+        {
+            "name": "Generate Texts from File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/data_collection/synthetic_text_generation/text_generator.py",
+            "console": "integratedTerminal",
+            "args": ["--texts", "data/synthetic_texts.txt",
+                     "--output", "data/synthetic_data",
+                     "--count", "2",
+                     "--font-size", "48"],
+            "justMyCode": false
+        }
+    ]
+}
