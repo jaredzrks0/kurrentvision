@@ -40,6 +40,13 @@ Data for this project comes from three major sources:
 | <img src="data/synthetic_data/images/text_00000.png" width="300"/> | <img src="data/synthetic_data/images/text_00002.png" width="300"/> | <img src="data/synthetic_data/images/text_00004.png" width="300"/> |
 |---|---|---|
 
+Beyond this, there are no major red flags in our data. This is classless, so there is no imbalance, and data is either synthetic or professionally generated, so there is data quality concerns either. 
 
 
 
+
+### Evaluation Plan
+With a data coming from multiple different sources, our data splitting with be a combination of inter and intra dataset splits. At a high level, I will create the standard train/val/test datset of all labeled data, and then we retain the final 'test' dataset of unlabeled data. The train/val/test datasets will consist of an approx even (by ratio) split of the real and synthetic data collected as described above, plus the pre-transcribed data from my grandfather. Once or model is trained, the final test set will consist of the untranscribed letters so see if we can acomplish the task at hand!
+
+### Next steps
+The immediate next step is the generation of the final dataset of synthetic data. Once this is complete and our final dataset is built, I will move onto the baseline models. This involves finetuning the downloaded TrOCR. Finally, once this is complete, I will move onto, assuming time and compute allows, to training my own model.
