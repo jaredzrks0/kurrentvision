@@ -26,7 +26,7 @@ Data for this project comes from three major sources:
 
 1. Handwritten letters my family has saved. This is a dataset of ~75 images, a selection of which are shown below. Of these 75, a subset of them already have ground truths, and the rest serve as our ultimate test for which we hope to transcribe. The ground truths letters too, serve as an interesting data source, as they are untouched by any pre-trained models as well, and offer a direct fine tuning ability for the ultimate test set.
 
-| <img src="data/raw_data/grandpa_letters/images/0008_p001.jpg" width="300"/> | <img src="data/raw_data/grandpa_letters/images/0091_p002.jpg" width="300"/> | <img src="data/raw_data/grandpa_letters/images/0108_p001.jpg" width="300"/> |
+| <img src="readme_images/GPA_IMG1.jpg.jpg" width="300"/> | <img src="readme_images/GPA_IMG2.jpg.jpg" width="300"/> | <img src="readme_images/GPA_IMG_3.jpg.jpg" width="300"/> |
 |---|---|---|
 
 
@@ -37,7 +37,7 @@ Data for this project comes from three major sources:
 
 3. Finally, I will use synthetic data for training + finetuning the proposed models. To generate this data, I am leveraging a python package called trdg which allows for the generation of text, and am creating said text with multiple Kurrent fonts downloaded from online. There are options in the package for image alterations like blur, background colors, rotations, etc. so the data generated should be valid and helpful for training purposes.Synthetic data can be generated from the src/data_collection/synthetic_text_generation/text_generator.py, where all the needed phrases are put into the data/synthetic_texts.txt file. While the parameters of this generation have not been determined yet, a few very simple images are shown below, simply showcasing the generation capability:
 
-| <img src="data/synthetic_data/images/text_00000.png" width="300"/> | <img src="data/synthetic_data/images/text_00002.png" width="300"/> | <img src="data/synthetic_data/images/text_00004.png" width="300"/> |
+| <img src="readme_images/SYT_IMG_1.png" width="300"/> | <img src="readme_images/SYT_IMG_2.png.png" width="300"/> | <img src="readme_images/SYT_IMG_3.png.png" width="300"/> |
 |---|---|---|
 
 Beyond this, there are no major red flags in our data. This is classless, so there is no imbalance, and data is either synthetic or professionally generated, so there is data quality concerns either. 
