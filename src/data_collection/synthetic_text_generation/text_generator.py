@@ -3,6 +3,7 @@ from typing import Optional, List
 from trdg.generators import GeneratorFromStrings # Locally imported
 import os
 import argparse
+import numpy as np
 
 # IMPORTS REQUIRED FOR TRDG
 import matplotlib
@@ -29,13 +30,11 @@ class KurrentTextGenerator:
         output_dir: str = "generated_text",
         count: int = 1,
         font_size: int = 32,
-        skewing_angle: int = 0,
-        random_skew: bool = False,
-        blur: int = 0,
-        random_blur: bool = False,
-        background_type: int = 0,
-        distorsion_type: int = 0,
-        distorsion_orientation: int = 0,
+        skewing_angle = {0: 0.5, 1: 0.2, 2: 0.15, 3: 0.1, 4: 0.04, 5: 0.01},
+        blur = {0: 0.4, 1: 0.3, 2: 0.2, 3: 0.1},
+        background_type = {1: 1.0},
+        distorsion_type = {0: 1.0},
+        distorsion_orientation = {0: 1.0},
         width: int = -1,
         alignment: int = 1,
         text_color: str = "#282828",
@@ -48,19 +47,20 @@ class KurrentTextGenerator:
     ) -> List[Path]:
         """
         Generate synthetic text images.
-        
+
         Args:
             texts: List of text strings to generate images from
             output_dir: Directory to save generated images
             count: Number of images to generate per text
             font_size: Size of the font
-            skewing_angle: Angle of skewing (-25 to 25)
-            random_skew: Apply random skewing
-            blur: Blur intensity (0-3)
-            random_blur: Apply random blur
-            background_type: Type of background (0=gaussian noise, 1=plain white, 2=quasicrystal, 3=image)
-            distorsion_type: Type of distortion (0=None, 1=Sine wave, 2=Cosine wave, 3=Random)
-            distorsion_orientation: Orientation of distortion (0=Vertical, 1=Horizontal, 2=Both)
+            skewing_angle: Angle of skew (-25 to 25)
+            blur: dict of Image blue (0-3)
+            background_type: dict of {type_int: probability} or a fixed int
+                             (0=gaussian noise, 1=plain white, 2=quasicrystal, 3=image)
+            distorsion_type: dict of {type_int: probability} or a fixed int
+                             (0=None, 1=Sine wave, 2=Cosine wave, 3=Random)
+            distorsion_orientation: dict of {type_int: probability} or a fixed int
+                                    (0=Vertical, 1=Horizontal, 2=Both)
             width: Width of the generated image (-1 for automatic)
             alignment: Text alignment (0=left, 1=center, 2=right)
             text_color: Color of the text in hex format
@@ -71,10 +71,19 @@ class KurrentTextGenerator:
             fit: Fit text to image size
             handwritten: Apply handwritten effect using TensorFlow model (requires TensorFlow installed)
                         EXPERIMENTAL - may produce more realistic handwriting appearance
-            
+
         Returns:
             List of paths to generated images
         """
+            
+        def sample_param(param):
+            if isinstance(param, dict):
+                types = list(param.keys())
+                probs = list(param.values())
+                return int(np.random.choice(types, p=probs))
+            else:
+                raise ValueError("Distribution param must be of Dict[int:float]")
+
         # Create output directory
         output_path = Path(output_dir)
         output_path.mkdir(parents=True, exist_ok=True)
@@ -82,50 +91,55 @@ class KurrentTextGenerator:
         texts_dir = output_path / 'texts'
         images_dir.mkdir(parents=True, exist_ok=True)
         texts_dir.mkdir(parents=True, exist_ok=True)
-        
+
         generated_files = []
         global_idx = 0
-        
+
         # Generate images for each text string
         for text in texts:
-            generator = GeneratorFromStrings(
-                strings=[text],
-                count=count,
-                fonts=[str(self.font_path)],
-                language="de",
-                size=font_size,
-                skewing_angle=skewing_angle,
-                random_skew=random_skew,
-                blur=blur,
-                random_blur=random_blur,
-                background_type=background_type,
-                distorsion_type=distorsion_type,
-                distorsion_orientation=distorsion_orientation,
-                width=width,
-                alignment=alignment,
-                text_color=text_color,
-                orientation=orientation,
-                space_width=space_width,
-                character_spacing=character_spacing,
-                margins=margins,
-                fit=fit,
-                is_handwritten=handwritten,
-            )
-            
-            for idx, (img, lbl) in enumerate(generator):
-                # Save the image
-                filename = images_dir / f"text_{global_idx:05d}.png"
-                img.save(filename)
-                
-                # Save the label
-                label_filename = texts_dir / f"text_{global_idx:05d}.txt"
-                with open(label_filename, 'w', encoding='utf-8') as f:
-                    f.write(lbl)
-                
-                generated_files.append(filename)
-                print(f"Generated: {filename} (Label: {lbl})")
-                global_idx += 1
-        
+            for _ in range(count):
+                sampled_skew = int(sample_param(skewing_angle))
+                sampled_blur = int(sample_param(blur))
+                sampled_bg = sample_param(background_type)
+                sampled_distorsion = sample_param(distorsion_type)
+                sampled_distorsion_orientation = sample_param(distorsion_orientation)
+
+                generator = GeneratorFromStrings(
+                    strings=[text],
+                    count=1,
+                    fonts=[str(self.font_path)],
+                    language="de",
+                    size=font_size,
+                    skewing_angle=sampled_skew,
+                    random_skew=False,
+                    blur=sampled_blur,
+                    random_blur=False,
+                    background_type=sampled_bg,
+                    distorsion_type=sampled_distorsion,
+                    distorsion_orientation=sampled_distorsion_orientation,
+                    width=width,
+                    alignment=alignment,
+                    text_color=text_color,
+                    orientation=orientation,
+                    space_width=space_width,
+                    character_spacing=character_spacing,
+                    margins=margins,
+                    fit=fit,
+                    is_handwritten=handwritten,
+                )
+
+                for img, lbl in generator:
+                    filename = images_dir / f"text_{global_idx:05d}.png"
+                    img.save(filename)
+
+                    label_filename = texts_dir / f"text_{global_idx:05d}.txt"
+                    with open(label_filename, 'w', encoding='utf-8') as f:
+                        f.write(lbl)
+
+                    generated_files.append(filename)
+                    print(f"Generated: {filename} (Label: {lbl})")
+                    global_idx += 1
+
         return generated_files
 
 
@@ -183,9 +197,18 @@ def main():
             output_dir=args.output,
             count=args.count,
             font_size=args.font_size,
-            random_blur=True,
-            random_skew=True,
-            background_type=1,  # Plain white background
+            skewing_angle={0: 0.5, 1: 0.2, 2: 0.15, 3: 0.1, 4: 0.04, 5: 0.01},
+            blur={0: 0.4, 1: 0.3, 2: 0.2, 3: 0.1},
+            background_type={1: 1.0},
+            distorsion_type={0: 1.0},
+            distorsion_orientation={0: 1.0},
+            width=-1,
+            alignment=1,
+            text_color="#282828",
+            orientation=0,
+            space_width=1.0,
+            character_spacing=0,
+            margins=(5, 5, 5, 5),
         )
         
         print(f"\nSuccessfully generated {len(generated_files)} images!")

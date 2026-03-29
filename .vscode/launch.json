@@ -1,6 +1,14 @@
 {
     "version": "0.2.0",
     "configurations": [
+                {
+            "name": "Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": false
+        },
         {
             "name": "Collect Senatsprotokille Imgs",
             "type": "debugpy",
@@ -11,15 +19,42 @@
                      "-o", "data/raw_data/UGreifswald Senatsprotokolle/Protokolle_1799/images"]
         },
         {
-            "name": "Generate Texts from File",
+            "name": "Generate Synthetic Text Images",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/src/data_collection/synthetic_text_generation/text_generator.py",
             "console": "integratedTerminal",
             "args": ["--texts", "data/synthetic_texts.txt",
                      "--output", "data/synthetic_data",
-                     "--count", "2",
-                     "--font-size", "48"],
+                     "--count", "1",
+                     "--font-size", "50"],
+            "justMyCode": false
+        },
+        {
+            "name": "Clean German Correspondance Book",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/data_collection/synthetic_text_generation/prepare_texts.py",
+            "console": "integratedTerminal",
+            "args": ["--input", "data/raw_book_texts.txt",
+                     "--output", "data/synthetic_texts.txt",
+                     "--segments", "5000"],
+            "justMyCode": false
+        },
+        {
+            "name": "Dataset Demo",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/modeling/dataset.py",
+            "console": "integratedTerminal",
+            "justMyCode": false
+        },
+        {
+            "name": "Train Basic Model",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.modeling.basic_model",
+            "console": "integratedTerminal",
             "justMyCode": false
         }
     ]
