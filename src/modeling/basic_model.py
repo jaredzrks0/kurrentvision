@@ -9,7 +9,11 @@ from src.modeling.constants import (
     IMG_WIDTH,
     PAD_TOKEN,
     UNK_TOKEN,
-    END_TOKEN
+    END_TOKEN,
+    BATCH_SIZE,
+    EPOCHS,
+    LR,
+
     )
 
 
@@ -70,7 +74,7 @@ def evaluate(model, loader, criterion, vocab, device):
 
         logits = model(images)
         loss = criterion(logits.view(-1, logits.size(-1)), targets.view(-1))
-        total_loss += loss.item() * images.size(0)
+        total_loss += loss.item()
 
         preds = logits.argmax(dim=-1)
         mask = targets != pad_idx
@@ -95,9 +99,7 @@ def decode_predictions(preds: torch.Tensor, idx_to_char: dict[int, str]) -> list
 if __name__ == "__main__":
     ROOT = "data/raw_data"
     EXCLUDE = ["grandpa_letters_2"]
-    EPOCHS = 5
-    BATCH_SIZE = 32
-    LR = 1e-3
+    
 
     device = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else 'cpu')
     print(f"Device: {device}")

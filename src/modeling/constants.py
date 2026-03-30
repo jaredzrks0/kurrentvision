@@ -7,3 +7,8 @@ IMG_WIDTH = 64
 PAD_TOKEN = "<pad>"
 UNK_TOKEN = "<unk>"
 END_TOKEN = "<end>"
+
+# Modeling Constants
+EPOCHS = 5
+BATCH_SIZE = 32
+LR = 1e-3
