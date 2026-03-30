@@ -10,5 +10,5 @@ END_TOKEN = "<end>"
 
 # Modeling Constants
 EPOCHS = 5
-BATCH_SIZE = 32
+BATCH_SIZE = 16
 LR = 1e-3
