@@ -94,7 +94,7 @@ if __name__ == "__main__":
     device = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
     print(f"Device: {device}")
 
-    processor = TrOCRProcessor.from_pretrained(TROCR_MODEL)
+    processor = TrOCRProcessor.from_pretrained("microsoft/trocr-base-handwritten")
     model = VisionEncoderDecoderModel.from_pretrained(TROCR_MODEL).to(device)
 
     print("Loading data...")
