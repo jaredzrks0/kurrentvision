@@ -10,10 +10,19 @@ TROCR_MODEL = "dh-unibe/trocr-kurrent"
 LR = 1e-5
 
 
-def _char_accuracy(preds: list[str], targets: list[str]) -> float:
-    correct = sum(p == t for pred, true in zip(preds, targets) for p, t in zip(pred, true))
-    total = sum(len(true) for true in targets)
-    return correct / total if total > 0 else 0.0
+def _edit_distance(a: str, b: str) -> int:
+    dp = list(range(len(b) + 1))
+    for i, ca in enumerate(a, 1):
+        prev, dp[0] = dp[0], i
+        for j, cb in enumerate(b, 1):
+            prev, dp[j] = dp[j], prev if ca == cb else 1 + min(prev, dp[j], dp[j - 1])
+    return dp[-1]
+
+
+def _cer(preds: list[str], targets: list[str]) -> float:
+    total_edits = sum(_edit_distance(pred, true) for pred, true in zip(preds, targets))
+    total_chars = sum(len(true) for true in targets)
+    return total_edits / total_chars if total_chars > 0 else 0.0
 
 
 def train_one_epoch(model, processor, loader, optimizer, device, compute_char_acc: bool = False):
@@ -42,7 +51,7 @@ def train_one_epoch(model, processor, loader, optimizer, device, compute_char_ac
             all_targets.extend(batch["text"])
 
     avg_loss = total_loss / len(loader.dataset)
-    char_acc = _char_accuracy(all_preds, all_targets) if compute_char_acc else None
+    char_acc = _cer(all_preds, all_targets) if compute_char_acc else None
     return avg_loss, char_acc
 
 
@@ -67,7 +76,7 @@ def evaluate(model, processor, loader, device, compute_char_acc: bool = False):
             all_targets.extend(batch["text"])
 
     avg_loss = total_loss / len(loader.dataset)
-    char_acc = _char_accuracy(all_preds, all_targets) if compute_char_acc else None
+    char_acc = _cer(all_preds, all_targets) if compute_char_acc else None
     return avg_loss, char_acc
 
 
@@ -108,7 +117,7 @@ if __name__ == "__main__":
     for epoch in range(1, EPOCHS + 1):
         train_loss, train_acc = train_one_epoch(model, processor, train_loader, optimizer, device, compute_char_acc=COMPUTE_CHAR_ACC)
         val_loss, val_acc = evaluate(model, processor, val_loader, device, compute_char_acc=COMPUTE_CHAR_ACC)
-        acc_str = f"  train_acc={train_acc:.4f}  val_acc={val_acc:.4f}" if COMPUTE_CHAR_ACC else ""
+        acc_str = f"  train_cer={train_acc:.4f}  val_cer={val_acc:.4f}" if COMPUTE_CHAR_ACC else ""
         print(f"Epoch {epoch}/{EPOCHS}  train_loss={train_loss:.4f}  val_loss={val_loss:.4f}{acc_str}")
 
     decode_predictions(model, processor, test_loader, device)
