@@ -89,7 +89,7 @@ def decode_predictions(model, processor, loader, device, n=5) -> None:
 if __name__ == "__main__":
     ROOT = "data/raw_data"
     EXCLUDE = ["grandpa_letters_2"]
-    COMPUTE_CHAR_ACC = False  # set True to compute char accuracy each epoch (slower)
+    COMPUTE_CHAR_ACC = True  # set True to compute char accuracy each epoch (slower)
 
     device = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
     print(f"Device: {device}")
