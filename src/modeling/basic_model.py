@@ -20,7 +20,7 @@ from src.modeling.constants import (
 class LinearOCR(nn.Module):
     def __init__(self, vocab_size: int, max_len: int):
         super().__init__()
-        input_dim = IMG_HEIGHT * IMG_WIDTH  # flattened B+W image
+        input_dim = 3 * IMG_HEIGHT * IMG_WIDTH  # flattened RGB image
         self.fc = nn.Linear(input_dim, vocab_size * max_len)
         self.vocab_size = vocab_size
         self.max_len = max_len

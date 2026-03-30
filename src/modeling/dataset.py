@@ -166,7 +166,6 @@ class DataloaderBuilder():
         """Defines the required transforms upon loading"""
         return transforms.Compose([
             transforms.Resize((self.IMG_HEIGHT, self.IMG_WIDTH)),
-            transforms.Grayscale(),
             transforms.ToTensor(),
         ])
 
