@@ -11,9 +11,16 @@ TROCR_MODEL = "dh-unibe/trocr-kurrent"
 LR = 1e-5
 
 
-def train_one_epoch(model, processor, loader, optimizer, device):
+def _char_accuracy(preds: list[str], targets: list[str]) -> float:
+    correct = sum(p == t for pred, true in zip(preds, targets) for p, t in zip(pred, true))
+    total = sum(len(true) for true in targets)
+    return correct / total if total > 0 else 0.0
+
+
+def train_one_epoch(model, processor, loader, optimizer, device, compute_char_acc: bool = False):
     model.train()
     total_loss = 0.0
+    all_preds, all_targets = [], []
     for batch in tqdm(loader):
         pixel_values = processor(images=[to_pil_image(img) for img in batch["image"]], return_tensors="pt").pixel_values.to(device)
         labels = processor.tokenizer(
@@ -29,13 +36,22 @@ def train_one_epoch(model, processor, loader, optimizer, device):
         optimizer.step()
         total_loss += loss.item()
 
-    return total_loss / len(loader.dataset)
+        if compute_char_acc:
+            with torch.no_grad():
+                generated_ids = model.generate(pixel_values)
+            all_preds.extend(processor.batch_decode(generated_ids, skip_special_tokens=True))
+            all_targets.extend(batch["text"])
+
+    avg_loss = total_loss / len(loader.dataset)
+    char_acc = _char_accuracy(all_preds, all_targets) if compute_char_acc else None
+    return avg_loss, char_acc
 
 
 @torch.no_grad()
-def evaluate(model, processor, loader, device):
+def evaluate(model, processor, loader, device, compute_char_acc: bool = False):
     model.eval()
     total_loss = 0.0
+    all_preds, all_targets = [], []
     for batch in tqdm(loader):
         pixel_values = processor(images=[to_pil_image(img) for img in batch["image"]], return_tensors="pt").pixel_values.to(device)
         labels = processor.tokenizer(
@@ -46,7 +62,14 @@ def evaluate(model, processor, loader, device):
         outputs = model(pixel_values=pixel_values, labels=labels)
         total_loss += outputs.loss.item()
 
-    return total_loss / len(loader.dataset)
+        if compute_char_acc:
+            generated_ids = model.generate(pixel_values)
+            all_preds.extend(processor.batch_decode(generated_ids, skip_special_tokens=True))
+            all_targets.extend(batch["text"])
+
+    avg_loss = total_loss / len(loader.dataset)
+    char_acc = _char_accuracy(all_preds, all_targets) if compute_char_acc else None
+    return avg_loss, char_acc
 
 
 @torch.no_grad()
@@ -66,6 +89,7 @@ def decode_predictions(model, processor, loader, device, n=5) -> None:
 if __name__ == "__main__":
     ROOT = "data/raw_data"
     EXCLUDE = ["grandpa_letters_2"]
+    COMPUTE_CHAR_ACC = False  # set True to compute char accuracy each epoch (slower)
 
     device = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
     print(f"Device: {device}")
@@ -83,8 +107,9 @@ if __name__ == "__main__":
     optimizer = torch.optim.Adam(model.parameters(), lr=LR)
 
     for epoch in range(1, EPOCHS + 1):
-        train_loss = train_one_epoch(model, processor, train_loader, optimizer, device)
-        val_loss = evaluate(model, processor, val_loader, device)
-        print(f"Epoch {epoch}/{EPOCHS}  train_loss={train_loss:.4f}  val_loss={val_loss:.4f}")
+        train_loss, train_acc = train_one_epoch(model, processor, train_loader, optimizer, device, compute_char_acc=COMPUTE_CHAR_ACC)
+        val_loss, val_acc = evaluate(model, processor, val_loader, device, compute_char_acc=COMPUTE_CHAR_ACC)
+        acc_str = f"  train_acc={train_acc:.4f}  val_acc={val_acc:.4f}" if COMPUTE_CHAR_ACC else ""
+        print(f"Epoch {epoch}/{EPOCHS}  train_loss={train_loss:.4f}  val_loss={val_loss:.4f}{acc_str}")
 
     decode_predictions(model, processor, test_loader, device)
