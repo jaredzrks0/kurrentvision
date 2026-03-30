@@ -1,6 +1,5 @@
 import torch
 from tqdm import tqdm
-from torchvision.transforms.functional import to_pil_image
 from transformers import TrOCRProcessor, VisionEncoderDecoderModel
 
 from src.modeling.dataset import DataloaderBuilder
@@ -22,7 +21,7 @@ def train_one_epoch(model, processor, loader, optimizer, device, compute_char_ac
     total_loss = 0.0
     all_preds, all_targets = [], []
     for batch in tqdm(loader):
-        pixel_values = processor(images=[to_pil_image(img) for img in batch["image"]], return_tensors="pt").pixel_values.to(device)
+        pixel_values = processor(images=batch["image"], return_tensors="pt").pixel_values.to(device)
         labels = processor.tokenizer(
             batch["text"], return_tensors="pt", padding=True, truncation=True
         ).input_ids.to(device)
@@ -53,7 +52,7 @@ def evaluate(model, processor, loader, device, compute_char_acc: bool = False):
     total_loss = 0.0
     all_preds, all_targets = [], []
     for batch in tqdm(loader):
-        pixel_values = processor(images=[to_pil_image(img) for img in batch["image"]], return_tensors="pt").pixel_values.to(device)
+        pixel_values = processor(images=batch["image"], return_tensors="pt").pixel_values.to(device)
         labels = processor.tokenizer(
             batch["text"], return_tensors="pt", padding=True, truncation=True
         ).input_ids.to(device)
@@ -76,7 +75,7 @@ def evaluate(model, processor, loader, device, compute_char_acc: bool = False):
 def decode_predictions(model, processor, loader, device, n=5) -> None:
     model.eval()
     batch = next(iter(loader))
-    pixel_values = processor(images=[to_pil_image(img) for img in batch["image"]], return_tensors="pt").pixel_values.to(device)
+    pixel_values = processor(images=batch["image"], return_tensors="pt").pixel_values.to(device)
     generated_ids = model.generate(pixel_values)
     preds = processor.batch_decode(generated_ids, skip_special_tokens=True)
     print("\nSample predictions:")
@@ -99,7 +98,7 @@ if __name__ == "__main__":
 
     print("Loading data...")
     builder = DataloaderBuilder()
-    train_loader, val_loader, test_loader, vocab, max_len = builder.build_dataloaders(
+    train_loader, val_loader, test_loader = builder.build_trocr_dataloaders(
         ROOT, exclude=EXCLUDE, batch_size=BATCH_SIZE, num_workers=0,
     )
     print(f"  Train: {len(train_loader.dataset)}  Val: {len(val_loader.dataset)}  Test: {len(test_loader.dataset)}")

@@ -49,6 +49,23 @@ class KurrentDataset(Dataset):
 
 
 
+class TrOCRDataset(Dataset):
+    def __init__(self, samples: list[dict]):
+        self.samples = samples
+
+    def __len__(self) -> int:
+        return len(self.samples)
+
+    def __getitem__(self, idx: int) -> dict:
+        sample = self.samples[idx]
+        image = Image.open(sample["image_path"])
+        image.load()
+        image = image.convert("RGB")
+        x0, y0, x1, y1 = sample["bbox"]
+        crop = image.crop((x0, y0, x1, y1)).copy()
+        return {"image": crop, "text": sample["text"], "dataset": sample["dataset"]}
+
+
 class DataloaderBuilder():
 
     def __init__(self):
@@ -277,6 +294,40 @@ class DataloaderBuilder():
         )
         return train_loader, val_loader, test_loader, vocab, max_len
 
+    def _collate_trocr(self, batch: list[dict]) -> dict:
+        return {
+            "image": [item["image"] for item in batch],
+            "text": [item["text"] for item in batch],
+            "dataset": [item["dataset"] for item in batch],
+        }
+
+    def build_trocr_dataloaders(
+        self,
+        root_dir: str | Path,
+        exclude: list[str] | None = None,
+        test_ratio: float = 0.15,
+        val_ratio: float = 0.15,
+        batch_size: int = 32,
+        num_workers: int = 4,
+        seed: int = 42,
+    ) -> tuple[DataLoader, DataLoader, DataLoader]:
+        """Build train/val/test DataLoaders returning raw PIL crops for TrOCR.
+        Returns (train_loader, val_loader, test_loader).
+        """
+        all_samples = self.collect_samples(root_dir, exclude=exclude)
+        filtered_samples = self._filter_samples(all_samples)
+        train_samples, val_samples, test_samples = self.train_test_split(
+            filtered_samples, test_ratio=test_ratio, val_ratio=val_ratio, seed=seed
+        )
+
+        train_ds = TrOCRDataset(train_samples)
+        val_ds = TrOCRDataset(val_samples)
+        test_ds = TrOCRDataset(test_samples)
+
+        train_loader = DataLoader(train_ds, batch_size=batch_size, shuffle=True, num_workers=num_workers, collate_fn=self._collate_trocr)
+        val_loader = DataLoader(val_ds, batch_size=batch_size, shuffle=False, num_workers=num_workers, collate_fn=self._collate_trocr)
+        test_loader = DataLoader(test_ds, batch_size=batch_size, shuffle=False, num_workers=num_workers, collate_fn=self._collate_trocr)
+        return train_loader, val_loader, test_loader
 
 
 if __name__ == "__main__":
