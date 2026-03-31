@@ -50,19 +50,57 @@
             "justMyCode": false
         },
         {
-            "name": "Train Basic Model",
+            "name": "Basic Model - Raw Data",
             "type": "debugpy",
             "request": "launch",
             "module": "src.modeling.basic_model",
             "console": "integratedTerminal",
+            "args": ["--data", "raw"],
             "justMyCode": false
         },
         {
-            "name": "Train Kurrent OCR",
+            "name": "Basic Model - Synthetic Data",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.modeling.basic_model",
+            "console": "integratedTerminal",
+            "args": ["--data", "synthetic"],
+            "justMyCode": false
+        },
+        {
+            "name": "Basic Model - Both",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.modeling.basic_model",
+            "console": "integratedTerminal",
+            "args": ["--data", "both"],
+            "justMyCode": false
+        },
+        {
+            "name": "Kurrent OCR - Raw Data",
             "type": "debugpy",
             "request": "launch",
             "module": "src.modeling.kurrent_ocr",
             "console": "integratedTerminal",
+            "args": ["--data", "raw"],
+            "justMyCode": false
+        },
+        {
+            "name": "Kurrent OCR - Synthetic Data",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.modeling.kurrent_ocr",
+            "console": "integratedTerminal",
+            "args": ["--data", "synthetic"],
+            "justMyCode": false
+        },
+        {
+            "name": "Kurrent OCR - Both",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.modeling.kurrent_ocr",
+            "console": "integratedTerminal",
+            "args": ["--data", "both"],
             "justMyCode": false
         }
     ]
