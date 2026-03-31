@@ -66,6 +66,55 @@ class TrOCRDataset(Dataset):
         return {"image": crop, "text": sample["text"], "dataset": sample["dataset"]}
 
 
+class SyntheticDataset(Dataset):
+    def __init__(
+        self,
+        samples: list[dict],
+        vocab: dict[str, int],
+        max_len: int,
+        transform=None,
+    ):
+        self.samples = samples
+        self.vocab = vocab
+        self.max_len = max_len
+        self.transform = transform
+
+    def __len__(self) -> int:
+        return len(self.samples)
+
+    def __getitem__(self, idx: int) -> dict:
+        sample = self.samples[idx]
+        image = Image.open(sample["image_path"])
+        image.load()
+        image = image.convert("RGB")
+        image = self.transform(image)
+        target = self.encode_text(sample["text"], self.vocab, self.max_len)
+        return {"image": image, "target": target, "text": sample["text"], "dataset": "synthetic"}
+
+    def encode_text(self, text: str, vocab: dict[str, int], max_len: int) -> torch.Tensor:
+        """Encode text to a padded tensor of vocab indices."""
+        ids = [vocab.get(char, vocab[UNK_TOKEN]) for char in text]
+        ids = ids[:max_len]
+        ids += [vocab[PAD_TOKEN]] * (max_len - len(ids))
+        ids += [vocab[END_TOKEN]]
+        return torch.tensor(ids, dtype=torch.long)
+
+
+class TrOCRSyntheticDataset(Dataset):
+    def __init__(self, samples: list[dict]):
+        self.samples = samples
+
+    def __len__(self) -> int:
+        return len(self.samples)
+
+    def __getitem__(self, idx: int) -> dict:
+        sample = self.samples[idx]
+        image = Image.open(sample["image_path"])
+        image.load()
+        image = image.convert("RGB")
+        return {"image": image, "text": sample["text"], "dataset": "synthetic"}
+
+
 class DataloaderBuilder():
 
     def __init__(self):
@@ -122,6 +171,22 @@ class DataloaderBuilder():
         return samples
     
     ##### DATA ACCUMULATION FUNCTIONS #####
+    def collect_synthetic_samples(self, synthetic_dir: str | Path) -> list[dict]:
+        """Load paired image/text files from the synthetic data directory."""
+        synthetic_dir = Path(synthetic_dir)
+        images_dir = synthetic_dir / "images"
+        texts_dir = synthetic_dir / "texts"
+        samples = []
+        for img_path in sorted(images_dir.glob("*.png")):
+            txt_path = texts_dir / img_path.with_suffix(".txt").name
+            if not txt_path.exists():
+                continue
+            text = txt_path.read_text(encoding="utf-8").strip()
+            if not text:
+                continue
+            samples.append({"image_path": img_path, "text": text})
+        return samples
+
     def collect_samples(self, root_dir: str | Path, exclude: list[str] | None = None) -> list[dict]:
         """
         Walk the data directory and collect all the necessary data (XML + IMAGES) and its metadata
@@ -294,6 +359,35 @@ class DataloaderBuilder():
         )
         return train_loader, val_loader, test_loader, vocab, max_len
 
+    def build_synthetic_dataloaders(
+        self,
+        synthetic_dir: str | Path,
+        test_ratio: float = 0.15,
+        val_ratio: float = 0.15,
+        batch_size: int = 32,
+        num_workers: int = 4,
+        seed: int = 42,
+    ) -> tuple[DataLoader, DataLoader, DataLoader, dict[str, int], int]:
+        """Build train/val/test DataLoaders from synthetic image/text pairs.
+        Returns (train_loader, val_loader, test_loader, vocab, max_len).
+        """
+        all_samples = self.collect_synthetic_samples(synthetic_dir)
+        train_samples, val_samples, test_samples = self.train_test_split(
+            all_samples, test_ratio=test_ratio, val_ratio=val_ratio, seed=seed
+        )
+
+        vocab = self.build_vocab(all_samples)
+        max_len = max(len(s["text"]) for s in all_samples)
+
+        train_ds = SyntheticDataset(train_samples, vocab, max_len, transform=self.image_transforms())
+        val_ds = SyntheticDataset(val_samples, vocab, max_len, transform=self.image_transforms())
+        test_ds = SyntheticDataset(test_samples, vocab, max_len, transform=self.image_transforms())
+
+        train_loader = DataLoader(train_ds, batch_size=batch_size, shuffle=True, num_workers=num_workers, collate_fn=self._collate)
+        val_loader = DataLoader(val_ds, batch_size=batch_size, shuffle=False, num_workers=num_workers, collate_fn=self._collate)
+        test_loader = DataLoader(test_ds, batch_size=batch_size, shuffle=False, num_workers=num_workers, collate_fn=self._collate)
+        return train_loader, val_loader, test_loader, vocab, max_len
+
     def _collate_trocr(self, batch: list[dict]) -> dict:
         return {
             "image": [item["image"] for item in batch],
@@ -323,6 +417,33 @@ class DataloaderBuilder():
         train_ds = TrOCRDataset(train_samples)
         val_ds = TrOCRDataset(val_samples)
         test_ds = TrOCRDataset(test_samples)
+
+        train_loader = DataLoader(train_ds, batch_size=batch_size, shuffle=True, num_workers=num_workers, collate_fn=self._collate_trocr)
+        val_loader = DataLoader(val_ds, batch_size=batch_size, shuffle=False, num_workers=num_workers, collate_fn=self._collate_trocr)
+        test_loader = DataLoader(test_ds, batch_size=batch_size, shuffle=False, num_workers=num_workers, collate_fn=self._collate_trocr)
+        return train_loader, val_loader, test_loader
+
+
+    def build_trocr_synthetic_dataloaders(
+        self,
+        synthetic_dir: str | Path,
+        test_ratio: float = 0.15,
+        val_ratio: float = 0.15,
+        batch_size: int = 32,
+        num_workers: int = 4,
+        seed: int = 42,
+    ) -> tuple[DataLoader, DataLoader, DataLoader]:
+        """Build train/val/test DataLoaders from synthetic data returning raw PIL images for TrOCR.
+        Returns (train_loader, val_loader, test_loader).
+        """
+        all_samples = self.collect_synthetic_samples(synthetic_dir)
+        train_samples, val_samples, test_samples = self.train_test_split(
+            all_samples, test_ratio=test_ratio, val_ratio=val_ratio, seed=seed
+        )
+
+        train_ds = TrOCRSyntheticDataset(train_samples)
+        val_ds = TrOCRSyntheticDataset(val_samples)
+        test_ds = TrOCRSyntheticDataset(test_samples)
 
         train_loader = DataLoader(train_ds, batch_size=batch_size, shuffle=True, num_workers=num_workers, collate_fn=self._collate_trocr)
         val_loader = DataLoader(val_ds, batch_size=batch_size, shuffle=False, num_workers=num_workers, collate_fn=self._collate_trocr)
