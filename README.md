@@ -115,3 +115,8 @@ pred: 'schwarze'
 ```
 
 Again, the ViT model shows not only great relative prediction improvement, but also great absolute prediction power. The model, albiet in a small sample was able to mostly accurately predict all 5 images's texts!
+
+### Failure Analysis
+Finally, when we think high level about what goes right or wrong with the models, the differences are pretty strightforward, as again, the linear model does not have the complexity to generate accurate predictions. Thus, 'everything' fails. There are not specific patterns or types of images that it does better worse at, because the model is simply unequiped for the task at hand.
+
+On the other hand, the ViT doesn't have a ton that it fails with, as its CER is ~2%. After looking through some specific images, there are not necessarily character patterns that it does better or worse with, but often it struggles more with some of our blurrier images. While some blur/randomness is aimed at helping the model learn, we might alter the generation of synthetic data moving forward as our final test dataset of untranscribed letters while not pretty in handwriting is not specifically blurry. Thus the blurry training data may not help as much as we intend.
