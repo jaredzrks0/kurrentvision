@@ -193,6 +193,7 @@ if __name__ == "__main__":
     history = {"train_loss": [], "val_loss": [], "val_char_acc": [], "grad_norm": []}
 
     for epoch in range(1, EPOCHS + 1):
+        print(EPOCHS)
         train_loss, grad_norm = train_one_epoch(model, train_loader, optimizer, criterion, device)
         val_loss, val_acc = evaluate(model, val_loader, criterion, vocab, device)
         print(f"Epoch {epoch}/{EPOCHS}  train_loss={train_loss:.4f}  val_loss={val_loss:.4f}  char_acc={val_acc:.4f}  grad_norm={grad_norm:.4f}")
