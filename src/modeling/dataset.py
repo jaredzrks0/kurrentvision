@@ -1,7 +1,7 @@
 from pathlib import Path
 from xml.etree import ElementTree as ET
 import torch
-from torch.utils.data import Dataset, DataLoader
+from torch.utils.data import Dataset, DataLoader, ConcatDataset
 from torchvision import transforms
 from PIL import Image
 
@@ -318,33 +318,50 @@ class DataloaderBuilder():
     ##### MAIN DATALOADER BUILD #####
     def build_dataloaders(
         self,
-        root_dir: str | Path,
+        root_dir: str | Path | None = None,
         exclude: list[str] | None = None,
+        synthetic_dir: str | Path | None = None,
         test_ratio: float = 0.15,
         val_ratio: float = 0.15,
         batch_size: int = 32,
         num_workers: int = 4,
         seed: int = 42,
     ) -> tuple[DataLoader, DataLoader, DataLoader, dict[str, int], int]:
-        """Build train and test DataLoaders.
+        """Build train/val/test DataLoaders.
+        Pass root_dir for raw data, synthetic_dir for synthetic data, or both.
         Returns (train_loader, val_loader, test_loader, vocab, max_len).
         """
+        if root_dir is None and synthetic_dir is None:
+            raise ValueError("At least one of root_dir or synthetic_dir must be provided.")
 
-        # Separate all the xml + img samples into train, val, test splits
-        all_samples = self.collect_samples(root_dir, exclude=exclude)
-        filtered_samples = self._filter_samples(all_samples)
-        train_samples, val_samples, test_samples = self.train_test_split(filtered_samples, test_ratio=test_ratio, val_ratio=val_ratio, seed=seed)
-        
-        # Define the corpus metadata
+        filtered_samples = []
+        if root_dir is not None:
+            all_raw = self.collect_samples(root_dir, exclude=exclude)
+            filtered_samples = self._filter_samples(all_raw)
+
+        synth_samples = self.collect_synthetic_samples(synthetic_dir) if synthetic_dir else []
+
+        all_samples = filtered_samples + synth_samples
         vocab = self.build_vocab(all_samples)
         max_len = max(len(s["text"]) for s in all_samples)
 
-        # Define the datasets that get fed to the loaders
-        train_ds = KurrentDataset(train_samples, vocab, max_len, transform=self.image_transforms())
-        val_ds = KurrentDataset(val_samples, vocab, max_len, transform=self.image_transforms())
-        test_ds = KurrentDataset(test_samples, vocab, max_len, transform=self.image_transforms())
+        raw_train, raw_val, raw_test = self.train_test_split(filtered_samples, test_ratio=test_ratio, val_ratio=val_ratio, seed=seed) if filtered_samples else ([], [], [])
+        synth_train, synth_val, synth_test = self.train_test_split(synth_samples, test_ratio=test_ratio, val_ratio=val_ratio, seed=seed) if synth_samples else ([], [], [])
 
-        # Define the loaders
+        tfm = self.image_transforms()
+
+        def _make_ds(raw, synth):
+            parts = []
+            if raw:
+                parts.append(KurrentDataset(raw, vocab, max_len, transform=tfm))
+            if synth:
+                parts.append(SyntheticDataset(synth, vocab, max_len, transform=tfm))
+            return parts[0] if len(parts) == 1 else ConcatDataset(parts)
+
+        train_ds = _make_ds(raw_train, synth_train)
+        val_ds = _make_ds(raw_val, synth_val)
+        test_ds = _make_ds(raw_test, synth_test)
+
         train_loader = DataLoader(
             train_ds, batch_size=batch_size, shuffle=True,
             num_workers=num_workers, collate_fn=self._collate,
@@ -359,35 +376,6 @@ class DataloaderBuilder():
         )
         return train_loader, val_loader, test_loader, vocab, max_len
 
-    def build_synthetic_dataloaders(
-        self,
-        synthetic_dir: str | Path,
-        test_ratio: float = 0.15,
-        val_ratio: float = 0.15,
-        batch_size: int = 32,
-        num_workers: int = 4,
-        seed: int = 42,
-    ) -> tuple[DataLoader, DataLoader, DataLoader, dict[str, int], int]:
-        """Build train/val/test DataLoaders from synthetic image/text pairs.
-        Returns (train_loader, val_loader, test_loader, vocab, max_len).
-        """
-        all_samples = self.collect_synthetic_samples(synthetic_dir)
-        train_samples, val_samples, test_samples = self.train_test_split(
-            all_samples, test_ratio=test_ratio, val_ratio=val_ratio, seed=seed
-        )
-
-        vocab = self.build_vocab(all_samples)
-        max_len = max(len(s["text"]) for s in all_samples)
-
-        train_ds = SyntheticDataset(train_samples, vocab, max_len, transform=self.image_transforms())
-        val_ds = SyntheticDataset(val_samples, vocab, max_len, transform=self.image_transforms())
-        test_ds = SyntheticDataset(test_samples, vocab, max_len, transform=self.image_transforms())
-
-        train_loader = DataLoader(train_ds, batch_size=batch_size, shuffle=True, num_workers=num_workers, collate_fn=self._collate)
-        val_loader = DataLoader(val_ds, batch_size=batch_size, shuffle=False, num_workers=num_workers, collate_fn=self._collate)
-        test_loader = DataLoader(test_ds, batch_size=batch_size, shuffle=False, num_workers=num_workers, collate_fn=self._collate)
-        return train_loader, val_loader, test_loader, vocab, max_len
-
     def _collate_trocr(self, batch: list[dict]) -> dict:
         return {
             "image": [item["image"] for item in batch],
@@ -397,8 +385,9 @@ class DataloaderBuilder():
 
     def build_trocr_dataloaders(
         self,
-        root_dir: str | Path,
+        root_dir: str | Path | None = None,
         exclude: list[str] | None = None,
+        synthetic_dir: str | Path | None = None,
         test_ratio: float = 0.15,
         val_ratio: float = 0.15,
         batch_size: int = 32,
@@ -406,44 +395,33 @@ class DataloaderBuilder():
         seed: int = 42,
     ) -> tuple[DataLoader, DataLoader, DataLoader]:
         """Build train/val/test DataLoaders returning raw PIL crops for TrOCR.
+        Pass root_dir for raw data, synthetic_dir for synthetic data, or both.
         Returns (train_loader, val_loader, test_loader).
         """
-        all_samples = self.collect_samples(root_dir, exclude=exclude)
-        filtered_samples = self._filter_samples(all_samples)
-        train_samples, val_samples, test_samples = self.train_test_split(
-            filtered_samples, test_ratio=test_ratio, val_ratio=val_ratio, seed=seed
-        )
+        if root_dir is None and synthetic_dir is None:
+            raise ValueError("At least one of root_dir or synthetic_dir must be provided.")
 
-        train_ds = TrOCRDataset(train_samples)
-        val_ds = TrOCRDataset(val_samples)
-        test_ds = TrOCRDataset(test_samples)
+        filtered_samples = []
+        if root_dir is not None:
+            all_raw = self.collect_samples(root_dir, exclude=exclude)
+            filtered_samples = self._filter_samples(all_raw)
 
-        train_loader = DataLoader(train_ds, batch_size=batch_size, shuffle=True, num_workers=num_workers, collate_fn=self._collate_trocr)
-        val_loader = DataLoader(val_ds, batch_size=batch_size, shuffle=False, num_workers=num_workers, collate_fn=self._collate_trocr)
-        test_loader = DataLoader(test_ds, batch_size=batch_size, shuffle=False, num_workers=num_workers, collate_fn=self._collate_trocr)
-        return train_loader, val_loader, test_loader
+        synth_samples = self.collect_synthetic_samples(synthetic_dir) if synthetic_dir else []
 
+        raw_train, raw_val, raw_test = self.train_test_split(filtered_samples, test_ratio=test_ratio, val_ratio=val_ratio, seed=seed) if filtered_samples else ([], [], [])
+        synth_train, synth_val, synth_test = self.train_test_split(synth_samples, test_ratio=test_ratio, val_ratio=val_ratio, seed=seed) if synth_samples else ([], [], [])
 
-    def build_trocr_synthetic_dataloaders(
-        self,
-        synthetic_dir: str | Path,
-        test_ratio: float = 0.15,
-        val_ratio: float = 0.15,
-        batch_size: int = 32,
-        num_workers: int = 4,
-        seed: int = 42,
-    ) -> tuple[DataLoader, DataLoader, DataLoader]:
-        """Build train/val/test DataLoaders from synthetic data returning raw PIL images for TrOCR.
-        Returns (train_loader, val_loader, test_loader).
-        """
-        all_samples = self.collect_synthetic_samples(synthetic_dir)
-        train_samples, val_samples, test_samples = self.train_test_split(
-            all_samples, test_ratio=test_ratio, val_ratio=val_ratio, seed=seed
-        )
+        def _make_ds(raw, synth):
+            parts = []
+            if raw:
+                parts.append(TrOCRDataset(raw))
+            if synth:
+                parts.append(TrOCRSyntheticDataset(synth))
+            return parts[0] if len(parts) == 1 else ConcatDataset(parts)
 
-        train_ds = TrOCRSyntheticDataset(train_samples)
-        val_ds = TrOCRSyntheticDataset(val_samples)
-        test_ds = TrOCRSyntheticDataset(test_samples)
+        train_ds = _make_ds(raw_train, synth_train)
+        val_ds = _make_ds(raw_val, synth_val)
+        test_ds = _make_ds(raw_test, synth_test)
 
         train_loader = DataLoader(train_ds, batch_size=batch_size, shuffle=True, num_workers=num_workers, collate_fn=self._collate_trocr)
         val_loader = DataLoader(val_ds, batch_size=batch_size, shuffle=False, num_workers=num_workers, collate_fn=self._collate_trocr)

@@ -6,27 +6,11 @@ import matplotlib.pyplot as plt
 from tqdm import tqdm
 from transformers import TrOCRProcessor, VisionEncoderDecoderModel
 
-from src.modeling.datasets.trocr import build_dataloaders, build_synthetic_dataloaders
+from src.modeling.datasets.trocr import build_dataloaders
 from src.modeling.constants import EPOCHS, BATCH_SIZE
 
 
 TROCR_MODEL = "dh-unibe/trocr-kurrent"
-LR = 1e-5
-
-
-def _edit_distance(a: str, b: str) -> int:
-    dp = list(range(len(b) + 1))
-    for i, ca in enumerate(a, 1):
-        prev, dp[0] = dp[0], i
-        for j, cb in enumerate(b, 1):
-            prev, dp[j] = dp[j], prev if ca == cb else 1 + min(prev, dp[j], dp[j - 1])
-    return dp[-1]
-
-
-def _cer(preds: list[str], targets: list[str]) -> float:
-    total_edits = sum(_edit_distance(pred, true) for pred, true in zip(preds, targets))
-    total_chars = sum(len(true) for true in targets)
-    return total_edits / total_chars if total_chars > 0 else 0.0
 
 
 def train_one_epoch(model, processor, loader, optimizer, device, compute_char_acc: bool = False):
@@ -35,6 +19,7 @@ def train_one_epoch(model, processor, loader, optimizer, device, compute_char_ac
     batch_grad_norms = []
     all_preds, all_targets = [], []
     for batch in tqdm(loader):
+        # Unlike our handmade models, this model also comes with a processor, so we just give it the raw images
         pixel_values = processor(images=batch["image"], return_tensors="pt").pixel_values.to(device)
         labels = processor.tokenizer(
             batch["text"], return_tensors="pt", padding=True, truncation=True
@@ -47,6 +32,7 @@ def train_one_epoch(model, processor, loader, optimizer, device, compute_char_ac
         optimizer.zero_grad()
         loss.backward()
 
+        # Save off the norm for plotting
         total_norm = 0.0
         for p in model.parameters():
             if p.grad is not None:
@@ -74,6 +60,7 @@ def evaluate(model, processor, loader, device, compute_char_acc: bool = False):
     total_loss = 0.0
     all_preds, all_targets = [], []
     for batch in tqdm(loader):
+        # Again, we just havvnd the model the raw image
         pixel_values = processor(images=batch["image"], return_tensors="pt").pixel_values.to(device)
         labels = processor.tokenizer(
             batch["text"], return_tensors="pt", padding=True, truncation=True
@@ -102,10 +89,24 @@ def decode_predictions(model, processor, loader, device, n=5) -> None:
     preds = processor.batch_decode(generated_ids, skip_special_tokens=True)
     print("\nSample predictions:")
     for i in range(min(n, len(preds))):
-        print(f"  true: {batch['text'][i]!r}")
-        print(f"  pred: {preds[i]!r}")
+        print(f"true: {batch['text'][i]}")
+        print(f"pred: {preds[i]}")
         print()
 
+### UTILS FUNCTIONS ###
+def _edit_distance(source: str, target: str) -> int:
+    costs = list(range(len(target) + 1))
+    for row, source_char in enumerate(source, 1):
+        diagonal, costs[0] = costs[0], row
+        for col, target_char in enumerate(target, 1):
+            diagonal, costs[col] = costs[col], diagonal if source_char == target_char else 1 + min(diagonal, costs[col], costs[col - 1])
+    return costs[-1]
+
+
+def _cer(preds: list[str], targets: list[str]) -> float:
+    total_edits = sum(_edit_distance(pred, true) for pred, true in zip(preds, targets))
+    total_chars = sum(len(true) for true in targets)
+    return total_edits / total_chars if total_chars > 0 else 0.0
 
 def save_training_plots(history: dict, save_dir: Path) -> None:
     """Save training metric plots to disk."""
@@ -174,33 +175,35 @@ if __name__ == "__main__":
     device = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
     print(f"Device: {device}")
 
+    # Download both the model and its accompanying processor
     processor = TrOCRProcessor.from_pretrained("microsoft/trocr-base-handwritten")
     model = VisionEncoderDecoderModel.from_pretrained(TROCR_MODEL).to(device)
 
-    print(f"Loading data (mode={args.data})...")
+    print(f"Loading data from {args.data})...")
     if args.data == "raw":
         train_loader, val_loader, test_loader = build_dataloaders(
             args.raw_dir, exclude=args.exclude, batch_size=BATCH_SIZE, num_workers=0,
         )
     elif args.data == "synthetic":
-        train_loader, val_loader, test_loader = build_synthetic_dataloaders(
-            args.synthetic_dir, batch_size=BATCH_SIZE, num_workers=0,
+        train_loader, val_loader, test_loader = build_dataloaders(
+            synthetic_dir=args.synthetic_dir, batch_size=BATCH_SIZE, num_workers=0,
         )
     else:  # both
         train_loader, val_loader, test_loader = build_dataloaders(
             args.raw_dir, exclude=args.exclude, synthetic_dir=args.synthetic_dir,
             batch_size=BATCH_SIZE, num_workers=0,
         )
-    print(f"  Train: {len(train_loader.dataset)}  Val: {len(val_loader.dataset)}  Test: {len(test_loader.dataset)}")
+    print(f"Train: {len(train_loader.dataset)}  Val: {len(val_loader.dataset)}  Test: {len(test_loader.dataset)}")
 
-    optimizer = torch.optim.Adam(model.parameters(), lr=LR)
+    optimizer = torch.optim.Adam(model.parameters(), lr=.00001)
 
     history = {"train_loss": [], "val_loss": [], "train_cer": [], "val_cer": [], "grad_norm": []}
 
+    # Actually train the thing
     for epoch in range(1, EPOCHS + 1):
         train_loss, train_cer, grad_norm = train_one_epoch(model, processor, train_loader, optimizer, device, compute_char_acc=args.compute_cer)
         val_loss, val_cer = evaluate(model, processor, val_loader, device, compute_char_acc=args.compute_cer)
-        cer_str = f"  train_cer={train_cer:.4f}  val_cer={val_cer:.4f}" if args.compute_cer else ""
+        cer_str = f"train_cer={train_cer:.4f}  val_cer={val_cer:.4f}" if args.compute_cer else ""
         print(f"Epoch {epoch}/{EPOCHS}  train_loss={train_loss:.4f}  val_loss={val_loss:.4f}{cer_str}  grad_norm={grad_norm:.4f}")
 
         history["train_loss"].append(train_loss)
@@ -209,7 +212,8 @@ if __name__ == "__main__":
         history["val_cer"].append(val_cer)
         history["grad_norm"].append(grad_norm)
 
-    decode_predictions(model, processor, test_loader, device)
+    # Sample some validation texts to preview
+    decode_predictions(model, processor, val_loader, device)
 
     # Save model and plots
     save_dir = Path("models/kurrent_ocr")

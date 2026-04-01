@@ -6,14 +6,14 @@ from torch.utils.data import DataLoader
 from torchvision import transforms
 from PIL import Image
 
-from src.modeling.constants import IMG_WIDTH, IMG_HEIGHT
+from src.modeling.constants import IMG_WIDTH, IMG_HEIGHT, PAD_TOKEN, UNK_TOKEN, END_TOKEN
+
 
 ALTO_NAMESPACE = {"alto": "http://www.loc.gov/standards/alto/ns-v4#"}
 PAGE_NAMESPACE = {"page": "http://schema.primaresearch.org/PAGE/gts/pagecontent/2013-07-15"}
 
 
-# ── XML Parsers ──────────────────────────────────────────────────────────────
-
+### XML READ FUNCTIONS ###
 def parse_alto(xml_path: Path) -> list[tuple[tuple, str, tuple[int, int] | None]]:
     """Parse an ALTO XML file. Returns list of (bbox, text, page_size) - for each text entry."""
     tree = ET.parse(xml_path)
@@ -58,8 +58,7 @@ def parse_page(xml_path: Path) -> list[tuple[tuple, str, None]]:
     return samples
 
 
-# ── Sample Collection ────────────────────────────────────────────────────────
-
+### LOCAL DATA COLLECTION FUNCTIONS ###
 def collect_raw_samples(root_dir: str | Path, exclude: list[str] | None = None) -> list[dict]:
     """Walk the data directory and collect all XML + image sample metadata."""
     root_dir = Path(root_dir)
@@ -106,7 +105,7 @@ def collect_raw_samples(root_dir: str | Path, exclude: list[str] | None = None) 
 
 
 def collect_synthetic_samples(synthetic_dir: str | Path) -> list[dict]:
-    """Load paired image/text files from the synthetic data directory."""
+    """Load paired image/text files from the synthetic data."""
     synthetic_dir = Path(synthetic_dir)
     images_dir = synthetic_dir / "images"
     texts_dir = synthetic_dir / "texts"
@@ -122,13 +121,14 @@ def collect_synthetic_samples(synthetic_dir: str | Path) -> list[dict]:
     return samples
 
 
-# ── Vocab / Transforms / Splitting ──────────────────────────────────────────
+### DATA HANDLING FUNCTIONS ###
 
 def build_vocab(samples: list[dict]) -> dict[str, int]:
     """Build a character-level vocabulary from sample texts."""
-    from src.modeling.constants import PAD_TOKEN, UNK_TOKEN, END_TOKEN
     chars = sorted({char for sample in samples for char in sample["text"]})
     vocab = {PAD_TOKEN: 0, UNK_TOKEN: 1, END_TOKEN: 2}
+    
+    # Range stats at 3 to make room for pad, unk, end
     for i, c in enumerate(chars, start=3):
         vocab[c] = i
     return vocab
@@ -136,6 +136,8 @@ def build_vocab(samples: list[dict]) -> dict[str, int]:
 
 def image_transforms() -> transforms.Compose:
     """Resize and convert to tensor."""
+    
+    # NOTE: If we want to explore more transforms this is the place to do so
     return transforms.Compose([
         transforms.Resize((IMG_HEIGHT, IMG_WIDTH)),
         transforms.ToTensor(),
@@ -169,7 +171,7 @@ def train_test_split(
     return train, val, test
 
 
-# ── Private Helpers ──────────────────────────────────────────────────────────
+### UTILS ###
 
 def _bbox_from_points(points_str: str) -> tuple[int, int, int, int]:
     """Convert a PAGE XML polygon points string to (x_min, y_min, x_max, y_max)."""
@@ -182,7 +184,7 @@ def _bbox_from_points(points_str: str) -> tuple[int, int, int, int]:
 def _find_image(xml_path: Path, images_dir: Path) -> Path | None:
     """Finds the image path given an xml path."""
     stem = xml_path.stem
-    for ext in (".jpg", ".jpeg", ".png", ".tif", ".tiff"):
+    for ext in (".jpg", ".jpeg", ".png", ".tif", ".tiff"): # In case we expand our dataset later
         candidate = images_dir / (stem + ext)
         if candidate.exists():
             return candidate

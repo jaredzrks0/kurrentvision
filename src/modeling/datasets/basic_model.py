@@ -83,7 +83,7 @@ def _collate(batch: list[dict]) -> dict:
 # ── Dataloader Builders ──────────────────────────────────────────────────────
 
 def build_dataloaders(
-    root_dir: str | Path,
+    root_dir: str | Path | None = None,
     exclude: list[str] | None = None,
     synthetic_dir: str | Path | None = None,
     test_ratio: float = 0.15,
@@ -92,12 +92,16 @@ def build_dataloaders(
     num_workers: int = 4,
     seed: int = 42,
 ) -> tuple[DataLoader, DataLoader, DataLoader, dict[str, int], int]:
-    """Build train/val/test DataLoaders for the basic model from raw data.
-    Optionally include synthetic data by passing synthetic_dir.
-    Returns (train_loader, val_loader, test_loader, vocab, max_len).
+    """Build train/val/test DataLoaders for the basic model.
+    input root_dir for raw data, synthetic_dir for synthetic data, 
     """
-    raw_samples = collect_raw_samples(root_dir, exclude=exclude)
-    filtered = filter_raw_samples(raw_samples)
+    if root_dir is None and synthetic_dir is None:
+        raise ValueError("At least one of root_dir or synthetic_dir must be provided.")
+
+    filtered = []
+    if root_dir is not None:
+        raw_samples = collect_raw_samples(root_dir, exclude=exclude)
+        filtered = filter_raw_samples(raw_samples)
 
     synth_samples = collect_synthetic_samples(synthetic_dir) if synthetic_dir else []
 
@@ -105,7 +109,7 @@ def build_dataloaders(
     vocab = build_vocab(all_samples)
     max_len = max(len(s["text"]) for s in all_samples)
 
-    raw_train, raw_val, raw_test = train_test_split(filtered, test_ratio=test_ratio, val_ratio=val_ratio, seed=seed)
+    raw_train, raw_val, raw_test = train_test_split(filtered, test_ratio=test_ratio, val_ratio=val_ratio, seed=seed) if filtered else ([], [], [])
     synth_train, synth_val, synth_test = train_test_split(synth_samples, test_ratio=test_ratio, val_ratio=val_ratio, seed=seed) if synth_samples else ([], [], [])
 
     tfm = image_transforms()
@@ -113,34 +117,6 @@ def build_dataloaders(
     train_ds = _combine_datasets(raw_train, synth_train, vocab, max_len, tfm)
     val_ds = _combine_datasets(raw_val, synth_val, vocab, max_len, tfm)
     test_ds = _combine_datasets(raw_test, synth_test, vocab, max_len, tfm)
-
-    train_loader = DataLoader(train_ds, batch_size=batch_size, shuffle=True, num_workers=num_workers, collate_fn=_collate)
-    val_loader = DataLoader(val_ds, batch_size=batch_size, shuffle=False, num_workers=num_workers, collate_fn=_collate)
-    test_loader = DataLoader(test_ds, batch_size=batch_size, shuffle=False, num_workers=num_workers, collate_fn=_collate)
-    return train_loader, val_loader, test_loader, vocab, max_len
-
-
-def build_synthetic_dataloaders(
-    synthetic_dir: str | Path,
-    test_ratio: float = 0.15,
-    val_ratio: float = 0.15,
-    batch_size: int = 32,
-    num_workers: int = 4,
-    seed: int = 42,
-) -> tuple[DataLoader, DataLoader, DataLoader, dict[str, int], int]:
-    """Build train/val/test DataLoaders from synthetic data only.
-    Returns (train_loader, val_loader, test_loader, vocab, max_len).
-    """
-    all_samples = collect_synthetic_samples(synthetic_dir)
-    vocab = build_vocab(all_samples)
-    max_len = max(len(s["text"]) for s in all_samples)
-
-    train_samples, val_samples, test_samples = train_test_split(all_samples, test_ratio=test_ratio, val_ratio=val_ratio, seed=seed)
-    tfm = image_transforms()
-
-    train_ds = SyntheticDataset(train_samples, vocab, max_len, transform=tfm)
-    val_ds = SyntheticDataset(val_samples, vocab, max_len, transform=tfm)
-    test_ds = SyntheticDataset(test_samples, vocab, max_len, transform=tfm)
 
     train_loader = DataLoader(train_ds, batch_size=batch_size, shuffle=True, num_workers=num_workers, collate_fn=_collate)
     val_loader = DataLoader(val_ds, batch_size=batch_size, shuffle=False, num_workers=num_workers, collate_fn=_collate)
