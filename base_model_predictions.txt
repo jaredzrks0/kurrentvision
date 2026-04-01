@@ -1,0 +1,12 @@
+
+  true: 'Capiee waren am6.10. in Ordnung'
+  pred: 'Aac e, gj -enc h ie n   e  oD  .n  a.aeakcciml¬.sein sme n ehs nen dnr-wteneeel-war<en'
+
+  true: 'Akademie quitiren zu wollen. Wäre'
+  pred: 'Auc e, gj idgc hgie lc  enloD  ou  a.ö,av cim.odsegn sme n ees ne- dnr-wteneeel-war<en'
+
+  true: 'mit den Professionen verbunden seyn,'
+  pred: 'Mac e,  j Eeac hHie     e  or  on  a. e  ccim.o.sein sme n eer nen dnr-wteneeel-war<en'
+
+  true: 'dies Cabinet aufzustellen seÿ, und endlich auch die'
+  pred: 'Aac eo  j Ee,c htie d   en or  on  a. e   ci¬l¬.sein sme noees nen dnr-wteneeel-war<en'

@@ -15,3 +15,11 @@ data
 # Test Files
 test.py
 test.ipynb
+
+# Models
+models/basic_model/linear_ocr_raw.pt
+models/kurrent_ocr/trocr_synthetic/model.safetensors
+models/kurrent_ocr/trocr_synthetic/generation_config.json
+models/kurrent_ocr/trocr_synthetic/processor_config.json
+models/kurrent_ocr/trocr_synthetic/tokenizer_config.json
+models/kurrent_ocr/trocr_synthetic/tokenizer.json

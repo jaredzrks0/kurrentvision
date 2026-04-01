@@ -50,3 +50,73 @@ With a data coming from multiple different sources, our data splitting with be a
 
 ### Next steps
 The immediate next step is the generation of the final dataset of synthetic data. Once this is complete and our final dataset is built, I will move onto the baseline models. This involves finetuning the downloaded TrOCR. Finally, once this is complete, I will move onto, assuming time and compute allows, to training my own model.
+
+
+## Checkpoint 2
+### Classical Baseline
+For the shallow baseline, we use a simple linear model. Its inputs are a flattened RBG image, and its output is a vector of length max_len, where max_len is the length of the longest vector in the training data. This becomes in essense a character token prediction task, with padding tokens and EOS tokens included.
+
+Because this model has no prior training, we train it on a combination dataset of the the collected Kurrent texts, as well as the synthetic data we generated, in approximately equal quantity to the kurrent texts. In all this was just under 10,000 text segments. That said, while this serves as a baseline of sorts, we do not expect it to be a very competitive one. This is because of the models simplicity, which will likely fail to fully capture the complex nature of writing as well as the spatial relationship inherient to a photo.
+
+The model was was set up to train for 50 epochs, but it quickly became clear that, as expected, it was not learning to read the texts well. After fewer than 10 epochs, the loss plateaued, and minimal to no learning had occured. Plots outlining the learning process can be seen here for these 10 epochs:
+
+![](models/basic_model/training_metrics.png)
+
+As it can be seen, loss remains stagnant throughout the full training process, and character error rate (CER) is only ~10%. Because the simple linear baseline fails to learn anything meaningful about character recognition, we also move onto a second baseline - a pretrained KurrentOCR Model.
+
+Qualitatively, we can also inspect a few example image texts and their prediction outputs. A subset are shown below:
+
+```
+true: 'Akademie quitiren zu wollen. Wäre'
+  
+pred: 'Auc e, gj idgc hgie lc  enloD  ou  a.ö,av cim.odsegn sme n ees ne- dnr-wteneeel-war<en'
+---
+
+true: 'mit den Professionen verbunden seyn,'
+
+pred: 'Mac e,  j Eeac hHie     e  or  on  a. e  ccim.o.sein sme n eer nen dnr-wteneeel-war<en'
+---
+
+true: 'dies Cabinet aufzustellen seÿ, und endlich auch die'
+
+pred: 'Aac eo  j Ee,c htie d   en or  on  a. e   ci¬l¬.sein sme noees nen dnr-wteneeel-war<en'
+```
+
+Again, we see that the model outpus are essentially nonsense. The model has no ability to distinguish texts from one another, which we can see in that all the outputs are the maximum length, and share similar characters with one another.
+
+### KurrentOCR Model
+For our deeper baseline, we use A pre-trained OCR model, finetuned by Jonas Widmer and Tobias Hode at the university of Bern. This model is a vision transformer originally trained in A paper called TrOCR: Transformer-based Optical Character Recognition with Pre-trained Models, and fine tuned by Microsoft on the IAM handwritting dataset, which contains more than 110k handwriting samples.
+
+By using a much more complex model, and in particular one that can learn the spacial relationships of both an image and human handwriting, we would expect the accuracy of this baseline to be much stronger than the linear baseline. Because our Kurrent texts share much overlap with the training data from the previous Kurrent fine tuning, we continue fine-tuning with the only 'unseen' data that we have - the synthetic data. 
+
+Due to the complexity of the model, training cost is much higher than the linear model. As such, while we will complete a full training fun for the final project, for the purposes of this checkpoint, we run a limited training run with N epochs. Additionally, with the final goal being utilizing the trained model on our untranscribed letters from my grandfather, we retain this model for predicting those letters until the full training run can be completed. The training metrics for the deeper baseline are shown below:
+
+![](models/kurrent_ocr/training_metrics.png)
+
+We quickly see that the ViT model is much much better than the linear model, even with the very shortened training run. Average loss is much loer, and the CER is in the 2-3% range! This will be quite a difficult baseline to outdo, and even on it's own it would likely offer significant transcription abilities on our final test set, but it does set out a fun challenge to try and improve the model with a longer training run with synthetic data and eventually some already transcribed Kurrent letters from my grandfather. 
+
+Finally, like before, we can also show a quantitave list of transcription attempts. They can be seen below:
+
+```
+true: 'Muth'
+pred: 'Muth'
+
+true: 'erneuert'
+pred: 'erneuert'
+
+true: 'Gebote'
+pred: 'Gebote'
+
+true: 'dem großen Betsaale des Zuchthauses ihr Gebet mit'
+pred: 'dem großen Tatsaale des Zuchthauses ihr Gebet mit'
+
+true: 'schwarze'
+pred: 'schwarze'
+```
+
+Again, the ViT model shows not only great relative prediction improvement, but also great absolute prediction power. The model, albiet in a small sample was able to mostly accurately predict all 5 images's texts!
+
+### Failure Analysis
+Finally, when we think high level about what goes right or wrong with the models, the differences are pretty strightforward, as again, the linear model does not have the complexity to generate accurate predictions. Thus, 'everything' fails. There are not specific patterns or types of images that it does better worse at, because the model is simply unequiped for the task at hand.
+
+On the other hand, the ViT doesn't have a ton that it fails with, as its CER is ~2%. After looking through some specific images, there are not necessarily character patterns that it does better or worse with, but often it struggles more with some of our blurrier images. While some blur/randomness is aimed at helping the model learn, we might alter the generation of synthetic data moving forward as our final test dataset of untranscribed letters while not pretty in handwriting is not specifically blurry. Thus the blurry training data may not help as much as we intend.
