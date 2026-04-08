@@ -1,6 +1,6 @@
 import argparse
 
-from src.modeling.kraken_finetune import run, DATASETS
+from modeling.kraken_finetune import run, DATASETS
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Fine-tune Kraken on Kurrent handwriting data")
