@@ -9,6 +9,7 @@ Datasets and their XML formats:
 import re
 from pathlib import Path
 
+import torch
 from lightning.pytorch import Callback
 from kraken.train import KrakenTrainer, BLLASegmentationDataModule, BLLASegmentationModel
 from kraken.configs import BLLASegmentationTrainingConfig, BLLASegmentationTrainingDataConfig
@@ -94,6 +95,8 @@ def run(
     epochs: int = 50,
     augment: bool = True,
 ):
+    torch.set_float32_matmul_precision("high")
+
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     patch_dir = output_dir / "patched_xml"
