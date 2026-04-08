@@ -102,6 +102,42 @@
             "console": "integratedTerminal",
             "args": ["--data", "both"],
             "justMyCode": false
+        },
+        {
+            "name": "OCR Predict",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.modeling.ocr_preds",
+            "console": "integratedTerminal",
+            "args": ["data/raw_data/grandpa_letters/images/0044_Letter 4 March 39 father.jpg"],
+            "justMyCode": false
+        },
+        {
+            "name": "Line Segmentation",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.modeling.line_segmentation",
+            "console": "integratedTerminal",
+            "args": ["data/raw_data/grandpa_letters/images/0044_Letter 4 March 39 father.jpg"],
+            "justMyCode": false
+        },
+        {
+            "name": "Kraken Finetune - All Datasets",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.modeling.kraken_finetune",
+            "console": "integratedTerminal",
+            "args": ["--datasets", "all", "--epochs", "50"],
+            "justMyCode": false
+        },
+        {
+            "name": "Kraken Finetune - Grandpa Letters Only",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "src.modeling.kraken_finetune",
+            "console": "integratedTerminal",
+            "args": ["--datasets", "grandpa_letters", "--epochs", "50"],
+            "justMyCode": false
         }
     ]
 }
