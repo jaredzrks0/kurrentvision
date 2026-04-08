@@ -125,7 +125,7 @@
             "name": "Kraken Finetune - All Datasets",
             "type": "debugpy",
             "request": "launch",
-            "module": "src.modeling.kraken_finetune",
+            "module": "runners.kraken_finetune_runner",
             "console": "integratedTerminal",
             "args": ["--datasets", "all", "--epochs", "50"],
             "justMyCode": false
@@ -134,7 +134,7 @@
             "name": "Kraken Finetune - Grandpa Letters Only",
             "type": "debugpy",
             "request": "launch",
-            "module": "src.modeling.kraken_finetune",
+            "module": "runners.kraken_finetune_runner",
             "console": "integratedTerminal",
             "args": ["--datasets", "grandpa_letters", "--epochs", "50"],
             "justMyCode": false

@@ -6,7 +6,6 @@ Datasets and their XML formats:
   PAGE  - DTA Handwritten OCR, Digitale Schriftkunde Archive Bayerns
 """
 
-import argparse
 import re
 from pathlib import Path
 
@@ -88,21 +87,19 @@ def collect_xml_files(selected: dict, patch_dir: Path) -> list[str]:
     return files
 
 
-def main():
-    parser = argparse.ArgumentParser(description="Fine-tune Kraken on Kurrent handwriting data")
-    parser.add_argument("--datasets", nargs="+", choices=list(DATASETS.keys()) + ["all"], default=["all"])
-    parser.add_argument("--output-dir", default="models/kraken")
-    parser.add_argument("--seg-model", default=None, help="Base segmentation model (.mlmodel or .ckpt)")
-    parser.add_argument("--epochs", type=int, default=50)
-    parser.add_argument("--augment", action="store_true", default=True)
-    args = parser.parse_args()
-
-    output_dir = Path(args.output_dir)
+def run(
+    datasets: list[str] = ["all"],
+    output_dir: str = "models/kraken",
+    seg_model: str | None = None,
+    epochs: int = 50,
+    augment: bool = True,
+):
+    output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     patch_dir = output_dir / "patched_xml"
     patch_dir.mkdir(exist_ok=True)
 
-    selected = DATASETS if "all" in args.datasets else {k: DATASETS[k] for k in args.datasets}
+    selected = DATASETS if "all" in datasets else {k: DATASETS[k] for k in datasets}
 
     print("\n=== Collecting training files ===")
     training_files = collect_xml_files(selected, patch_dir)
@@ -117,32 +114,28 @@ def main():
     dm_config = BLLASegmentationTrainingDataConfig(
         training_data=training_files,
         format_type="xml",
-        augment=args.augment,
+        augment=augment,
         partition=0.9,
         num_workers=0,
     )
     m_config = BLLASegmentationTrainingConfig(
         training_data=training_files,
-        epochs=args.epochs,
+        epochs=epochs,
         checkpoint_path=str(output_dir / "kurrent_seg"),
     )
     data_module = BLLASegmentationDataModule(dm_config)
     trainer = KrakenTrainer(
-        max_epochs=args.epochs,
+        max_epochs=epochs,
         enable_progress_bar=True,
         callbacks=[EpochLogger()],
     )
 
     with trainer.init_module():
-        if args.seg_model:
-            model = BLLASegmentationModel.load_from_weights(args.seg_model, config=m_config)
+        if seg_model:
+            model = BLLASegmentationModel.load_from_weights(seg_model, config=m_config)
         else:
             model = BLLASegmentationModel(m_config)
 
     trainer.fit(model, data_module)
 
     print(f"\nDone. Model saved to {output_dir}/")
-
-
-if __name__ == "__main__":
-    main()
