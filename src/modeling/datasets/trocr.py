@@ -3,7 +3,7 @@ from pathlib import Path
 from torch.utils.data import Dataset, DataLoader, ConcatDataset
 from PIL import Image
 
-from src.modeling.datasets.base import (
+from modeling.datasets.base import (
     collect_raw_samples,
     collect_synthetic_samples,
     filter_raw_samples,

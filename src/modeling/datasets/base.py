@@ -6,7 +6,7 @@ from torch.utils.data import DataLoader
 from torchvision import transforms
 from PIL import Image
 
-from src.modeling.constants import IMG_WIDTH, IMG_HEIGHT, PAD_TOKEN, UNK_TOKEN, END_TOKEN
+from modeling.constants import IMG_WIDTH, IMG_HEIGHT, PAD_TOKEN, UNK_TOKEN, END_TOKEN
 
 
 ALTO_NAMESPACE = {"alto": "http://www.loc.gov/standards/alto/ns-v4#"}

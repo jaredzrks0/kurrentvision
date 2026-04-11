@@ -23,3 +23,6 @@ models/kurrent_ocr/trocr_synthetic/generation_config.json
 models/kurrent_ocr/trocr_synthetic/processor_config.json
 models/kurrent_ocr/trocr_synthetic/tokenizer_config.json
 models/kurrent_ocr/trocr_synthetic/tokenizer.json
+
+# Checkpoints
+checkpoints

@@ -5,7 +5,7 @@ import torch
 from PIL import Image
 from transformers import TrOCRProcessor, VisionEncoderDecoderModel
 
-from src.modeling.kurrent_ocr import TROCR_MODEL
+from modeling.training.kurrent_ocr import TROCR_MODEL
 
 
 @torch.no_grad()

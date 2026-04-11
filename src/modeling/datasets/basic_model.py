@@ -4,8 +4,8 @@ import torch
 from torch.utils.data import Dataset, DataLoader
 from PIL import Image
 
-from src.modeling.constants import PAD_TOKEN, UNK_TOKEN, END_TOKEN
-from src.modeling.datasets.base import (
+from modeling.constants import PAD_TOKEN, UNK_TOKEN, END_TOKEN
+from modeling.datasets.base import (
     collect_raw_samples,
     collect_synthetic_samples,
     filter_raw_samples,

@@ -80,28 +80,37 @@
             "name": "Kurrent OCR - Raw Data",
             "type": "debugpy",
             "request": "launch",
-            "module": "src.modeling.kurrent_ocr",
+            "program": "${workspaceFolder}/src/modeling/training/trocr_kurrent.py",
             "console": "integratedTerminal",
-            "args": ["--data", "raw"],
-            "justMyCode": false
+            "args": [
+                "--data", "raw",
+                "--exclude", "Digitale Schriftkunde Archive Bayerns", "DTA Handwritten OCR", "grandpa_letters_2", "UGreifswald Senatsprotokolle"
+            ],
+            "justMyCode": false,
+            "cwd": "${workspaceFolder}",
+            "env": {"PYTHONPATH": "${workspaceFolder}"}
         },
         {
             "name": "Kurrent OCR - Synthetic Data",
             "type": "debugpy",
             "request": "launch",
-            "module": "src.modeling.kurrent_ocr",
+            "program": "${workspaceFolder}/src/modeling/training/trocr_kurrent.py",
             "console": "integratedTerminal",
             "args": ["--data", "synthetic"],
-            "justMyCode": false
+            "justMyCode": false,
+            "cwd": "${workspaceFolder}",
+            "env": {"PYTHONPATH": "${workspaceFolder}"}
         },
         {
             "name": "Kurrent OCR - Both",
             "type": "debugpy",
             "request": "launch",
-            "module": "src.modeling.kurrent_ocr",
+            "program": "${workspaceFolder}/src/modeling/training/trocr_kurrent.py",
             "console": "integratedTerminal",
             "args": ["--data", "both"],
-            "justMyCode": false
+            "justMyCode": false,
+            "cwd": "${workspaceFolder}",
+            "env": {"PYTHONPATH": "${workspaceFolder}"}
         },
         {
             "name": "OCR Predict",
@@ -112,32 +121,5 @@
             "args": ["data/raw_data/grandpa_letters/images/0044_Letter 4 March 39 father.jpg"],
             "justMyCode": false
         },
-        {
-            "name": "Line Segmentation",
-            "type": "debugpy",
-            "request": "launch",
-            "module": "src.modeling.line_segmentation",
-            "console": "integratedTerminal",
-            "args": ["data/raw_data/grandpa_letters/images/0044_Letter 4 March 39 father.jpg"],
-            "justMyCode": false
-        },
-        {
-            "name": "Kraken Finetune - All Datasets",
-            "type": "debugpy",
-            "request": "launch",
-            "module": "runners.kraken_finetune_runner",
-            "console": "integratedTerminal",
-            "args": ["--datasets", "all", "--epochs", "50"],
-            "justMyCode": false
-        },
-        {
-            "name": "Kraken Finetune - Grandpa Letters Only",
-            "type": "debugpy",
-            "request": "launch",
-            "module": "runners.kraken_finetune_runner",
-            "console": "integratedTerminal",
-            "args": ["--datasets", "grandpa_letters", "--epochs", "50"],
-            "justMyCode": false
-        }
     ]
 }

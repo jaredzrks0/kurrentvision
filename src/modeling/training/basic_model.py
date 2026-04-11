@@ -6,8 +6,8 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 from tqdm import tqdm
 
-from src.modeling.datasets.basic_model import build_dataloaders
-from src.modeling.constants import (
+from modeling.datasets.basic_model import build_dataloaders
+from modeling.constants import (
     IMG_HEIGHT,
     IMG_WIDTH,
     PAD_TOKEN,
