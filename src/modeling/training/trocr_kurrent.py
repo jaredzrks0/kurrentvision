@@ -20,8 +20,8 @@ def train_one_epoch(model, processor, loader, optimizer, device, compute_char_ac
         model, processor, loader, device, compute_char_acc, is_eval=False, optimizer=optimizer
     )
     avg_loss = total_loss / len(loader.dataset)
-    cer = cer(all_preds, all_targets) if compute_char_acc else None
-    return avg_loss, cer, avg_grad_norm
+    error_rate = cer(all_preds, all_targets) if compute_char_acc else None
+    return avg_loss, error_rate, avg_grad_norm
 
 
 @torch.no_grad()
