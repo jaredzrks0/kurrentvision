@@ -138,6 +138,15 @@ if __name__ == "__main__":
     
     optimizer = torch.optim.Adam(model.parameters(), lr=.00001)
 
+    print(f"\n{'='*50}")
+    print(f"Model: {TROCR_MODEL}")
+    print(f"Architecture:\n{model}")
+    print(f"Epochs:{EPOCHS}")
+    print(f"Batch size:{BATCH_SIZE}")
+    print(f"Learning rate:{optimizer.param_groups[0]['lr']}")
+    print(f"Device:{device}")
+    print(f"{'='*50}\n")
+
     history = {"train_loss": [], "val_loss": [], "train_cer": [], "val_cer": [], "grad_norm": []}
 
     # Actually train the thing
