@@ -87,6 +87,20 @@ def sample_predictions(model, processor, loader, device, n=5) -> None:
         print()
 
 
+def _freeze_backbone(model, unfrozen_decoder_layers=2):
+    for param in model.encoder.parameters():
+        param.requires_grad = False
+
+    decoder_layers = model.decoder.model.decoder.layers
+    for layer in decoder_layers[:-unfrozen_decoder_layers]:
+        for param in layer.parameters():
+            param.requires_grad = False
+
+    total = sum(p.numel() for p in model.parameters())
+    trainable = sum(p.numel() for p in model.parameters() if p.requires_grad)
+    print(f"Trainable params: {trainable:,} / {total:,} ({100 * trainable / total:.1f}%)")
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Fine-tune TrOCR on Kurrent data")
     parser.add_argument("--data", choices=["raw", "synthetic", "both"], default="raw",
@@ -104,6 +118,7 @@ if __name__ == "__main__":
     # Download both the model and its accompanying processor
     processor = TrOCRProcessor.from_pretrained("microsoft/trocr-base-handwritten")
     model = VisionEncoderDecoderModel.from_pretrained(TROCR_MODEL).to(device)
+    _freeze_backbone(model)
 
     print(f"Loading data from {args.data})...")
     if args.data == "raw":
