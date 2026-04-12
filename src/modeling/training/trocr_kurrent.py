@@ -7,7 +7,7 @@ from tqdm import tqdm
 from transformers import TrOCRProcessor, VisionEncoderDecoderModel
 
 from modeling.datasets.trocr import build_dataloaders
-from modeling.constants import EPOCHS, BATCH_SIZE
+from modeling.constants import EPOCHS, BATCH_SIZE, LR
 from modeling.utils import save_training_plots, cer
 
 
@@ -136,7 +136,7 @@ if __name__ == "__main__":
         )
     print(f"Train: {len(train_loader.dataset)}  Val: {len(val_loader.dataset)}  Test: {len(test_loader.dataset)}")
     
-    optimizer = torch.optim.Adam(model.parameters(), lr=.00001)
+    optimizer = torch.optim.Adam(model.parameters(), lr=LR)
 
     print(f"\n{'='*50}")
     print(f"Model: {TROCR_MODEL}")
