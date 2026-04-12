@@ -118,7 +118,7 @@ if __name__ == "__main__":
     # Download both the model and its accompanying processor
     processor = TrOCRProcessor.from_pretrained("microsoft/trocr-base-handwritten")
     model = VisionEncoderDecoderModel.from_pretrained(TROCR_MODEL).to(device)
-    _freeze_backbone(model)
+    _freeze_backbone(model, unfrozen_decoder_layers=2)
 
     print(f"Loading data from {args.data})...")
     if args.data == "raw":
