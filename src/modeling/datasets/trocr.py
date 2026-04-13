@@ -2,6 +2,7 @@ from pathlib import Path
 
 from torch.utils.data import Dataset, DataLoader, ConcatDataset
 from PIL import Image
+from torchvision import transforms
 
 from modeling.datasets.base import (
     collect_raw_samples,
@@ -11,11 +12,25 @@ from modeling.datasets.base import (
 )
 
 
+
+
+
 class RawDataset(Dataset):
     """Dataset for Scraped Kurrent Texts. Note this differs from base model as the ViT is pretrained to just take the raw image"""
 
-    def __init__(self, samples: list[dict]):
+    def __init__(self, samples: list[dict], augment: bool = False):
         self.samples = samples
+        self.augment = augment
+        self.augmentations = transforms.Compose([
+            transforms.RandomRotation(degrees=5),
+            transforms.ColorJitter(
+                brightness=0.15,
+                contrast=0.25,
+                saturation=0.05,
+                hue=0.01
+            ),
+            transforms.GaussianBlur(kernel_size=3, sigma=(0.1, 1.0)),
+        ])
 
     def __len__(self) -> int:
         return len(self.samples)
@@ -29,6 +44,8 @@ class RawDataset(Dataset):
         # Crop to xml given bounding box
         x0, y0, x1, y1 = sample["bbox"]
         crop = image.crop((x0, y0, x1, y1)).copy()
+        if self.augment:
+            crop = self.augmentations(crop)
         return {"image": crop, "text": sample["text"], "dataset": sample["dataset"]}
 
 
@@ -83,7 +100,7 @@ def build_dataloaders(
     raw_train, raw_val, raw_test = train_test_split(filtered, test_ratio=test_ratio, val_ratio=val_ratio, seed=seed) if filtered else ([], [], [])
     synth_train, synth_val, synth_test = train_test_split(synth_samples, test_ratio=test_ratio, val_ratio=val_ratio, seed=seed) if synth_samples else ([], [], [])
 
-    train_ds = _combine_datasets(raw_train, synth_train)
+    train_ds = _combine_datasets(raw_train, synth_train, augment=True)
     val_ds = _combine_datasets(raw_val, synth_val)
     test_ds = _combine_datasets(raw_test, synth_test)
 
@@ -93,11 +110,11 @@ def build_dataloaders(
     return train_loader, val_loader, test_loader
 
 
-def _combine_datasets(raw: list[dict], synth: list[dict]):
+def _combine_datasets(raw: list[dict], synth: list[dict], augment: bool = False):
     """Create a ConcatDataset from raw + synthetic sample lists."""
     parts = []
     if raw:
-        parts.append(RawDataset(raw))
+        parts.append(RawDataset(raw, augment=augment))
     if synth:
         parts.append(SyntheticDataset(synth))
     if len(parts) == 1:

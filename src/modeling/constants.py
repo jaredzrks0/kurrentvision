@@ -9,6 +9,6 @@ UNK_TOKEN = "<unk>"
 END_TOKEN = "<end>"
 
 # Modeling Constants
-EPOCHS = 5
+EPOCHS = 30
 BATCH_SIZE = 16
-LR = 1e-6
+LR = 5e-6
