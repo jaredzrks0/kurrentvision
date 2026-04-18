@@ -13,7 +13,7 @@ from transformers import (
 
 from modeling.datasets.trocr import build_dataloaders
 from modeling.constants import BATCH_SIZE, LR
-from modeling.utils import save_training_plots, cer
+from modeling.utils import save_error_correction_plots, cer
 
 
 CORRECTOR_MODEL = "MRNH/mbart-german-grammar-corrector"
@@ -69,7 +69,7 @@ def train_one_epoch(model, tokenizer, ocr_model, ocr_processor, loader, optimize
     ocr_model.eval()
 
     total_loss = 0.0
-    all_preds, all_targets = [], []
+    all_ocr, all_corrected, all_targets = [], [], []
     batch_grad_norms = []
 
     for batch in tqdm(loader):
@@ -89,13 +89,15 @@ def train_one_epoch(model, tokenizer, ocr_model, ocr_processor, loader, optimize
         if compute_cer:
             with torch.no_grad():
                 corrected = correct(ocr_preds, model, tokenizer, device)
-            all_preds.extend(corrected)
+            all_ocr.extend(ocr_preds)
+            all_corrected.extend(corrected)
             all_targets.extend(ground_truths)
 
     avg_loss = total_loss / len(loader.dataset)
-    error_rate = cer(all_preds, all_targets) if compute_cer else None
+    ocr_cer = cer(all_ocr, all_targets) if compute_cer else None
+    corrected_cer = cer(all_corrected, all_targets) if compute_cer else None
     avg_grad_norm = sum(batch_grad_norms) / len(batch_grad_norms)
-    return avg_loss, error_rate, avg_grad_norm
+    return avg_loss, ocr_cer, corrected_cer, avg_grad_norm
 
 
 @torch.no_grad()
@@ -104,7 +106,7 @@ def evaluate(model, tokenizer, ocr_model, ocr_processor, loader, device, compute
     ocr_model.eval()
 
     total_loss = 0.0
-    all_preds, all_targets = [], []
+    all_ocr, all_corrected, all_targets = [], [], []
 
     for batch in tqdm(loader):
         noisy = _ocr_predictions(ocr_model, ocr_processor, batch["image"], device)
@@ -115,12 +117,14 @@ def evaluate(model, tokenizer, ocr_model, ocr_processor, loader, device, compute
 
         if compute_cer:
             corrected = correct(noisy, model, tokenizer, device)
-            all_preds.extend(corrected)
+            all_ocr.extend(noisy)
+            all_corrected.extend(corrected)
             all_targets.extend(clean)
 
     avg_loss = total_loss / len(loader.dataset)
-    error_rate = cer(all_preds, all_targets) if compute_cer else None
-    return avg_loss, error_rate
+    ocr_cer = cer(all_ocr, all_targets) if compute_cer else None
+    corrected_cer = cer(all_corrected, all_targets) if compute_cer else None
+    return avg_loss, ocr_cer, corrected_cer
 
 
 @torch.no_grad()
@@ -197,31 +201,46 @@ if __name__ == "__main__":
     logger.info("Device: %s", device)
     logger.info("=" * 50)
 
-    history = {"train_loss": [], "val_loss": [], "train_cer": [], "val_cer": [], "grad_norm": []}
+    history = {
+        "train_loss": [], "val_loss": [],
+        "train_ocr_cer": [], "train_corrected_cer": [],
+        "val_ocr_cer": [], "val_corrected_cer": [],
+        "grad_norm": [],
+    }
 
     for epoch in range(1, args.epochs + 1):
-        train_loss, train_cer, grad_norm = train_one_epoch(
+        train_loss, train_ocr_cer, train_corrected_cer, grad_norm = train_one_epoch(
             corrector, tokenizer, ocr_model, ocr_processor,
             train_loader, optimizer, device, compute_cer=args.compute_cer,
         )
-        val_loss, val_cer = evaluate(
+        val_loss, val_ocr_cer, val_corrected_cer = evaluate(
             corrector, tokenizer, ocr_model, ocr_processor,
             val_loader, device, compute_cer=args.compute_cer,
         )
-        cer_str = f"  train_cer={train_cer:.4f}  val_cer={val_cer:.4f}" if args.compute_cer else ""
-        logger.info("Epoch %d/%d  train_loss=%.4f  val_loss=%.4f%s  grad_norm=%.4f", epoch, args.epochs, train_loss, val_loss, cer_str, grad_norm)
+        if args.compute_cer:
+            logger.info(
+                "Epoch %d/%d  train_loss=%.4f  val_loss=%.4f  grad_norm=%.4f  "
+                "train_cer: ocr=%.4f corrected=%.4f  val_cer: ocr=%.4f corrected=%.4f",
+                epoch, args.epochs, train_loss, val_loss, grad_norm,
+                train_ocr_cer, train_corrected_cer, val_ocr_cer, val_corrected_cer,
+            )
+        else:
+            logger.info("Epoch %d/%d  train_loss=%.4f  val_loss=%.4f  grad_norm=%.4f", epoch, args.epochs, train_loss, val_loss, grad_norm)
 
         history["train_loss"].append(train_loss)
         history["val_loss"].append(val_loss)
-        history["train_cer"].append(train_cer)
-        history["val_cer"].append(val_cer)
+        history["train_ocr_cer"].append(train_ocr_cer)
+        history["train_corrected_cer"].append(train_corrected_cer)
+        history["val_ocr_cer"].append(val_ocr_cer)
+        history["val_corrected_cer"].append(val_corrected_cer)
         history["grad_norm"].append(grad_norm)
 
     sample_predictions(corrector, tokenizer, ocr_model, ocr_processor, val_loader, device)
 
     save_dir = Path("models/grammar_corrector")
     save_dir.mkdir(parents=True, exist_ok=True)
-    save_training_plots(history, save_dir)
+    save_error_correction_plots(history, save_dir)
+    corrector.generation_config.output_hidden_states = False
     corrector.save_pretrained(save_dir / f"corrector_{args.data}")
     tokenizer.save_pretrained(save_dir / f"corrector_{args.data}")
     logger.info("Model saved to %s", save_dir / f"corrector_{args.data}")
