@@ -140,8 +140,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/src/modeling/training/error_correction.py",
             "console": "integratedTerminal",
-            "args": ["--data", "both",
-                     "--ocr-model", "models/kurrent_ocr/trocr_raw"],
+            "args": ["--data", "both"],
             "justMyCode": false,
             "cwd": "${workspaceFolder}",
             "env": {"PYTHONPATH": "${workspaceFolder}/src"}

@@ -21,6 +21,8 @@ TROCR_MODEL = "dh-unibe/trocr-kurrent"
 MAX_LEN = 128
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
+logging.getLogger("httpx").setLevel(logging.WARNING)
+logging.getLogger("huggingface_hub").setLevel(logging.WARNING)
 logger = logging.getLogger(__name__)
 
 
@@ -154,11 +156,6 @@ if __name__ == "__main__":
         ocr_model_id = str(ocr_model_path.resolve())
         logger.info("OCR model: local checkpoint at %s", ocr_model_id)
     else:
-        if args.ocr_model != TROCR_MODEL:
-            raise FileNotFoundError(
-                f"--ocr-model '{args.ocr_model}' not found locally and is not the default HF ID '{TROCR_MODEL}'. "
-                "Pass a valid local path or the exact HuggingFace model ID."
-            )
         ocr_model_id = args.ocr_model
         logger.info("OCR model: HuggingFace '%s'", ocr_model_id)
 
