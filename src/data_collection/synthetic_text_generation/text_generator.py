@@ -4,6 +4,7 @@ from trdg.generators import GeneratorFromStrings # Locally imported
 import os
 import argparse
 import numpy as np
+from PIL import Image as PILImage
 
 # IMPORTS REQUIRED FOR TRDG
 import matplotlib
@@ -129,6 +130,7 @@ class KurrentTextGenerator:
                 )
 
                 for img, lbl in generator:
+                    img = _tint_parchment(img)
                     filename = images_dir / f"text_{global_idx:05d}.png"
                     img.save(filename)
 
@@ -220,6 +222,19 @@ def main():
         print("data/Wiegel-Kurrent-Medium/WiegelKurrent-Medium.ttf")
     except Exception as e:
         print(f"An error occurred: {e}")
+
+
+def _tint_parchment(img: PILImage.Image) -> PILImage.Image:
+    """Replace near-white pixels with a randomized parchment color."""
+    arr = np.array(img.convert("RGB"), dtype=np.float32)
+    r = np.random.randint(210, 240)
+    g = np.random.randint(195, 220)
+    b = np.random.randint(150, 180)
+    parchment = np.array([r, g, b], dtype=np.float32)
+
+    white_mask = (arr[:, :, 0] > 200) & (arr[:, :, 1] > 200) & (arr[:, :, 2] > 200)
+    arr[white_mask] = parchment
+    return PILImage.fromarray(arr.astype(np.uint8))
 
 
 if __name__ == "__main__":

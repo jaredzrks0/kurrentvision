@@ -61,7 +61,7 @@ class SyntheticDataset(Dataset):
         return {"image": image, "target": target, "text": sample["text"], "dataset": "synthetic"}
 
 
-# ── Shared Helpers ───────────────────────────────────────────────────────────
+# Shared Helpers
 
 def _encode_text(text: str, vocab: dict[str, int], max_len: int) -> torch.Tensor:
     """Encode text to a padded tensor of vocab indices."""
@@ -80,7 +80,7 @@ def _collate(batch: list[dict]) -> dict:
     return {"image": images, "target": targets, "text": texts, "dataset": datasets}
 
 
-# ── Dataloader Builders ──────────────────────────────────────────────────────
+# Dataloader Builders
 
 def build_dataloaders(
     root_dir: str | Path | None = None,

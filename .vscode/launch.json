@@ -113,6 +113,39 @@
             "env": {"PYTHONPATH": "${workspaceFolder}"}
         },
         {
+            "name": "Grammar Corrector - Raw Data",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/modeling/training/grammar_corrector.py",
+            "console": "integratedTerminal",
+            "args": ["--data", "raw"],
+            "justMyCode": false,
+            "cwd": "${workspaceFolder}",
+            "env": {"PYTHONPATH": "${workspaceFolder}/src"}
+        },
+        {
+            "name": "Grammar Corrector - Synthetic Data",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/modeling/training/grammar_corrector.py",
+            "console": "integratedTerminal",
+            "args": ["--data", "synthetic"],
+            "justMyCode": false,
+            "cwd": "${workspaceFolder}",
+            "env": {"PYTHONPATH": "${workspaceFolder}/src"}
+        },
+        {
+            "name": "Grammar Corrector - Both",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/modeling/training/grammar_corrector.py",
+            "console": "integratedTerminal",
+            "args": ["--data", "both"],
+            "justMyCode": false,
+            "cwd": "${workspaceFolder}",
+            "env": {"PYTHONPATH": "${workspaceFolder}/src"}
+        },
+        {
             "name": "OCR Predict",
             "type": "debugpy",
             "request": "launch",
