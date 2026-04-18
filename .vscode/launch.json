@@ -140,7 +140,8 @@
             "request": "launch",
             "program": "${workspaceFolder}/src/modeling/training/grammar_corrector.py",
             "console": "integratedTerminal",
-            "args": ["--data", "both"],
+            "args": ["--data", "both",
+                     "--ocr-model", "models/kurrent_ocr/trocr_raw"],
             "justMyCode": false,
             "cwd": "${workspaceFolder}",
             "env": {"PYTHONPATH": "${workspaceFolder}/src"}
