@@ -118,7 +118,8 @@
             "request": "launch",
             "program": "${workspaceFolder}/src/modeling/training/error_correction.py",
             "console": "integratedTerminal",
-            "args": ["--data", "raw"],
+            "args": ["--data", "raw",
+                     "--exclude", "grandpa_letters_2"],
             "justMyCode": false,
             "cwd": "${workspaceFolder}",
             "env": {"PYTHONPATH": "${workspaceFolder}/src"}

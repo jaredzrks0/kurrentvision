@@ -17,6 +17,7 @@ test.py
 test.ipynb
 
 # Models
+models/
 models/basic_model/linear_ocr_raw.pt
 models/kurrent_ocr/trocr_synthetic/model.safetensors
 models/kurrent_ocr/trocr_synthetic/generation_config.json

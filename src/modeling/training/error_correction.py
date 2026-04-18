@@ -208,6 +208,10 @@ if __name__ == "__main__":
         "grad_norm": [],
     }
 
+    save_dir = Path("models/grammar_corrector")
+    save_dir.mkdir(parents=True, exist_ok=True)
+
+    best_val_loss = float("inf")
     for epoch in range(1, args.epochs + 1):
         train_loss, train_ocr_cer, train_corrected_cer, grad_norm = train_one_epoch(
             corrector, tokenizer, ocr_model, ocr_processor,
@@ -235,12 +239,17 @@ if __name__ == "__main__":
         history["val_corrected_cer"].append(val_corrected_cer)
         history["grad_norm"].append(grad_norm)
 
+        if val_loss < best_val_loss:
+            best_val_loss = val_loss
+            corrector.generation_config.output_hidden_states = False
+            corrector.save_pretrained(save_dir / f"corrector_{args.data}_best")
+            tokenizer.save_pretrained(save_dir / f"corrector_{args.data}_best")
+            logger.info("New best model saved (val_loss=%.4f)", best_val_loss)
+
     sample_predictions(corrector, tokenizer, ocr_model, ocr_processor, val_loader, device)
 
-    save_dir = Path("models/grammar_corrector")
-    save_dir.mkdir(parents=True, exist_ok=True)
     save_error_correction_plots(history, save_dir)
     corrector.generation_config.output_hidden_states = False
-    corrector.save_pretrained(save_dir / f"corrector_{args.data}")
-    tokenizer.save_pretrained(save_dir / f"corrector_{args.data}")
-    logger.info("Model saved to %s", save_dir / f"corrector_{args.data}")
+    corrector.save_pretrained(save_dir / f"corrector_{args.data}_final")
+    tokenizer.save_pretrained(save_dir / f"corrector_{args.data}_final")
+    logger.info("Final model saved to %s", save_dir / f"corrector_{args.data}_final")
