@@ -1,4 +1,5 @@
 import argparse
+import logging
 from pathlib import Path
 
 import torch
@@ -18,6 +19,9 @@ from modeling.utils import save_training_plots, cer
 CORRECTOR_MODEL = "MRNH/mbart-german-grammar-corrector"
 TROCR_MODEL = "dh-unibe/trocr-kurrent"
 MAX_LEN = 128
+
+logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
+logger = logging.getLogger(__name__)
 
 
 def correct(texts: list[str], model, tokenizer, device) -> list[str]:
@@ -143,17 +147,31 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     device = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
-    print(f"Device: {device}")
+    logger.info("Device: %s", device)
 
     ocr_model_path = Path(args.ocr_model)
-    ocr_model_id = str(ocr_model_path.resolve()) if ocr_model_path.exists() else args.ocr_model
+    if ocr_model_path.exists():
+        ocr_model_id = str(ocr_model_path.resolve())
+        logger.info("OCR model: local checkpoint at %s", ocr_model_id)
+    else:
+        if args.ocr_model != TROCR_MODEL:
+            raise FileNotFoundError(
+                f"--ocr-model '{args.ocr_model}' not found locally and is not the default HF ID '{TROCR_MODEL}'. "
+                "Pass a valid local path or the exact HuggingFace model ID."
+            )
+        ocr_model_id = args.ocr_model
+        logger.info("OCR model: HuggingFace '%s'", ocr_model_id)
 
+    logger.info("Loading TrOCR processor from HuggingFace: microsoft/trocr-base-handwritten")
     ocr_processor = TrOCRProcessor.from_pretrained("microsoft/trocr-base-handwritten")
+    logger.info("Loading TrOCR model from: %s", ocr_model_id)
     ocr_model = VisionEncoderDecoderModel.from_pretrained(ocr_model_id).to(device)
     for p in ocr_model.parameters():
         p.requires_grad = False
 
+    logger.info("Loading grammar corrector tokenizer from HuggingFace: %s", CORRECTOR_MODEL)
     tokenizer = MBart50TokenizerFast.from_pretrained(CORRECTOR_MODEL, src_lang="de_DE", tgt_lang="de_DE")
+    logger.info("Loading grammar corrector model from HuggingFace: %s", CORRECTOR_MODEL)
     corrector = MBartForConditionalGeneration.from_pretrained(CORRECTOR_MODEL).to(device)
 
     if args.data == "raw":
@@ -169,18 +187,18 @@ if __name__ == "__main__":
             args.raw_dir, exclude=args.exclude, synthetic_dir=args.synthetic_dir,
             batch_size=BATCH_SIZE, num_workers=0,
         )
-    print(f"Train: {len(train_loader.dataset)}  Val: {len(val_loader.dataset)}  Test: {len(test_loader.dataset)}")
+    logger.info("Train: %d  Val: %d  Test: %d", len(train_loader.dataset), len(val_loader.dataset), len(test_loader.dataset))
 
     optimizer = torch.optim.Adam(corrector.parameters(), lr=LR)
 
-    print(f"\n{'='*50}")
-    print(f"Corrector model: {CORRECTOR_MODEL}")
-    print(f"OCR model: {args.ocr_model}")
-    print(f"Epochs: {args.epochs}")
-    print(f"Batch size: {BATCH_SIZE}")
-    print(f"Learning rate: {LR}")
-    print(f"Device: {device}")
-    print(f"{'='*50}\n")
+    logger.info("=" * 50)
+    logger.info("Corrector model: %s", CORRECTOR_MODEL)
+    logger.info("OCR model: %s", ocr_model_id)
+    logger.info("Epochs: %d", args.epochs)
+    logger.info("Batch size: %d", BATCH_SIZE)
+    logger.info("Learning rate: %s", LR)
+    logger.info("Device: %s", device)
+    logger.info("=" * 50)
 
     history = {"train_loss": [], "val_loss": [], "train_cer": [], "val_cer": [], "grad_norm": []}
 
@@ -194,7 +212,7 @@ if __name__ == "__main__":
             val_loader, device, compute_cer=args.compute_cer,
         )
         cer_str = f"  train_cer={train_cer:.4f}  val_cer={val_cer:.4f}" if args.compute_cer else ""
-        print(f"Epoch {epoch}/{args.epochs}  train_loss={train_loss:.4f}  val_loss={val_loss:.4f}{cer_str}  grad_norm={grad_norm:.4f}")
+        logger.info("Epoch %d/%d  train_loss=%.4f  val_loss=%.4f%s  grad_norm=%.4f", epoch, args.epochs, train_loss, val_loss, cer_str, grad_norm)
 
         history["train_loss"].append(train_loss)
         history["val_loss"].append(val_loss)
@@ -209,4 +227,4 @@ if __name__ == "__main__":
     save_training_plots(history, save_dir)
     corrector.save_pretrained(save_dir / f"corrector_{args.data}")
     tokenizer.save_pretrained(save_dir / f"corrector_{args.data}")
-    print(f"Model saved to {save_dir / f'corrector_{args.data}'}")
+    logger.info("Model saved to %s", save_dir / f"corrector_{args.data}")
