@@ -140,15 +140,14 @@ def _freeze_backbone(model, unfrozen_decoder_layers=2):
 
 
 @torch.no_grad()
-def sample_predictions(model, tokenizer, ocr_model, ocr_processor, loader, device, n=5):
+def sample_predictions(model, tokenizer, loader, device, n=5):
     model.eval()
-    ocr_model.eval()
     batch = next(iter(loader))
-    noisy = _ocr_predictions(ocr_model, ocr_processor, batch["image"], device)
+    noisy, clean = batch["noisy"], batch["clean"]
     corrected = correct(noisy, model, tokenizer, device)
     print("\nSample predictions:")
     for i in range(min(n, len(corrected))):
-        print(f"true: {batch['text'][i]}")
+        print(f"true: {clean[i]}")
         print(f"ocr: {noisy[i]}")
         print(f"corrected: {corrected[i]}")
 
@@ -269,7 +268,7 @@ if __name__ == "__main__":
             tokenizer.save_pretrained(save_dir / f"corrector_{args.data}_best")
             logger.info("New best model saved (val_loss=%.4f)", best_val_loss)
 
-    sample_predictions(corrector, tokenizer, ocr_model, ocr_processor, val_loader, device)
+    sample_predictions(corrector, tokenizer, val_loader, device)
 
     corrector.generation_config.output_hidden_states = False
     corrector.save_pretrained(save_dir / f"corrector_{args.data}_final")
