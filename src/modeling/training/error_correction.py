@@ -260,6 +260,8 @@ if __name__ == "__main__":
         history["val_corrected_cer"].append(val_corrected_cer)
         history["grad_norm"].append(grad_norm)
 
+        save_error_correction_plots(history, save_dir)
+
         if val_loss < best_val_loss:
             best_val_loss = val_loss
             corrector.generation_config.output_hidden_states = False
@@ -269,7 +271,6 @@ if __name__ == "__main__":
 
     sample_predictions(corrector, tokenizer, ocr_model, ocr_processor, val_loader, device)
 
-    save_error_correction_plots(history, save_dir)
     corrector.generation_config.output_hidden_states = False
     corrector.save_pretrained(save_dir / f"corrector_{args.data}_final")
     tokenizer.save_pretrained(save_dir / f"corrector_{args.data}_final")
