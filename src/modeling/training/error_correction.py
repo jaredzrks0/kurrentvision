@@ -128,6 +128,20 @@ def evaluate(model, tokenizer, ocr_model, ocr_processor, loader, device, compute
     return avg_loss, ocr_cer, corrected_cer
 
 
+def _freeze_backbone(model, unfrozen_decoder_layers=2):
+    for param in model.model.encoder.parameters():
+        param.requires_grad = False
+
+    decoder_layers = model.model.decoder.layers
+    for layer in decoder_layers[:-unfrozen_decoder_layers]:
+        for param in layer.parameters():
+            param.requires_grad = False
+
+    total = sum(p.numel() for p in model.parameters())
+    trainable = sum(p.numel() for p in model.parameters() if p.requires_grad)
+    logger.info("Trainable params: %s / %s (%.1f%%)", f"{trainable:,}", f"{total:,}", 100 * trainable / total)
+
+
 @torch.no_grad()
 def sample_predictions(model, tokenizer, ocr_model, ocr_processor, loader, device, n=5):
     model.eval()
@@ -175,6 +189,7 @@ if __name__ == "__main__":
     tokenizer = MBart50TokenizerFast.from_pretrained(CORRECTOR_MODEL, src_lang="de_DE", tgt_lang="de_DE")
     logger.info("Loading grammar corrector model from HuggingFace: %s", CORRECTOR_MODEL)
     corrector = MBartForConditionalGeneration.from_pretrained(CORRECTOR_MODEL).to(device)
+    _freeze_backbone(corrector, unfrozen_decoder_layers=2)
 
     if args.data == "raw":
         train_loader, val_loader, test_loader = build_dataloaders(
