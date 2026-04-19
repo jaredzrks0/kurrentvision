@@ -12,6 +12,7 @@ from transformers import (
 )
 
 from modeling.datasets.trocr import build_dataloaders
+from modeling.datasets.error_correction import build_text_pair_dataloaders, precompute_ocr_predictions
 from modeling.constants import BATCH_SIZE, LR
 from modeling.utils import save_error_correction_plots, cer
 
@@ -64,19 +65,17 @@ def _corrector_loss(noisy_texts, clean_texts, model, tokenizer, device):
     return h.loss
 
 
-def train_one_epoch(model, tokenizer, ocr_model, ocr_processor, loader, optimizer, device, compute_cer=False):
+def train_one_epoch(model, tokenizer, loader, optimizer, device, compute_cer=False):
     model.train()
-    ocr_model.eval()
 
     total_loss = 0.0
     all_ocr, all_corrected, all_targets = [], [], []
     batch_grad_norms = []
 
     for batch in tqdm(loader):
-        ocr_preds = _ocr_predictions(ocr_model, ocr_processor, batch["image"], device)
-        ground_truths = batch["text"]
+        noisy, clean = batch["noisy"], batch["clean"]
 
-        loss = _corrector_loss(ocr_preds, ground_truths, model, tokenizer, device)
+        loss = _corrector_loss(noisy, clean, model, tokenizer, device)
 
         optimizer.zero_grad()
         loss.backward()
@@ -89,10 +88,10 @@ def train_one_epoch(model, tokenizer, ocr_model, ocr_processor, loader, optimize
 
         if compute_cer:
             with torch.no_grad():
-                corrected = correct(ocr_preds, model, tokenizer, device)
-            all_ocr.extend(ocr_preds)
+                corrected = correct(noisy, model, tokenizer, device)
+            all_ocr.extend(noisy)
             all_corrected.extend(corrected)
-            all_targets.extend(ground_truths)
+            all_targets.extend(clean)
 
     avg_loss = total_loss / len(loader.dataset)
     ocr_cer = cer(all_ocr, all_targets) if compute_cer else None
@@ -102,16 +101,14 @@ def train_one_epoch(model, tokenizer, ocr_model, ocr_processor, loader, optimize
 
 
 @torch.no_grad()
-def evaluate(model, tokenizer, ocr_model, ocr_processor, loader, device, compute_cer=False):
+def evaluate(model, tokenizer, loader, device, compute_cer=False):
     model.eval()
-    ocr_model.eval()
 
     total_loss = 0.0
     all_ocr, all_corrected, all_targets = [], [], []
 
     for batch in tqdm(loader):
-        noisy = _ocr_predictions(ocr_model, ocr_processor, batch["image"], device)
-        clean = batch["text"]
+        noisy, clean = batch["noisy"], batch["clean"]
 
         loss = _corrector_loss(noisy, clean, model, tokenizer, device)
         total_loss += loss.item()
@@ -192,19 +189,28 @@ if __name__ == "__main__":
     _freeze_backbone(corrector, unfrozen_decoder_layers=2)
 
     if args.data == "raw":
-        train_loader, val_loader, test_loader = build_dataloaders(
+        img_train, img_val, img_test = build_dataloaders(
             args.raw_dir, exclude=args.exclude, batch_size=BATCH_SIZE, num_workers=0,
         )
     elif args.data == "synthetic":
-        train_loader, val_loader, test_loader = build_dataloaders(
+        img_train, img_val, img_test = build_dataloaders(
             synthetic_dir=args.synthetic_dir, batch_size=BATCH_SIZE, num_workers=0,
         )
     else:
-        train_loader, val_loader, test_loader = build_dataloaders(
+        img_train, img_val, img_test = build_dataloaders(
             args.raw_dir, exclude=args.exclude, synthetic_dir=args.synthetic_dir,
             batch_size=BATCH_SIZE, num_workers=0,
         )
-    logger.info("Train: %d  Val: %d  Test: %d", len(train_loader.dataset), len(val_loader.dataset), len(test_loader.dataset))
+    logger.info("Train: %d  Val: %d  Test: %d", len(img_train.dataset), len(img_val.dataset), len(img_test.dataset))
+
+    logger.info("Precomputing OCR predictions for all splits...")
+    precomputed = precompute_ocr_predictions(
+        ocr_model, ocr_processor,
+        {"train": img_train, "val": img_val, "test": img_test},
+        device,
+    )
+    train_loader, val_loader, test_loader = build_text_pair_dataloaders(precomputed, batch_size=BATCH_SIZE, num_workers=0)
+    logger.info("Precomputation complete.")
 
     optimizer = torch.optim.Adam(corrector.parameters(), lr=LR)
 
@@ -231,12 +237,10 @@ if __name__ == "__main__":
     best_val_loss = float("inf")
     for epoch in range(1, args.epochs + 1):
         train_loss, train_ocr_cer, train_corrected_cer, grad_norm = train_one_epoch(
-            corrector, tokenizer, ocr_model, ocr_processor,
-            train_loader, optimizer, device, compute_cer=args.compute_cer,
+            corrector, tokenizer, train_loader, optimizer, device, compute_cer=args.compute_cer,
         )
         val_loss, val_ocr_cer, val_corrected_cer = evaluate(
-            corrector, tokenizer, ocr_model, ocr_processor,
-            val_loader, device, compute_cer=args.compute_cer,
+            corrector, tokenizer, val_loader, device, compute_cer=args.compute_cer,
         )
         if args.compute_cer:
             logger.info(
