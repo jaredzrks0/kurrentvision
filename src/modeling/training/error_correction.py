@@ -80,6 +80,7 @@ def train_one_epoch(model, tokenizer, ocr_model, ocr_processor, loader, optimize
 
         optimizer.zero_grad()
         loss.backward()
+        torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
         total_norm = sum(p.grad.data.norm(2).item() ** 2 for p in model.parameters() if p.grad is not None) ** 0.5
         batch_grad_norms.append(total_norm)
         optimizer.step()
@@ -199,6 +200,7 @@ if __name__ == "__main__":
     logger.info("Batch size: %d", BATCH_SIZE)
     logger.info("Learning rate: %s", LR)
     logger.info("Device: %s", device)
+    logger.info("Architecture:\n%s", corrector)
     logger.info("=" * 50)
 
     history = {
