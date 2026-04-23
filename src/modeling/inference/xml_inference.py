@@ -131,6 +131,7 @@ if __name__ == "__main__":
     parser.add_argument("--synthetic-dir", default="data/synthetic_data")
     parser.add_argument("--exclude", nargs="*", default=["grandpa_letters", "grandpa_letters_2"])
     parser.add_argument("--split", choices=["train", "val", "test"], default="test")
+    parser.add_argument("--save-text", action="store_true", help="Save results to a text file")
     args = parser.parse_args()
 
     device = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
@@ -148,17 +149,38 @@ if __name__ == "__main__":
 
     if args.mode == "path":
         results = inferencer.full_inference_from_path(args.xml, args.image)
-        print(f"\nCER (OCR):       {results['cer_ocr']:.4f}")
+        print(f"\nCER (OCR): {results['cer_ocr']:.4f}")
         print(f"CER (corrected): {results['cer_corrected']:.4f}")
         print(f"\nFull OCR text:\n{results['full_text_ocr']}")
         print(f"\nFull corrected text:\n{results['full_text_corrected']}")
         print(f"\nGround truth:\n{results['ground_truth']}")
         print("\nPer-line breakdown:")
         for line in results["lines"]:
-            print(f"  truth:     {line['xml_truth']}")
-            print(f"  ocr:       {line['ocr']}")
+            print(f"  truth: {line['xml_truth']}")
+            print(f"  ocr: {line['ocr']}")
             print(f"  corrected: {line['corrected']}")
             print()
+
+        if args.save_text:
+            out_path = Path(args.xml).with_suffix(".inference.txt")
+            lines = [
+                f"XML: {args.xml}",
+                f"Image: {args.image}",
+                "",
+                f"CER (OCR): {results['cer_ocr']:.4f}",
+                f"CER (corrected): {results['cer_corrected']:.4f}",
+                "",
+                "--- Ground Truth ---",
+                results["ground_truth"],
+                "",
+                "--- OCR Prediction ---",
+                results["full_text_ocr"],
+                "",
+                "--- Corrected ---",
+                results["full_text_corrected"],
+            ]
+            out_path.write_text("\n".join(lines), encoding="utf-8")
+            print(f"Results saved to {out_path}")
 
     else:
         if args.data == "raw":
@@ -178,12 +200,34 @@ if __name__ == "__main__":
         print(f"Running inference on {args.split} split ({len(split_dataset)} samples)...")
 
         results = inferencer.full_inference_from_dataset(split_dataset)
-        print(f"\nCER (OCR):       {results['cer_ocr']:.4f}")
+        print(f"\nCER (OCR): {results['cer_ocr']:.4f}")
         print(f"CER (corrected): {results['cer_corrected']:.4f}")
         print(f"\nSample predictions:")
         for sample in results["samples"][:5]:
-            print(f"  truth:     {sample['truth']}")
-            print(f"  ocr:       {sample['ocr']}")
-            print(f"  corrected: {sample['corrected']}")
+            print(f"truth: {sample['truth']}")
+            print(f"ocr: {sample['ocr']}")
+            print(f"corrected: {sample['corrected']}")
             print()
+
+        if args.save_text:
+            out_path = Path(f"inference_{args.data}_{args.split}.txt")
+            lines = [
+                f"Data: {args.data}",
+                f"Split: {args.split}",
+                f"Samples: {len(results['samples'])}",
+                "",
+                f"CER (OCR): {results['cer_ocr']:.4f}",
+                f"CER (corrected): {results['cer_corrected']:.4f}",
+                "",
+            ]
+            for i, sample in enumerate(results["samples"], 1):
+                lines += [
+                    f"--- Sample {i} ---",
+                    f"Truth: {sample['truth']}",
+                    f"OCR: {sample['ocr']}",
+                    f"Corrected: {sample['corrected']}",
+                    "",
+                ]
+            out_path.write_text("\n".join(lines), encoding="utf-8")
+            print(f"Results saved to {out_path}")
 
