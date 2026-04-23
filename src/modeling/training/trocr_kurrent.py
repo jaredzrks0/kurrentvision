@@ -149,7 +149,10 @@ if __name__ == "__main__":
 
     history = {"train_loss": [], "val_loss": [], "train_cer": [], "val_cer": [], "grad_norm": []}
 
-    # Actually train the thing
+    save_dir = Path("models/kurrent_ocr")
+    save_dir.mkdir(parents=True, exist_ok=True)
+
+    best_val_loss = float("inf")
     for epoch in range(1, EPOCHS + 1):
         train_loss, train_cer, grad_norm = train_one_epoch(model, processor, train_loader, optimizer, device, compute_char_acc=args.compute_cer)
         val_loss, val_cer = evaluate(model, processor, val_loader, device, compute_char_acc=args.compute_cer)
@@ -162,14 +165,17 @@ if __name__ == "__main__":
         history["val_cer"].append(val_cer)
         history["grad_norm"].append(grad_norm)
 
+        save_training_plots(history, save_dir)
+
+        if val_loss < best_val_loss:
+            best_val_loss = val_loss
+            model.save_pretrained(save_dir / f"trocr_{args.data}_best")
+            processor.save_pretrained(save_dir / f"trocr_{args.data}_best")
+            print(f"New best model saved (val_loss={best_val_loss:.4f})")
+
     # Sample some validation texts to preview
     sample_predictions(model, processor, val_loader, device)
 
-    # Save model and plots
-    save_dir = Path("models/kurrent_ocr")
-    save_dir.mkdir(parents=True, exist_ok=True)
-    save_training_plots(history, save_dir)
-    save_path = save_dir / f"trocr_{args.data}"
-    model.save_pretrained(save_path)
-    processor.save_pretrained(save_path)
-    print(f"Model saved to {save_path}")
+    model.save_pretrained(save_dir / f"trocr_{args.data}_final")
+    processor.save_pretrained(save_dir / f"trocr_{args.data}_final")
+    print(f"Final model saved to {save_dir / f'trocr_{args.data}_final'}")
