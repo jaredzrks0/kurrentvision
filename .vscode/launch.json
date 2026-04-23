@@ -147,6 +147,40 @@
             "env": {"PYTHONPATH": "${workspaceFolder}/src"}
         },
         {
+            "name": "XML Inference - Path",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/modeling/inference/xml_inference.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--mode", "path",
+                "--xml", "data/raw_data/Digitale Schriftkunde Archive Bayerns/xml/Reichsstadt/Reichsstadt_Nuernberg_Ratsverlaesse_443_S70_Jahr_1806.xml",
+                "--image", "data/raw_data/Digitale Schriftkunde Archive Bayerns/images/Reichsstadt/Reichsstadt_Nuernberg_Ratsverlaesse_443_S70_Jahr_1806.png",
+                "--ocr-model", "models/kurrent_ocr/trocr_both",
+                "--corrector-model", "models/grammar_corrector/corrector_both_best"
+            ],
+            "justMyCode": false,
+            "cwd": "${workspaceFolder}",
+            "env": {"PYTHONPATH": "${workspaceFolder}/src"}
+        },
+        {
+            "name": "XML Inference - Dataset",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/modeling/inference/xml_inference.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--mode", "dataset",
+                "--data", "both",
+                "--split", "test",
+                "--ocr-model", "models/kurrent_ocr/trocr_both",
+                "--corrector-model", "models/grammar_corrector/corrector_both_best"
+            ],
+            "justMyCode": false,
+            "cwd": "${workspaceFolder}",
+            "env": {"PYTHONPATH": "${workspaceFolder}/src"}
+        },
+        {
             "name": "OCR Predict",
             "type": "debugpy",
             "request": "launch",
