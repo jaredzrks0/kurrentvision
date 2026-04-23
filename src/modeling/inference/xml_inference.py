@@ -11,7 +11,7 @@ from modeling.utils import cer
 
 
 class XmlInference:
-    def __init__(self, ocr_model, ocr_processor, corrector, tokenizer, device, max_len: int = 128):
+    def __init__(self, ocr_model, ocr_processor, device, corrector=None, tokenizer=None, max_len: int = 128):
         self.ocr_model = ocr_model
         self.ocr_processor = ocr_processor
         self.corrector = corrector
@@ -20,7 +20,8 @@ class XmlInference:
         self.max_len = max_len
 
         self.ocr_model.eval()
-        self.corrector.eval()
+        if self.corrector is not None:
+            self.corrector.eval()
 
     @torch.no_grad()
     def _ocr(self, crops: list) -> list[str]:
@@ -30,6 +31,8 @@ class XmlInference:
 
     @torch.no_grad()
     def _correct(self, texts: list[str]) -> list[str]:
+        if self.corrector is None:
+            return texts
         inputs = self.tokenizer(
             texts, return_tensors="pt", padding=True, truncation=True, max_length=self.max_len
         ).to(self.device)
@@ -118,7 +121,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run full OCR + error correction inference")
     parser.add_argument("--mode", choices=["path", "dataset"], default="path")
     parser.add_argument("--ocr-model", required=True, help="Path to local TrOCR checkpoint directory")
-    parser.add_argument("--corrector-model", required=True, help="Path to local grammar corrector checkpoint directory")
+    parser.add_argument("--corrector-model", default=None, help="Path to local grammar corrector checkpoint directory (optional)")
     # path mode
     parser.add_argument("--xml", help="Path to the XML annotation file")
     parser.add_argument("--image", help="Path to the corresponding image file")
@@ -136,10 +139,12 @@ if __name__ == "__main__":
     ocr_processor = TrOCRProcessor.from_pretrained("microsoft/trocr-base-handwritten")
     ocr_model = VisionEncoderDecoderModel.from_pretrained(args.ocr_model).to(device)
 
-    tokenizer = MBart50TokenizerFast.from_pretrained(args.corrector_model, src_lang="de_DE", tgt_lang="de_DE")
-    corrector = MBartForConditionalGeneration.from_pretrained(args.corrector_model).to(device)
+    corrector, tokenizer = None, None
+    if args.corrector_model:
+        tokenizer = MBart50TokenizerFast.from_pretrained(args.corrector_model, src_lang="de_DE", tgt_lang="de_DE")
+        corrector = MBartForConditionalGeneration.from_pretrained(args.corrector_model).to(device)
 
-    inferencer = XmlInference(ocr_model, ocr_processor, corrector, tokenizer, device)
+    inferencer = XmlInference(ocr_model, ocr_processor, device, corrector=corrector, tokenizer=tokenizer)
 
     if args.mode == "path":
         results = inferencer.full_inference_from_path(args.xml, args.image)
