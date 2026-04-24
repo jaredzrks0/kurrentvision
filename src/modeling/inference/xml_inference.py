@@ -156,13 +156,14 @@ if __name__ == "__main__":
         print(f"\nGround truth:\n{results['ground_truth']}")
         print("\nPer-line breakdown:")
         for line in results["lines"]:
-            print(f"  truth: {line['xml_truth']}")
-            print(f"  ocr: {line['ocr']}")
-            print(f"  corrected: {line['corrected']}")
+            print(f"truth: {line['xml_truth']}")
+            print(f"ocr: {line['ocr']}")
+            print(f"corrected: {line['corrected']}")
             print()
 
         if args.save_text:
-            out_dir = Path("src/modeling/inference/image_predictions")
+            model_name = Path(args.ocr_model).name
+            out_dir = Path("src/modeling/inference/image_predictions") / model_name
             out_dir.mkdir(parents=True, exist_ok=True)
             out_path = out_dir / (Path(args.xml).stem + ".inference.txt")
             lines = [
@@ -212,7 +213,8 @@ if __name__ == "__main__":
             print()
 
         if args.save_text:
-            out_dir = Path("src/modeling/inference/image_predictions")
+            model_name = Path(args.ocr_model).name
+            out_dir = Path("src/modeling/inference/image_predictions") / model_name
             out_dir.mkdir(parents=True, exist_ok=True)
             out_path = out_dir / f"inference_{args.data}_{args.split}.txt"
             lines = [

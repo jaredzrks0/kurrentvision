@@ -183,6 +183,24 @@
             "env": {"PYTHONPATH": "${workspaceFolder}/src"}
         },
         {
+            "name": "XML Inference - Grandpa Letters",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/modeling/inference/xml_inference.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--mode", "dataset",
+                "--data", "raw",
+                "--split", "test",
+                "--exclude", "Digitale Schriftkunde Archive Bayerns", "DTA Handwritten OCR", "UGreifswald Senatsprotokolle", "grandpa_letters_2",
+                "--ocr-model", "dh-unibe/trocr-kurrent",
+                "--corrector-model", "models/grammar_corrector/corrector_both_best"
+            ],
+            "justMyCode": false,
+            "cwd": "${workspaceFolder}",
+            "env": {"PYTHONPATH": "${workspaceFolder}/src"}
+        },
+        {
             "name": "OCR Predict",
             "type": "debugpy",
             "request": "launch",
