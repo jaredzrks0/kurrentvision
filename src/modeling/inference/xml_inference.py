@@ -162,7 +162,9 @@ if __name__ == "__main__":
             print()
 
         if args.save_text:
-            out_path = Path(args.xml).with_suffix(".inference.txt")
+            out_dir = Path("src/modeling/inference/image_predictions")
+            out_dir.mkdir(parents=True, exist_ok=True)
+            out_path = out_dir / (Path(args.xml).stem + ".inference.txt")
             lines = [
                 f"XML: {args.xml}",
                 f"Image: {args.image}",
@@ -210,7 +212,9 @@ if __name__ == "__main__":
             print()
 
         if args.save_text:
-            out_path = Path(f"inference_{args.data}_{args.split}.txt")
+            out_dir = Path("src/modeling/inference/image_predictions")
+            out_dir.mkdir(parents=True, exist_ok=True)
+            out_path = out_dir / f"inference_{args.data}_{args.split}.txt"
             lines = [
                 f"Data: {args.data}",
                 f"Split: {args.split}",
