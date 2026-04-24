@@ -156,8 +156,10 @@
                 "--mode", "path",
                 "--xml", "data/raw_data/Digitale Schriftkunde Archive Bayerns/xml/Reichsstadt/Reichsstadt_Nuernberg_Ratsverlaesse_443_S70_Jahr_1806.xml",
                 "--image", "data/raw_data/Digitale Schriftkunde Archive Bayerns/images/Reichsstadt/Reichsstadt_Nuernberg_Ratsverlaesse_443_S70_Jahr_1806.png",
-                "--ocr-model", "models/kurrent_ocr/trocr_both",
-                "--corrector-model", "models/grammar_corrector/corrector_both_best"
+                "--ocr-model", "dh-unibe/trocr-kurrent",
+                //"--ocr-model", "models/kurrent_ocr/trocr_both",
+                //"--corrector-model", "models/grammar_corrector/corrector_both_best"
+                "--save"
             ],
             "justMyCode": false,
             "cwd": "${workspaceFolder}",
