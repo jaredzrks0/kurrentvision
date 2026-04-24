@@ -194,7 +194,8 @@
                 "--split", "test",
                 "--exclude", "Digitale Schriftkunde Archive Bayerns", "DTA Handwritten OCR", "UGreifswald Senatsprotokolle", "grandpa_letters_2",
                 "--ocr-model", "dh-unibe/trocr-kurrent",
-                "--corrector-model", "models/grammar_corrector/corrector_both_best"
+                //"--corrector-model", "models/grammar_corrector/corrector_both_best"
+                "--save-text"
             ],
             "justMyCode": false,
             "cwd": "${workspaceFolder}",
