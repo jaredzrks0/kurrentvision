@@ -94,6 +94,7 @@ def collect_raw_samples(root_dir: str | Path, exclude: list[str] | None = None) 
 
                 for bbox, text, page_size in line_samples:
                     samples.append({
+                        "xml_path": xml_path,
                         "image_path": image_path,
                         "bbox": bbox,
                         "page_size": page_size,

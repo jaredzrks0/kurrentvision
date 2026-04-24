@@ -1,7 +1,7 @@
 import argparse
 import torch
 
-from torch.utils.data import DataLoader, Dataset
+from torch.utils.data import Dataset
 from PIL import Image
 from pathlib import Path
 from transformers import TrOCRProcessor, VisionEncoderDecoderModel, MBartForConditionalGeneration, MBart50TokenizerFast
@@ -86,30 +86,36 @@ class XmlInference:
             "cer_corrected": cer([full_corrected], [ground_truth]),
         }
 
-    def full_inference_from_dataset(self, dataset: Dataset, batch_size: int = 16) -> dict:
-        def collate(batch):
-            return {
-                "image": [x["image"] for x in batch],
-                "text": [x["text"] for x in batch],
-            }
+    def full_inference_from_dataset(self, dataset: Dataset) -> dict:
+        from torch.utils.data import ConcatDataset
 
-        loader = DataLoader(dataset, batch_size=batch_size, shuffle=False, collate_fn=collate)
+        def _get_raw_samples(ds):
+            if isinstance(ds, ConcatDataset):
+                samples = []
+                for sub in ds.datasets:
+                    samples.extend(_get_raw_samples(sub))
+                return samples
+            return getattr(ds, "samples", [])
 
+        raw_samples = _get_raw_samples(dataset)
+        seen = {}
+        for s in raw_samples:
+            if "xml_path" in s:
+                xml_path = s["xml_path"]
+                if xml_path not in seen:
+                    seen[xml_path] = s["image_path"]
+
+        page_results = []
         all_ocr, all_corrected, all_truths = [], [], []
-        for batch in loader:
-            ocr_preds = self._ocr(batch["image"])
-            corrected_preds = self._correct(ocr_preds)
-            all_ocr.extend(ocr_preds)
-            all_corrected.extend(corrected_preds)
-            all_truths.extend(batch["text"])
-
-        samples = [
-            {"truth": t, "ocr": o, "corrected": c}
-            for t, o, c in zip(all_truths, all_ocr, all_corrected)
-        ]
+        for xml_path, image_path in seen.items():
+            result = self.full_inference_from_path(xml_path, image_path)
+            page_results.append({"xml": str(xml_path), "image": str(image_path), **result})
+            all_ocr.append(result["full_text_ocr"])
+            all_corrected.append(result["full_text_corrected"])
+            all_truths.append(result["ground_truth"])
 
         return {
-            "samples": samples,
+            "pages": page_results,
             "cer_ocr": cer(all_ocr, all_truths),
             "cer_corrected": cer(all_corrected, all_truths),
         }
@@ -200,16 +206,17 @@ if __name__ == "__main__":
                 batch_size=16, num_workers=0,
             )
         split_dataset = {"train": train_loader, "val": val_loader, "test": test_loader}[args.split].dataset
-        print(f"Running inference on {args.split} split ({len(split_dataset)} samples)...")
+        print(f"Running inference on {args.split} split...")
 
         results = inferencer.full_inference_from_dataset(split_dataset)
-        print(f"\nCER (OCR): {results['cer_ocr']:.4f}")
+        print(f"\nPages: {len(results['pages'])}")
+        print(f"CER (OCR): {results['cer_ocr']:.4f}")
         print(f"CER (corrected): {results['cer_corrected']:.4f}")
-        print(f"\nSample predictions:")
-        for sample in results["samples"][:5]:
-            print(f"truth: {sample['truth']}")
-            print(f"ocr: {sample['ocr']}")
-            print(f"corrected: {sample['corrected']}")
+        print(f"\nSample page predictions:")
+        for page in results["pages"][:3]:
+            print(f"xml: {page['xml']}")
+            print(f"cer_ocr: {page['cer_ocr']:.4f}")
+            print(f"cer_corrected: {page['cer_corrected']:.4f}")
             print()
 
         if args.save_text:
@@ -220,18 +227,26 @@ if __name__ == "__main__":
             lines = [
                 f"Data: {args.data}",
                 f"Split: {args.split}",
-                f"Samples: {len(results['samples'])}",
+                f"Pages: {len(results['pages'])}",
                 "",
                 f"CER (OCR): {results['cer_ocr']:.4f}",
                 f"CER (corrected): {results['cer_corrected']:.4f}",
                 "",
             ]
-            for i, sample in enumerate(results["samples"], 1):
+            for i, page in enumerate(results["pages"], 1):
                 lines += [
-                    f"--- Sample {i} ---",
-                    f"Truth: {sample['truth']}",
-                    f"OCR: {sample['ocr']}",
-                    f"Corrected: {sample['corrected']}",
+                    f"--- Page {i}: {page['xml']} ---",
+                    f"CER (OCR): {page['cer_ocr']:.4f}",
+                    f"CER (corrected): {page['cer_corrected']:.4f}",
+                    "",
+                    "Ground Truth:",
+                    page["ground_truth"],
+                    "",
+                    "OCR:",
+                    page["full_text_ocr"],
+                    "",
+                    "Corrected:",
+                    page["full_text_corrected"],
                     "",
                 ]
             out_path.write_text("\n".join(lines), encoding="utf-8")
