@@ -49,7 +49,7 @@ def save_training_plots(history: dict, save_dir: Path) -> None:
 
     # Gradient Norm
     axes[1, 0].plot(epochs, history["grad_norm"], "o-", color="tab:red")
-    axes[1, 0].set_title("Average Gradient Norm")
+    axes[1, 0].set_title("Average Gradient Norm (clipped at 1)")
     axes[1, 0].set_xlabel("Epoch")
     axes[1, 0].set_ylabel("L2 Norm")
     axes[1, 0].grid(True)
@@ -103,7 +103,7 @@ def save_error_correction_plots(history: dict, save_dir: Path) -> None:
 
     # Gradient Norm
     axes[1, 0].plot(epochs, history["grad_norm"], "o-", color="tab:red")
-    axes[1, 0].set_title("Average Gradient Norm")
+    axes[1, 0].set_title("Average Gradient Norm (clipped at 1)")
     axes[1, 0].set_xlabel("Epoch")
     axes[1, 0].set_ylabel("L2 Norm")
     axes[1, 0].grid(True)

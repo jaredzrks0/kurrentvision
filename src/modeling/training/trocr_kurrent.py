@@ -92,14 +92,11 @@ def _forward_pass(model, processor, loader, device, compute_char_acc, is_eval=Tr
     avg_grad_norm = sum(batch_grad_norms) / len(batch_grad_norms) if batch_grad_norms else None
     return total_loss, all_preds, all_targets, avg_grad_norm
 
-def _update_and_store_gradients(model, batch_grad_norms,optimizer, loss):
+def _update_and_store_gradients(model, batch_grad_norms, optimizer, loss):
     optimizer.zero_grad()
     loss.backward()
-    total_norm = 0.0
-    for p in model.parameters():
-        if p.grad is not None:
-            total_norm += p.grad.data.norm(2).item() ** 2
-    batch_grad_norms.append(total_norm ** 0.5)
+    total_norm = torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
+    batch_grad_norms.append(total_norm.item())
     optimizer.step()
 
 
