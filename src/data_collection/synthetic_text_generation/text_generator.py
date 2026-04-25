@@ -200,7 +200,7 @@ def main():
             count=args.count,
             font_size=args.font_size,
             skewing_angle={0: 0.5, 1: 0.2, 2: 0.15, 3: 0.1, 4: 0.04, 5: 0.01},
-            blur={0: 0.4, 1: 0.3, 2: 0.2, 3: 0.1},
+            blur={0: 0.4, 1: 0.4, 2: 0.2,},
             background_type={1: 1.0},
             distorsion_type={0: 1.0},
             distorsion_orientation={0: 1.0},
