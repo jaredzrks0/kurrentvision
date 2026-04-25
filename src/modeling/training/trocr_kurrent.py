@@ -1,4 +1,8 @@
 import argparse
+import json
+import logging
+import sys
+from datetime import datetime
 from pathlib import Path
 
 import torch
@@ -12,6 +16,27 @@ from modeling.utils import save_training_plots, cer
 
 
 TROCR_MODEL = "dh-unibe/trocr-kurrent"
+
+
+def _setup_logging(log_path: Path) -> None:
+    log_path.parent.mkdir(parents=True, exist_ok=True)
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s  %(message)s",
+        datefmt="%H:%M:%S",
+        handlers=[
+            logging.StreamHandler(),
+            logging.FileHandler(log_path),
+        ],
+    )
+
+    def _log_unhandled_exception(exc_type, exc_value, exc_tb):
+        if issubclass(exc_type, KeyboardInterrupt):
+            sys.__excepthook__(exc_type, exc_value, exc_tb)
+            return
+        logging.critical("Unhandled exception", exc_info=(exc_type, exc_value, exc_tb))
+
+    sys.excepthook = _log_unhandled_exception
 
 
 def train_one_epoch(model, processor, loader, optimizer, device, compute_char_acc: bool = False):
@@ -98,7 +123,7 @@ def _freeze_backbone(model, unfrozen_decoder_layers=3):
 
     total = sum(p.numel() for p in model.parameters())
     trainable = sum(p.numel() for p in model.parameters() if p.requires_grad)
-    print(f"Trainable params: {trainable:,} / {total:,} ({100 * trainable / total:.1f}%)")
+    logging.info(f"Trainable params: {trainable:,} / {total:,} ({100 * trainable / total:.1f}%)")
 
 
 if __name__ == "__main__":
@@ -110,17 +135,44 @@ if __name__ == "__main__":
     parser.add_argument("--exclude", nargs="*", default=["grandpa_letters", "grandpa_letters_2"], help="Raw data sources to exclude")
     parser.add_argument("--compute-cer", action="store_true", default=True,
                         help="Compute character error rate each epoch (slower)")
+    parser.add_argument("--resume", default=None, metavar="CHECKPOINT_DIR",
+                        help="Resume training from a saved checkpoint directory")
     args = parser.parse_args()
 
-    device = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
-    print(f"Device: {device}")
+    save_dir = Path("models/kurrent_ocr")
+    save_dir.mkdir(parents=True, exist_ok=True)
 
-    # Download both the model and its accompanying processor
-    processor = TrOCRProcessor.from_pretrained("microsoft/trocr-base-handwritten")
-    model = VisionEncoderDecoderModel.from_pretrained(TROCR_MODEL).to(device)
+    if args.resume:
+        resume_path = Path(args.resume)
+        state = json.loads((resume_path / "training_state.json").read_text())
+        run_id = state["run_id"]
+        history = state["history"]
+        best_val_loss = state["best_val_loss"]
+        history_file = Path(state["history_file"])
+        start_epoch = len(history["train_loss"]) + 1
+    else:
+        run_id = datetime.now().strftime("%Y%m%d_%H%M%S")
+        history = {"train_loss": [], "val_loss": [], "train_cer": [], "val_cer": [], "grad_norm": []}
+        best_val_loss = float("inf")
+        history_file = save_dir / "history" / f"trocr_{args.data}_{run_id}.json"
+        start_epoch = 1
+
+    _setup_logging(save_dir / "logs" / f"trocr_{args.data}_{run_id}.log")
+    history_file.parent.mkdir(parents=True, exist_ok=True)
+
+    device = torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
+    logging.info(f"Device: {device}")
+
+    if args.resume:
+        logging.info(f"Resuming from {resume_path} at epoch {start_epoch}")
+        processor = TrOCRProcessor.from_pretrained(str(resume_path))
+        model = VisionEncoderDecoderModel.from_pretrained(str(resume_path)).to(device)
+    else:
+        processor = TrOCRProcessor.from_pretrained("microsoft/trocr-base-handwritten")
+        model = VisionEncoderDecoderModel.from_pretrained(TROCR_MODEL).to(device)
     _freeze_backbone(model, unfrozen_decoder_layers=2)
 
-    print(f"Loading data from {args.data})...")
+    logging.info(f"Loading data ({args.data})...")
     if args.data == "raw":
         train_loader, val_loader, test_loader = build_dataloaders(
             args.raw_dir, exclude=args.exclude, batch_size=BATCH_SIZE, num_workers=0,
@@ -134,30 +186,24 @@ if __name__ == "__main__":
             args.raw_dir, exclude=args.exclude, synthetic_dir=args.synthetic_dir,
             batch_size=BATCH_SIZE, num_workers=0,
         )
-    print(f"Train: {len(train_loader.dataset)}  Val: {len(val_loader.dataset)}  Test: {len(test_loader.dataset)}")
-    
+    logging.info(f"Train: {len(train_loader.dataset)}  Val: {len(val_loader.dataset)}  Test: {len(test_loader.dataset)}")
+
     optimizer = torch.optim.Adam(model.parameters(), lr=LR)
 
-    print(f"\n{'='*50}")
-    print(f"Model: {TROCR_MODEL}")
-    print(f"Architecture:\n{model}")
-    print(f"Epochs:{EPOCHS}")
-    print(f"Batch size:{BATCH_SIZE}")
-    print(f"Learning rate:{optimizer.param_groups[0]['lr']}")
-    print(f"Device:{device}")
-    print(f"{'='*50}\n")
+    logging.info("=" * 50)
+    logging.info(f"Run ID:        {run_id}")
+    logging.info(f"Model:         {resume_path if args.resume else TROCR_MODEL}")
+    logging.info(f"Epochs:        {EPOCHS}  (starting from {start_epoch})")
+    logging.info(f"Batch size:    {BATCH_SIZE}")
+    logging.info(f"Learning rate: {optimizer.param_groups[0]['lr']}")
+    logging.info(f"History file:  {history_file}")
+    logging.info("=" * 50)
 
-    history = {"train_loss": [], "val_loss": [], "train_cer": [], "val_cer": [], "grad_norm": []}
-
-    save_dir = Path("models/kurrent_ocr")
-    save_dir.mkdir(parents=True, exist_ok=True)
-
-    best_val_loss = float("inf")
-    for epoch in range(1, EPOCHS + 1):
+    for epoch in range(start_epoch, EPOCHS + 1):
         train_loss, train_cer, grad_norm = train_one_epoch(model, processor, train_loader, optimizer, device, compute_char_acc=args.compute_cer)
         val_loss, val_cer = evaluate(model, processor, val_loader, device, compute_char_acc=args.compute_cer)
-        cer_str = f"train_cer={train_cer:.4f}  val_cer={val_cer:.4f}" if args.compute_cer else ""
-        print(f"Epoch {epoch}/{EPOCHS}  train_loss={train_loss:.4f}  val_loss={val_loss:.4f}{cer_str}  grad_norm={grad_norm:.4f}")
+        cer_str = f"  train_cer={train_cer:.4f}  val_cer={val_cer:.4f}" if args.compute_cer else ""
+        logging.info(f"Epoch {epoch}/{EPOCHS}  train_loss={train_loss:.4f}  val_loss={val_loss:.4f}{cer_str}  grad_norm={grad_norm:.4f}")
 
         history["train_loss"].append(train_loss)
         history["val_loss"].append(val_loss)
@@ -165,17 +211,25 @@ if __name__ == "__main__":
         history["val_cer"].append(val_cer)
         history["grad_norm"].append(grad_norm)
 
+        history_file.write_text(json.dumps(history, indent=2))
         save_training_plots(history, save_dir)
 
         if val_loss < best_val_loss:
             best_val_loss = val_loss
-            model.save_pretrained(save_dir / f"trocr_{args.data}_best")
-            processor.save_pretrained(save_dir / f"trocr_{args.data}_best")
-            print(f"New best model saved (val_loss={best_val_loss:.4f})")
+            best_dir = save_dir / f"trocr_{args.data}_best"
+            model.save_pretrained(best_dir)
+            processor.save_pretrained(best_dir)
+            (best_dir / "training_state.json").write_text(json.dumps({
+                "run_id": run_id,
+                "history": history,
+                "best_val_loss": best_val_loss,
+                "history_file": str(history_file),
+            }, indent=2))
+            logging.info(f"New best model saved (val_loss={best_val_loss:.4f})")
 
-    # Sample some validation texts to preview
     sample_predictions(model, processor, val_loader, device)
 
-    model.save_pretrained(save_dir / f"trocr_{args.data}_final")
-    processor.save_pretrained(save_dir / f"trocr_{args.data}_final")
-    print(f"Final model saved to {save_dir / f'trocr_{args.data}_final'}")
+    final_dir = save_dir / f"trocr_{args.data}_final"
+    model.save_pretrained(final_dir)
+    processor.save_pretrained(final_dir)
+    logging.info(f"Final model saved to {final_dir}")
