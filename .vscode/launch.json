@@ -107,7 +107,10 @@
             "request": "launch",
             "program": "${workspaceFolder}/src/modeling/training/trocr_kurrent.py",
             "console": "integratedTerminal",
-            "args": ["--data", "both"],
+            "args": [
+                "--data", "both",
+                "--exclude", "Digitale Schriftkunde Archive Bayerns", "DTA Handwritten OCR", "grandpa_letters_2", "UGreifswald Senatsprotokolle"
+            ],
             "justMyCode": false,
             "cwd": "${workspaceFolder}",
             "env": {"PYTHONPATH": "${workspaceFolder}"}

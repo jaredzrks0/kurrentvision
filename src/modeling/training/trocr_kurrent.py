@@ -87,7 +87,7 @@ def sample_predictions(model, processor, loader, device, n=5) -> None:
         print()
 
 
-def _freeze_backbone(model, unfrozen_decoder_layers=2):
+def _freeze_backbone(model, unfrozen_decoder_layers=3):
     for param in model.encoder.parameters():
         param.requires_grad = False
 
