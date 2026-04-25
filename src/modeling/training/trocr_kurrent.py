@@ -72,17 +72,22 @@ def _forward_pass(model, processor, loader, device, compute_char_acc, is_eval=Tr
 
         outputs = model(pixel_values=pixel_values, labels=labels)
         loss = outputs.loss
+        del outputs
 
         if not is_eval:
             _update_and_store_gradients(model=model, batch_grad_norms=batch_grad_norms, optimizer=optimizer, loss=loss)
 
         total_loss += loss.item()
+        del loss
 
         if compute_char_acc:
             with torch.no_grad():
                 generated_ids = model.generate(pixel_values)
             all_preds.extend(processor.batch_decode(generated_ids, skip_special_tokens=True))
             all_targets.extend(batch["text"])
+            del generated_ids
+
+        del pixel_values, labels
 
     avg_grad_norm = sum(batch_grad_norms) / len(batch_grad_norms) if batch_grad_norms else None
     return total_loss, all_preds, all_targets, avg_grad_norm
