@@ -185,7 +185,7 @@ if __name__ == "__main__":
     tokenizer = MBart50TokenizerFast.from_pretrained(CORRECTOR_MODEL, src_lang="de_DE", tgt_lang="de_DE")
     logger.info("Loading grammar corrector model from HuggingFace: %s", CORRECTOR_MODEL)
     corrector = MBartForConditionalGeneration.from_pretrained(CORRECTOR_MODEL).to(device)
-    _freeze_backbone(corrector, unfrozen_decoder_layers=2)
+    _freeze_backbone(corrector, unfrozen_decoder_layers=3)
 
     if args.data == "raw":
         img_train, img_val, img_test = build_dataloaders(
