@@ -1,0 +1,604 @@
+Data: raw
+Split: test
+Pages: 46
+
+CER (OCR): 0.2200
+CER (corrected): 0.2200
+
+--- Page 1: data/raw_data/grandpa_letters/xml/0095_p001.xml ---
+CER (OCR): 0.2696
+CER (corrected): 0.2696
+
+Ground Truth:
+en 10 mal vom Schiff abgeholt und alles möglich andere noh! Hoffentlich klappt bei unge mu alles rect bald dir hatens erwarten diese ode von Silli den erwünsdten Brief. Das machst de sonst wo?? Ic möhte doch sogenn was Naleres von Dir häm!! Hlast Du schon Freunde gefunden? Was macht Die Sonntags? Höffentlich mit Dein Dienst nicht mer gar so doll, dass Du es bishen leicdhter hast. Ich erwate reas bald einmal eine Nachidt von die und felue mih scan darauf absr noamals alles Gute u. viele hezeide Wüsse u. Wüsse Danne Ank lüber Josef! Ich bin gerade bei Ruth und Mar, was ich ja desöfteren tue. Ich bin schon so groß wie Ruth jetzt und haffe Deine Größe zu erreichen lb. Uschmun. Viele Hösse Dein Tschütschel! (Gotli) Ausführlicher Brief folgt. Dear Goseple! 8 want so do nothing bet jeining te regerls o Rull auh GobliDe hope to be wille zou in Abe zuiket preible eine, tab depento on cur dect relative Korman i. e. wrbether theg hase eccomplichel ous wiel espremd in eur let letter. - We ere serg glach to have golti here, she is liring guite war sur glab. - Sindert regard feom pour Brue brotber-inle Mer
+
+OCR:
+wesen 10 mal vom Schiff abgeholt und alles möglich andere noh! Hoffentlich klappt bei unge mu alles recht bald zu sehen. werden sie doll von billi sehn mödnsesten Brief. ses macht Du weit es! Ich wuß noch doch sogenn von diesen von Ida lären! Hort Für den Hlundl gefunden? Wie erwarte Du Hansaß? Hoffentlich ist Dein Dienst nicht nur gar er soll, dass Du erbitten fließter hast. Ich berade was bald einmal eine Nachricht von die und situe mich von darauf Ihre noamals alles Gute u. viele fuhrliche Würde u. Wüsse Deine Pohl licher Josef! Ich bin gerade bei Stellen und Meea, was ich ja besäfteren tue. hat bin schon so groß wie Ruhe jetzt und hoffe. Wennen Größe zu erreichen lb. Uschmun. Viele Höre Dein Tschütschel? Cöstli), diesführlicher Brief folgt. ! War Grosse! Wieb so so nöllig des jeininge Ue egerle es Duell auf Götiglkte lasse so de nisse zu in Ue grühlech grübte sind, Rat besecks on cur deer redetiren Formen ist dritten kurz lange eccomplichel vor wirbe ergrund in eur let letter. - We ere org glach so have holte here, she is liring guite war sur glab. - Sindert regard fern paar treue brotter unbe Mer
+
+Corrected:
+wesen 10 mal vom Schiff abgeholt und alles möglich andere noh! Hoffentlich klappt bei unge mu alles recht bald zu sehen. werden sie doll von billi sehn mödnsesten Brief. ses macht Du weit es! Ich wuß noch doch sogenn von diesen von Ida lären! Hort Für den Hlundl gefunden? Wie erwarte Du Hansaß? Hoffentlich ist Dein Dienst nicht nur gar er soll, dass Du erbitten fließter hast. Ich berade was bald einmal eine Nachricht von die und situe mich von darauf Ihre noamals alles Gute u. viele fuhrliche Würde u. Wüsse Deine Pohl licher Josef! Ich bin gerade bei Stellen und Meea, was ich ja besäfteren tue. hat bin schon so groß wie Ruhe jetzt und hoffe. Wennen Größe zu erreichen lb. Uschmun. Viele Höre Dein Tschütschel? Cöstli), diesführlicher Brief folgt. ! War Grosse! Wieb so so nöllig des jeininge Ue egerle es Duell auf Götiglkte lasse so de nisse zu in Ue grühlech grübte sind, Rat besecks on cur deer redetiren Formen ist dritten kurz lange eccomplichel vor wirbe ergrund in eur let letter. - We ere org glach so have holte here, she is liring guite war sur glab. - Sindert regard fern paar treue brotter unbe Mer
+
+--- Page 2: data/raw_data/grandpa_letters/xml/0110_p002.xml ---
+CER (OCR): 0.1532
+CER (corrected): 0.1532
+
+Ground Truth:
+liegt da etwa kein ernster grund vor. Last Du vielleicht Deine Stellung verlaen oder bist Du krank?? Hoffentlich ist alles im Ordnung. Vor uns ist nichts Neues zu berihten, wir warten auf die ärttliche Untersudung und unsa Capiee waren am6.10. in Ordnung alles hat geklappt, mir danat es jetzt so ser lange, bis man die Unsersaung bekannt wir waren heute wieder auf dem konnlat, um nachzifrager aber vor Febuar ist gar mot daran zu denken. Dir sind ja so geduldig geworden und sind scon sehr, schr froh dar wir überhaupt schon soweit snd. Demmächst wollen
+
+OCR:
+liegt da etwa kein ernster Hund vor. Last Du vielleicht Seine Stellung verloren oder bist Für krank 22. Hoffentlich ist alles im Ordnung. Du um ist nichts Neues zu berübten, wir warten auf die arztliche Unhandung und unsa¬ Dapiere waren am 6.10. in Ordnung aller hat geklappt, nur damit es jetzt so ja längt, bis man die Unterründung bekannt wir waren heute wieder auf dein konnlat, um nachzufragen aber vor Februar ist gar mit daran zu denken. Ida und ja w geduldig geworden und und von sehr, nur froh, oben da überhaupt das weit sind. Sinnächst wollen
+
+Corrected:
+liegt da etwa kein ernster Hund vor. Last Du vielleicht Seine Stellung verloren oder bist Für krank 22. Hoffentlich ist alles im Ordnung. Du um ist nichts Neues zu berübten, wir warten auf die arztliche Unhandung und unsa¬ Dapiere waren am 6.10. in Ordnung aller hat geklappt, nur damit es jetzt so ja längt, bis man die Unterründung bekannt wir waren heute wieder auf dein konnlat, um nachzufragen aber vor Februar ist gar mit daran zu denken. Ida und ja w geduldig geworden und und von sehr, nur froh, oben da überhaupt das weit sind. Sinnächst wollen
+
+--- Page 3: data/raw_data/grandpa_letters/xml/0111_p003.xml ---
+CER (OCR): 0.1538
+CER (corrected): 0.1538
+
+Ground Truth:
+wir auf 2.3 Woden nacd Srizig fahren (ertl. über Vatis seburts tag 1 denn er wird doch dieses Jahr 60 Jahre. Übrigem vielleiht kannst Du ergenhwie mal horden ob irgend. wie die Möglichkeit für ein Affidart für die altau u. Sotti besteht, du wist schon wissen, wann es angebracdt ist. Die Onkels Moses kannten sich unbedingt beteiligen und vielleicht tust Du Dich mit Tante Rebekka zusammen um jemanden Henen dafür ausfindig si maden. Wor müsser uns reht bald dafür untertsie den denn es dannert owieso 2-3 Jahre ehe sie herauskannen,
+
+OCR:
+wir auf 2-3 Woden nach Umsig haben ( will, über dabei Geburtstag pel denn er wird doch dieses Jahr 60 Jahre. Übrigen vielleicht kannst Du ir gliedwie mal hatten, ob irgend wie die Möglichkeit für ein Affidart für die Elten u. Sotti bestellt, Du wirst schon wissele, wann es angebracht ist. Die Onkels Meeres könnten ein unbedingt beteiligen und vielleicht tunst Du Dich mit Tante Rebekka zusammen um jemanden Reuen dafür ausfindlich sie maden. Wir müsse uns dann bald dafür in seligen ten denn es dannert wieder 2-3 Jahre ehe sie herauskommen,
+
+Corrected:
+wir auf 2-3 Woden nach Umsig haben ( will, über dabei Geburtstag pel denn er wird doch dieses Jahr 60 Jahre. Übrigen vielleicht kannst Du ir gliedwie mal hatten, ob irgend wie die Möglichkeit für ein Affidart für die Elten u. Sotti bestellt, Du wirst schon wissele, wann es angebracht ist. Die Onkels Meeres könnten ein unbedingt beteiligen und vielleicht tunst Du Dich mit Tante Rebekka zusammen um jemanden Reuen dafür ausfindlich sie maden. Wir müsse uns dann bald dafür in seligen ten denn es dannert wieder 2-3 Jahre ehe sie herauskommen,
+
+--- Page 4: data/raw_data/grandpa_letters/xml/0120_Handwritten Letter - Ruth.xml ---
+CER (OCR): 0.1821
+CER (corrected): 0.1821
+
+Ground Truth:
+2411.38. Lieber Jorf! Mit meinem heutigen Scheiben bitte ich Dia alles sofort zu erledigen, damit die Eltern + Sotte sofot ein Affidwvit bekommen und scnellste auswanden können. Die Mutti hat 5. vorige woche sofort, nach dem unserl. Vater abgeholt worden ist, einen ganz dingenden Brief an Fank Rebekke gescrieben. Wir müssen s sofat alles tun um auszuwandern, damit § Vati entlassen wird. Viellicht setzt Du Dich auch mit Onkel Albert in verbindung wenn der aber nicht sofort bereit ist, dann e6 wende Did vielleidt an den ehmealt, den mann von unserer Consine Hl. Soldstein der Eid bestimmt beraten wird wie Du als Soln nerp. altan Deinen Vater vielleicht bevorzugt anforden kannst. Aller Verwandten müsster mit untaseidnen, weil du woll doh zu wenig verdenst. Sete alle Hlebel in Bewegung vielleidt kannt du SR Did mit dem Konsulat Belin tell -grafisd in Dabücung setzen jedenfalls Clans Tid in alleen was Du für die vofertige Auswanderung tun kannst erst richtig beraten und verbinde Dich x
+
+OCR:
+2411.38. Lieber Jorf! seit meinem heutigen bleiben bitte ich Ida alles sofort zu erledigen, damit die Eltern + Sotte erhat ein Affidevit bekommen und unvollste auswanden können. Die Mutti hat 3. vorige woche sofort, nach dem unserl. Vate abgeholt werden ist, einen ganz dingenden Wies an Fank Rebekka geschrieben, die müssen u sofort alles tun um auszubenden damit 5 Dati entlassen wird. Viellicht setzt Du Dich und mit Onkel Albert in Verbindung, schen da aber nicht sofort Mit ist, kann w erwarte Gia willidt an den Anwalt, den mann von unserer Cäcilie N. Soldstein das sich besammt sorgassen wird, wie Du Dir als Soln wir Alten Deinen Vata vielleicht besetzt anfaden kannst, Alle, Undankten müssen mit unterschiedenen, weil Du soll doch zu wenig verdienst. Ich alle Eebel in Bewegung, vielleiht kommt Du da Dir mit dem Konsulat haben soll -glehviel in Dabücung setzen, jedenfalls beleidig in allen werde für die gehörige Amwandrung tun kannst Art richtig beraten und verbinde Dich Ehe
+
+Corrected:
+2411.38. Lieber Jorf! seit meinem heutigen bleiben bitte ich Ida alles sofort zu erledigen, damit die Eltern + Sotte erhat ein Affidevit bekommen und unvollste auswanden können. Die Mutti hat 3. vorige woche sofort, nach dem unserl. Vate abgeholt werden ist, einen ganz dingenden Wies an Fank Rebekka geschrieben, die müssen u sofort alles tun um auszubenden damit 5 Dati entlassen wird. Viellicht setzt Du Dich und mit Onkel Albert in Verbindung, schen da aber nicht sofort Mit ist, kann w erwarte Gia willidt an den Anwalt, den mann von unserer Cäcilie N. Soldstein das sich besammt sorgassen wird, wie Du Dir als Soln wir Alten Deinen Vata vielleicht besetzt anfaden kannst, Alle, Undankten müssen mit unterschiedenen, weil Du soll doch zu wenig verdienst. Ich alle Eebel in Bewegung, vielleiht kommt Du da Dir mit dem Konsulat haben soll -glehviel in Dabücung setzen, jedenfalls beleidig in allen werde für die gehörige Amwandrung tun kannst Art richtig beraten und verbinde Dich Ehe
+
+--- Page 5: data/raw_data/grandpa_letters/xml/0102_p001.xml ---
+CER (OCR): 0.3260
+CER (corrected): 0.3260
+
+Ground Truth:
+Ehcelskenbürrgt, dem 12. Bpt. 30. Mein lieber Joref! Zu Deinen bevastchenden Gebuttag gratliee d8 Iz id Dir reat recht herzlich und wuste Sii alles gurte. Fer hast bestimmt ein schweres Jahr lunter Du, aber es hat Da vielleiht auch viel Shäns gebractt nidt mah. Fedenfalls wird es auch für dich bestimmt leidter werden, wenn wir drüben sind Ier bist nicht neh allein und wir känen ales gemeinsam berateen mich besprechen u d ganz anders Entschlüsse fassen. Unser Shein kam voige Wode von Lilli- an und wir stürzten natürlih soföt zum Konnlat. Was rid dat tut kannt Du zir kaun vorstellen! - Sie bekamen seden¬ falls en neues Datuma sum 6. Oktober und wenn am 6. Okt. alles klappt, dann. hoffen wir die ärttlide Untersudung im Dezember Zu haben Unseren letzten Brief wirst du in lessen wohl erhalten haben. Inker bart hatte neulich und die est Vorledung beim Konsu- ht mic bei ihm nat alles geklappt er wirh woll and. in 2-3 Monaten fätig sein Bei walter hat es noch niht geklappt er mus d . 2 5
+
+OCR:
+Etwarlskenburg +, den 12. Sept. 38 Mein lieber Zauf! eine Seruen beruäschenden Abbildung geschlagen L. M. Ich bin wohl nur herzlich und werde Dir alles Güste. War heute bestimmt ein werde. Wir finden 2. F. war es lese. Sie vielleicht auch viel Wäns gebackt teibt nebe. Sie einfallen wird es auch für das bestimmt leidter werden, wenn wir drüben sind. In das nicht mehr allein und wir können alten Hineinsam fassen und beigenden und ganz anders Entschlüsse fassen. Unser Mien kam zeigt werde von Lilli- an und wie dass schon natürlich tieft eine konnlat. Den sih dort tut, kommt Du Sie kaum vorstellen! - Die bekamen Iden- falls ein wie Saten, und 6. Oktober und neuen am 16. Mts. alles klappt, dann kosten ein die gröstlich Unterrückung im December Du haben Unseren letzten Brief wirst du interen viel wirken haben. Onkel bat hat hat hat hat hatte neulich auch die noe Vrtretung beim Vorwir- hat und bei ihnen seit alles gehappt er wirst wohl auch in 2-3 Monaten fähig wie sei walter hat es noch niht geklappt, er nun Leben etwas 2 Herzlich
+
+Corrected:
+Etwarlskenburg +, den 12. Sept. 38 Mein lieber Zauf! eine Seruen beruäschenden Abbildung geschlagen L. M. Ich bin wohl nur herzlich und werde Dir alles Güste. War heute bestimmt ein werde. Wir finden 2. F. war es lese. Sie vielleicht auch viel Wäns gebackt teibt nebe. Sie einfallen wird es auch für das bestimmt leidter werden, wenn wir drüben sind. In das nicht mehr allein und wir können alten Hineinsam fassen und beigenden und ganz anders Entschlüsse fassen. Unser Mien kam zeigt werde von Lilli- an und wie dass schon natürlich tieft eine konnlat. Den sih dort tut, kommt Du Sie kaum vorstellen! - Die bekamen Iden- falls ein wie Saten, und 6. Oktober und neuen am 16. Mts. alles klappt, dann kosten ein die gröstlich Unterrückung im December Du haben Unseren letzten Brief wirst du interen viel wirken haben. Onkel bat hat hat hat hat hatte neulich auch die noe Vrtretung beim Vorwir- hat und bei ihnen seit alles gehappt er wirst wohl auch in 2-3 Monaten fähig wie sei walter hat es noch niht geklappt, er nun Leben etwas 2 Herzlich
+
+--- Page 6: data/raw_data/grandpa_letters/xml/0129_Letter 3 - Page 1.xml ---
+CER (OCR): 0.0454
+CER (corrected): 0.0454
+
+Ground Truth:
+Winnzig, den 20/9 37. Liebe Schwester: Gestern ist Sein uns immer liebe Briefe finsern Besitz gelangt und danken Dir herzlichst fr denselben, freuen uns vor allem, daß Du Gettlob, sund bist was wir von uns auch schreiben können daß die 85 anzekommen sind habe ich di auch be stätigt und auch mitgeteitt, daß Bruder Fellg der A¬ war und heut danke Dir herzlichst im Voraus, für die avisierten s. Also Jrief wird doch bei der Maritprocke arbeiten, ne Du bekommst je alles fertig, er wird sich dort auch ein erb- ten und seine Sache machen, denn er ist wie und will lernen, mit Deinem Willi sch nen sie besonders gute Freunde zu sein und Friedelchen wird jetzt zu kurz komme wenn er erst fort sein wird,. da muß ein ganz drölliges Sind sein, Du kannst ihren (Eltern sagen, dß sie uns auch mal ein Bildchen von unserer Großnichte mitschicken können wir werden uns damit sehr freuen Nun sind die Feiertage ziemlich zu Ende in wären wir die glücklichsten wenn uns neue Jehr ein klein wenig Hoffnung sich zu ernehren bringen würde. . Jetzt recht herzlichen Dank und beste Gräße für Dich lieb Schwester sowie alle Deine l Kinder u Inkelchen von der lolf
+
+OCR:
+Wirzig, den 20/9 37. Liebe Schwester! Gestern ist Dein uns immer liebe Briefe Funsern Besitz gelangt und denken Dir herzlichst für denselben, freuen und vor allem, daß Du Pettlob, und bist was wir von uns auch schreiben können daß die 85 anzekommen sind habe ich die auch be stätigt und auch senutgeteilt, daß Bruder Fellz der war und heut danke Dir herzlichst im Voraus, für die avisierten b. Also Jnef wird doch bei Ihr Maritprrte arbeiten, im Du bekommst ja alles fertig, er wird sich dort auch ein arb ten und seine Sache machen, denn er ist wie und will lernen, mit Deinem Willi schon nen sie besonders gute Freunde zu sein und Friedelchen wird jetzt zu kurz komme wenn er echt fort sein wird, daß muß eine ganz derwilliges Kind sein, Du Kannst ihren Eeltern sagen, dß sie uns auch mal ein Bildchen von unserer Groß nichte mitschicken können wir werden uns damit sehr freuen Nun sind die Feiertage ziemlich zu Ende in wären wir Sie glücklichsten wenn uns neue Jehr ein klein wenig Hoffnung sich zu ernehren bringen würde. . Jetzt recht herzlichen Dank und beste Grüße für Dich lieb Schwester sowie alle Deine l Kinder u Inkelchen von der Dolf
+
+Corrected:
+Wirzig, den 20/9 37. Liebe Schwester! Gestern ist Dein uns immer liebe Briefe Funsern Besitz gelangt und denken Dir herzlichst für denselben, freuen und vor allem, daß Du Pettlob, und bist was wir von uns auch schreiben können daß die 85 anzekommen sind habe ich die auch be stätigt und auch senutgeteilt, daß Bruder Fellz der war und heut danke Dir herzlichst im Voraus, für die avisierten b. Also Jnef wird doch bei Ihr Maritprrte arbeiten, im Du bekommst ja alles fertig, er wird sich dort auch ein arb ten und seine Sache machen, denn er ist wie und will lernen, mit Deinem Willi schon nen sie besonders gute Freunde zu sein und Friedelchen wird jetzt zu kurz komme wenn er echt fort sein wird, daß muß eine ganz derwilliges Kind sein, Du Kannst ihren Eeltern sagen, dß sie uns auch mal ein Bildchen von unserer Groß nichte mitschicken können wir werden uns damit sehr freuen Nun sind die Feiertage ziemlich zu Ende in wären wir Sie glücklichsten wenn uns neue Jehr ein klein wenig Hoffnung sich zu ernehren bringen würde. . Jetzt recht herzlichen Dank und beste Grüße für Dich lieb Schwester sowie alle Deine l Kinder u Inkelchen von der Dolf
+
+--- Page 7: data/raw_data/grandpa_letters/xml/0125_Leter 3 side 2 Gustel.xml ---
+CER (OCR): 0.0467
+CER (corrected): 0.0467
+
+Ground Truth:
+Lieber Pozek. Ich freue mich, daß es dir gut geht, du hast wohl schon von Deine Eltern gehört, daß ich mich jetzt hier auf halte. Wenn ich erst meinen Edu auch draußen hätte, er sollte nach Rube leider ist es durch die Sperre nichts geworden und nach unser Nummer Nommen wir erst 41. Tran. Von Gine u. Heus habe ich gute Nachricht, sie verdienen dieses Jahr, viel mehr, als das vorige Jahr u. haben eine leichte Stelle¬ Bleibe gesund u. herzlich gegrüßt von Deiner Tanle Gustel Weißt Du nach, als du den Berthor in Likör getunken hast?
+
+OCR:
+Lieber Skozek Ich freue mich, daß es dir gut geht, du hast wohl schon von Deine Eltern gehört, daß ich mich jetzt hier auf halte. Wenn ich erst meinen Sie auch draußen hätte, er sollte nach Rube¬ leider ist es durch die Sperre nichts geworden und nach unser Nummer kommen wir erst 41. Tran. Von Zünn u. Heu¬ habe ich gute Nachricht, sie verdienen dieses Jahr, viel mehr; als und vorige Jahr u. haben eine leichte Stelle. Bleibe gesund u. herzlich gegrüßt von Deiner Tanle Gustel Weisst du noch, als du den Berthor in Lökläw getunken hast?
+
+Corrected:
+Lieber Skozek Ich freue mich, daß es dir gut geht, du hast wohl schon von Deine Eltern gehört, daß ich mich jetzt hier auf halte. Wenn ich erst meinen Sie auch draußen hätte, er sollte nach Rube¬ leider ist es durch die Sperre nichts geworden und nach unser Nummer kommen wir erst 41. Tran. Von Zünn u. Heu¬ habe ich gute Nachricht, sie verdienen dieses Jahr, viel mehr; als und vorige Jahr u. haben eine leichte Stelle. Bleibe gesund u. herzlich gegrüßt von Deiner Tanle Gustel Weisst du noch, als du den Berthor in Lökläw getunken hast?
+
+--- Page 8: data/raw_data/grandpa_letters/xml/0108_p001.xml ---
+CER (OCR): 0.2176
+CER (corrected): 0.2176
+
+Ground Truth:
+St Paul, 27. 7. 37. Liber Jaef also mit Deines Weilteilung des In serond bank necht und vor allen herkomm willst, heft Du uns eine große Freude gemacht. Ich führ heute da ich frei hatte, zur Keim nach Mie¬ rnpolis. Also, nicht ein einziger Cake¬ baker ist steltungslos, sodaß gute Abenan vorhanden Esed. Ja, neulich sächten fir Er ger eine Echebnkes und wußten einen nicht zur euon gehiegen scheell in den oin nilt auhenkan, um die Selle bsetzen zu können. Er sagte mir schre die die Ihem brother-in law, er soll sich son seiem keine die trarclling-ward arstellen lassen und herkomme, mir besogen ihm eine gob. Für Erkebeln sind ute Chaen Ich bin sehr froh, daß die Fitation so günftig ist. Schreibe uns nun bald, rnen du komme willst ebs., wie du mit Retlen herbig wirft. Über die Fehrt werde ich dich noch jeneu Taftu- een, schweile nur wann hezlichst dein Hlan.
+
+OCR:
+St Paul, 27. 7. 37. Lieber Jorf also mit Deiner Mitteilung des In neimal breit wist und vor allem herkommen willst, hast Du uns eine große Freude gewacht. Ich fuhr heute da ich frei hatte, zur Union noch wie¬ wendlich. Also, nicht ein einziger Ecke¬ baker ist stellungslos, sodaß gute lbancen vorhanden schad. Ja, neulich füchten sie so zer einen beheben und wußten einen nicht zur eure gehiegen schnell in die wir nicht aufnahmen zur den Schlag¬ besetzen zu können. Er sagte mir, Schreib den Sie Ihnen Botker – er hat, es soll sich von seiner steire die Vrtbillig- red ausselben lassen und herkomme, mir besorgen ihm eine gob, Für beheben sind zu bei Amren Ich bin sehr froh, daß die Fitation so günstig ist. Schreiben uns nun bald wenn du kommen willst oder wie Du mit stecken heilig nicht. Aber die Führt ande ich Dich noch genau zerstö¬ eine schreibe nur wenn Herzlichst deine ber¬
+
+Corrected:
+St Paul, 27. 7. 37. Lieber Jorf also mit Deiner Mitteilung des In neimal breit wist und vor allem herkommen willst, hast Du uns eine große Freude gewacht. Ich fuhr heute da ich frei hatte, zur Union noch wie¬ wendlich. Also, nicht ein einziger Ecke¬ baker ist stellungslos, sodaß gute lbancen vorhanden schad. Ja, neulich füchten sie so zer einen beheben und wußten einen nicht zur eure gehiegen schnell in die wir nicht aufnahmen zur den Schlag¬ besetzen zu können. Er sagte mir, Schreib den Sie Ihnen Botker – er hat, es soll sich von seiner steire die Vrtbillig- red ausselben lassen und herkomme, mir besorgen ihm eine gob, Für beheben sind zu bei Amren Ich bin sehr froh, daß die Fitation so günstig ist. Schreiben uns nun bald wenn du kommen willst oder wie Du mit stecken heilig nicht. Aber die Führt ande ich Dich noch genau zerstö¬ eine schreibe nur wenn Herzlichst deine ber¬
+
+--- Page 9: data/raw_data/grandpa_letters/xml/0117_p001.xml ---
+CER (OCR): 0.2875
+CER (corrected): 0.2875
+
+Ground Truth:
+Berlin 5. Gept. 1937. Waler Lube Beslin S.1.65. Wilmsstr. 13. Mein lieber Jung. Sie werden sich wunden, dase ich Snsen l. Brief 46.8. so spät beantworte. Nun, ich wollte doh alle darin aufgetragenen Jrusse aus¬ richten u. da Srutti dien Wohe ert nach seines Urlaubstous zu erreichen war, so ist eben diese Verzögerung zurückzuführen. – Zunächrt als seht hazt. Dank für den l. Brief und ganz besonder für die Briefmartzen, wan denen ich so viele gebrauchen konnte. Ich freue mich, dass Sie so neht Wort gehalten haben. Na, die wissen ja noch, sonse wäre ich über den Tlich gekommen..... Auch der übrige im Brief hat mich interessiert. Ich beneide Sie um die gewältigen Eindrcke, die Ihnen die neue Heimal macht; Die Lebensweise musr doch doch wohl ganz andar sein, wie hier. Aller mehr im Gewakige gerzeigert. Berlin musr Ihnen ja jetzt wie eine Fltinstadt eecheinsen. Ich bin eben sichen, ware Ameike dm Menschen auch sicl mehr beausprucht und ihn schneller verbraucht. Na, Sie werden ja schon im Leben zurechtfinden, die Haupbiache ist, Sie haben mit einmab lehnen¬ de Arbeit, die Imen ja wie ih bere, in Ausricht war. Fietnes haben Ihren Brief auch geberen, ebees Hanr. Alle lassen sicht schön geussen. Piether ensarten aber auch von Imm noch eine Wackricht. Fruki hatte noh nach grossen Schwinigkeiten endlich Unbaub bekommen und war duach mit einem Freund 14 Tage mit dem Motosrad von Berlin über Lupzig, Bazanitt Nümbag, Bannbarg, Regensburg, Perreu, Barnich-Partenkinshen, Königere, Obesammesgau, Mütsenwals, Tölz, Wiesrer, Chinnen, Tegenree, Schliesbe, künken, kreuz u. gutt durck Fuddaitkband und Thüringen. Kuts ist ganz 1bh von di Schönheit der Heimal u. di Berge. Stundenbang haben wir natürlich zu erzählen gehebt und beinehe die Wieer Masre verbrannt. Hans hatte sie aber noch gesetzet. -Alfred ist nicht mehr bei Piether. Wie ich höre, war es etwas zu drust geworden. Unrer Kauffnin, di kleine vickze mit die Blätze Hesse, bässt ebenfalls grüssen. - Sest geht bei Ihrn alem Arbeitsstelle alber seinen alten Bang, nur Rükwatr, wann die Konda, spanmt, erlenäist
+
+OCR:
+Berlin 5. Fept. 1937. Waler Lube Berlin 5.10.6i.- Wilmsstr. 13. Mein lieber Jung. Ida worden sich wieder, der als Wenn 1.ßnitz. “ b. 8. wo spiel beantworte. Nun, ich wollte diese alle darin aufgetragenen Grund aus¬ richten u. da Brickli dien habe ich noch viele Unterbrunn zu weiter war, so ist dem eine Verzögerung zurückzuführen. – Zunächrt aber neh hazt. Dank für den l. Brief und ganz Vorredes für die Briefmachen, von denn ich es viele gebrauchen konnte. Ich freue mals, der Dir noch hoch gebanken haben. Na, die einen ja Male, weil man ihm über den Tisch gekommen. Auch der übrige im Brief, bat mich inbavriert. Fte Brande Sie um die gewaltigen Eindrücke, die Ihnen die mein Hänsb nabsst; die Clberwirn war doch. doch nicht ganz anders rein, ein fün. Alles mehre imr Unendlage gekopet. Berlin nur Ihnen ja jetzt wie ein Kleinationist verdringen. Er bin aber eben, der Amnicht die Märben weite viel andere Unmahrückt und ihm schneller verbewuert. Na, Ida wurden ja obere im Biblen zunebtfinden. Die Hauschreibe ist, die haben noch einmal Schwer¬ der Arbeit, die Bonn ja wie ih bere, in Ausricht war. Fickers haben Ihnen Füch auch geboren, einer Hans. Alle lassen sich obet oben gewornen. Pietes machten aber weit von Ihmen noch eine Unfriedet. Fruki hatte noch mehr gewissen Schwindigkeiten möllich lebens bekommen und wie danach mit einem Freund 14 Tage mit dem Motosrad von Berlin über läfsch, Begenik¬ Nümbag, Bannbarg, Regensberg, Perreu, Gemde- entschieden, Königern, Anerwiegen, kütenwebs, Istz, biersen, Chinnen, Tegenzen, Schliedern, künkeln, kreuz u. gut dank Fütschken und Stunden. Küsti ist ganz noch von die Gläubkit die Heimat u. die Unhe. Blündnebung haben wir natürlich zu erzählen gehabt und befindet die Mien herrn umbrennt. Hans hatte sie aber noch geschickt. - Es sind ist nicht mehr bei Pietter. Wie ich höre zwar an etwas zu. deut geworden. Unrer Kaufschau, da bekannt diese mit die Clabs steere, bunt ebenfalls geworden. - Ganat geht bei ihren alten Arbitsstelle alles einen alten Genz, nur Mitwahr, wenn die Kreuz kornt, abmügt
+
+Corrected:
+Berlin 5. Fept. 1937. Waler Lube Berlin 5.10.6i.- Wilmsstr. 13. Mein lieber Jung. Ida worden sich wieder, der als Wenn 1.ßnitz. “ b. 8. wo spiel beantworte. Nun, ich wollte diese alle darin aufgetragenen Grund aus¬ richten u. da Brickli dien habe ich noch viele Unterbrunn zu weiter war, so ist dem eine Verzögerung zurückzuführen. – Zunächrt aber neh hazt. Dank für den l. Brief und ganz Vorredes für die Briefmachen, von denn ich es viele gebrauchen konnte. Ich freue mals, der Dir noch hoch gebanken haben. Na, die einen ja Male, weil man ihm über den Tisch gekommen. Auch der übrige im Brief, bat mich inbavriert. Fte Brande Sie um die gewaltigen Eindrücke, die Ihnen die mein Hänsb nabsst; die Clberwirn war doch. doch nicht ganz anders rein, ein fün. Alles mehre imr Unendlage gekopet. Berlin nur Ihnen ja jetzt wie ein Kleinationist verdringen. Er bin aber eben, der Amnicht die Märben weite viel andere Unmahrückt und ihm schneller verbewuert. Na, Ida wurden ja obere im Biblen zunebtfinden. Die Hauschreibe ist, die haben noch einmal Schwer¬ der Arbeit, die Bonn ja wie ih bere, in Ausricht war. Fickers haben Ihnen Füch auch geboren, einer Hans. Alle lassen sich obet oben gewornen. Pietes machten aber weit von Ihmen noch eine Unfriedet. Fruki hatte noch mehr gewissen Schwindigkeiten möllich lebens bekommen und wie danach mit einem Freund 14 Tage mit dem Motosrad von Berlin über läfsch, Begenik¬ Nümbag, Bannbarg, Regensberg, Perreu, Gemde- entschieden, Königern, Anerwiegen, kütenwebs, Istz, biersen, Chinnen, Tegenzen, Schliedern, künkeln, kreuz u. gut dank Fütschken und Stunden. Küsti ist ganz noch von die Gläubkit die Heimat u. die Unhe. Blündnebung haben wir natürlich zu erzählen gehabt und befindet die Mien herrn umbrennt. Hans hatte sie aber noch geschickt. - Es sind ist nicht mehr bei Pietter. Wie ich höre zwar an etwas zu. deut geworden. Unrer Kaufschau, da bekannt diese mit die Clabs steere, bunt ebenfalls geworden. - Ganat geht bei ihren alten Arbitsstelle alles einen alten Genz, nur Mitwahr, wenn die Kreuz kornt, abmügt
+
+--- Page 10: data/raw_data/grandpa_letters/xml/0091_p002.xml ---
+CER (OCR): 0.1724
+CER (corrected): 0.1724
+
+Ground Truth:
+eweignest, die Duspäter dringend gebrauthen wies, daß du Zu den Festtagen in der Spurzahl warst, liat mich zufreut. Wie wal dir die Fndecht zufallen. Ist der Aitusgenau so wie hier Wer heaft du Dis für ein Suzurg gekrauft ich hatte Dich gene denist auf einen Bilde gesehen. Kaufe Dis uur gute Sachen, denn die guten sind die billighten¬ Der l. Mitti schreibt an Dich auf der Maschies ganz ausführlich; – daher möchte ich schliegten. bele weite sreht woll u. sei herzlich, ven Dman- Tatte gegrößt Vorige Woche war ich einige Tagem Barhei. bis auf dindarte Eilleg ist - all-reght. es gest ihr aber schon Bessek.
+
+OCR:
+ereignest, die Scherer Wiegend gebrauchen wirst, daß die zu den Festtagen in der Sprözahl warst, liat mich zufreut. Wie wal die die Gedacht zufallen? Ist der Ritusgenau so wie sich Du lacht du der für ein Irzug gekrauft, ich bitte Dich gerne denist auf einen Bilde gesehen. Kaufe Sich aus gute Sachen, denn die guten sind die billigsten, an l. Mitti schreibt an Dich auf der Maschien- ganz ausführlich; daher möchte ich schließen. Lehe weite sreht woll u. sei herzlich, von denen Fuschr gegrößt Vorje Woche war ich einige Regend Berlin. für auf die Seite billg ist – all- richtet. es geht ihr aber schon besteht.
+
+Corrected:
+ereignest, die Scherer Wiegend gebrauchen wirst, daß die zu den Festtagen in der Sprözahl warst, liat mich zufreut. Wie wal die die Gedacht zufallen? Ist der Ritusgenau so wie sich Du lacht du der für ein Irzug gekrauft, ich bitte Dich gerne denist auf einen Bilde gesehen. Kaufe Sich aus gute Sachen, denn die guten sind die billigsten, an l. Mitti schreibt an Dich auf der Maschien- ganz ausführlich; daher möchte ich schließen. Lehe weite sreht woll u. sei herzlich, von denen Fuschr gegrößt Vorje Woche war ich einige Regend Berlin. für auf die Seite billg ist – all- richtet. es geht ihr aber schon besteht.
+
+--- Page 11: data/raw_data/grandpa_letters/xml/0096_p001.xml ---
+CER (OCR): 0.1464
+CER (corrected): 0.1464
+
+Ground Truth:
+Berlin, d. 12.9.38 Mein lieber Bruder! Die besten Wünsche sende ich Dir zu Deinem Ge¬ Burtstag. leider ist es schon das zweite Mal, dass wir Dir nir schriftlich gratulieren können. Ich möchte es doch so gern mündlich tun. Nun wün¬ sehe ich Dir weiter das Allerheste und alles Eute und Freude an Deiner Arbeit. Mehr kann ich dir doch leider nicht zu Deinem Geburtstag wünschen. Nr noch Hoffnung, dass zu Rüth und Mai bald siehst. Es ist doch sehr nett, daß wir hier so mahl in dem großen Ber¬ Ein wohnen. Wenn ich etwas will kann ich schnell einmal hinüber springen. Es gefällt mir weiter so gut hier, dass ich es gar nicht beschreiben kann. Ishr lerse Glei¬ f2ig den Haushalt unc paszs keime Rochen immer gut auf, um bald alles erkernt zu haben. Nachmittags ha- be ich immer Freiseit für mich. Da gehe ich zarzür¬ Rich alt zu Bernsseins wor es immer ser gemütlich ist, soch. zzaommen wärt es doch. deppeht so sehön. Sharg sist doch üerhaupt prächtig, er hat Registerformulart be¬ 3urgt uind ser haht ich auch eins bekommen und mich Gleich auf dem Konzulat registiseren laszen. Ich dan: 224 dis recht herzlich, dass Du für mich Dich so in K. S. A. inerzierst. Wenn Rüth u. Sha dann trahs drüben sihnch, hoffentlich geht es dann mit mir schnelt.
+
+OCR:
+Berlin, d. 12.9.38 Mein lieber Bruder! Die besten Wünsche sanche ich Dir zu Deinem Se¬ burtstag. leider ist es schon das zweite Mal, dass wir Dir mir schriftlich gratulieren können. Ich möchte er doch so gern mündlich tun. Nun wün¬ aber ich Dir weiter das Allerhöste und alles Eute und Freude an deiner Arbeit. Aber kann ich Dir doch leider nicht zu Deinem Geburtstag wünschen. Nur noch Hoffnung, dass d. Kuth, und Mime bald sichert. Er ist doch sehr nett, daß wir leider so wohl in dem großenßer¬ ein wohnen. Wenn ich etwas will kann ich schnell einem ich himüber vereinigen. Er gefällt mir weiter so gut hier, dass ich es gar nicht beschreiben kann. Ich Vora! ssig den Haushalt und gutes beim Sachen immer gut auf, um bald alles erkernt zu haben. Nachmittags ha- bei sich immer Freiseut für mich. Da, geht ich vorlür¬ kiche oft zu Vaterheims vor er immerwo gemütlich nicht, Kopfte zusammen wäre es Euch doppelt zu schön. Also' das dorte überhaupt prächtig, er hat Bazisterforminl noe be- 3argt und so habe ich auch eins bekommen und mich gleich auf dem Konzulat requistiren lassen. Ich dar¬ sie mir recht herzlich, dass Du für mich Dich so in N. 8. r. interessiert. Wenn Kuth u. Burg dann bald drüben sind, hoffentlich geht es dann mit wir schnell,
+
+Corrected:
+Berlin, d. 12.9.38 Mein lieber Bruder! Die besten Wünsche sanche ich Dir zu Deinem Se¬ burtstag. leider ist es schon das zweite Mal, dass wir Dir mir schriftlich gratulieren können. Ich möchte er doch so gern mündlich tun. Nun wün¬ aber ich Dir weiter das Allerhöste und alles Eute und Freude an deiner Arbeit. Aber kann ich Dir doch leider nicht zu Deinem Geburtstag wünschen. Nur noch Hoffnung, dass d. Kuth, und Mime bald sichert. Er ist doch sehr nett, daß wir leider so wohl in dem großenßer¬ ein wohnen. Wenn ich etwas will kann ich schnell einem ich himüber vereinigen. Er gefällt mir weiter so gut hier, dass ich es gar nicht beschreiben kann. Ich Vora! ssig den Haushalt und gutes beim Sachen immer gut auf, um bald alles erkernt zu haben. Nachmittags ha- bei sich immer Freiseut für mich. Da, geht ich vorlür¬ kiche oft zu Vaterheims vor er immerwo gemütlich nicht, Kopfte zusammen wäre es Euch doppelt zu schön. Also' das dorte überhaupt prächtig, er hat Bazisterforminl noe be- 3argt und so habe ich auch eins bekommen und mich gleich auf dem Konzulat requistiren lassen. Ich dar¬ sie mir recht herzlich, dass Du für mich Dich so in N. 8. r. interessiert. Wenn Kuth u. Burg dann bald drüben sind, hoffentlich geht es dann mit wir schnell,
+
+--- Page 12: data/raw_data/grandpa_letters/xml/0127_Letter 1 - Page 2.xml ---
+CER (OCR): 0.1988
+CER (corrected): 0.1988
+
+Ground Truth:
+sie mit einer completten, moblisten 2.3 Junn wahue damist sie gleiche vom 1 Tager ein, zu Haufe lerben. Ich denke, daß man dort ſo eine festige Dahen, mirten Bespreche es mit der Tante Rebekau Tauté grete, die werden des schon behilflich siin. Wee gesagt Beonsteins dürfen davon keine sthun, haben, die Freude ist grgs und der Unbergang ist lietter. - Von Pirlmin Vorschlag ausführen läßt, so schreibe und darüber. For Heuh nach lagl Größe von Dener fatf tes Juns 11.38. Viilricht ist leidenn Sutslörten, am 2 zu hrben
+
+OCR:
+sie mit einer completten, mobisten 2-3 Junn wohner damit sie gleiches vom 1 Tage ein, zu Hause? lerben. Ich denke, daß man dort so eine festige Dabei, | müssen 3. bespreche es mit der Tante Rebeka u. Tante Grete, die werden das schon behilflich sind Tai gesagt, berichtener dürfen davon keine Ahnung haben, den Freude ist jetzt und der Uebergang ist Cietes. - Von sitzt mein Vorschlag ausführen läßt so schreibe mir darüber. Frr Amt noch lagl Größe von Dien Fatf 46 Jahren 4 11 u. 38. Vielricht ist bei denen Rücksläuten, wo 2 zu lrben?
+
+Corrected:
+sie mit einer completten, mobisten 2-3 Junn wohner damit sie gleiches vom 1 Tage ein, zu Hause? lerben. Ich denke, daß man dort so eine festige Dabei, | müssen 3. bespreche es mit der Tante Rebeka u. Tante Grete, die werden das schon behilflich sind Tai gesagt, berichtener dürfen davon keine Ahnung haben, den Freude ist jetzt und der Uebergang ist Cietes. - Von sitzt mein Vorschlag ausführen läßt so schreibe mir darüber. Frr Amt noch lagl Größe von Dien Fatf 46 Jahren 4 11 u. 38. Vielricht ist bei denen Rücksläuten, wo 2 zu lrben?
+
+--- Page 13: data/raw_data/grandpa_letters/xml/0008_p001.xml ---
+CER (OCR): 0.2696
+CER (corrected): 0.2696
+
+Ground Truth:
+en 10 mal vom Schiff abgeholt und alles möglich andere noh! Hoffentlich klappt bei unge mu alles rect bald dir hatens erwarten diese ode von Silli den erwünsdten Brief. Das machst de sonst wo?? Ic möhte doch sogenn was Naleres von Dir häm!! Hlast Du schon Freunde gefunden? Was macht Die Sonntags? Höffentlich mit Dein Dienst nicht mer gar so doll, dass Du es bishen leicdhter hast. Ich erwate reas bald einmal eine Nachidt von die und felue mih scan darauf absr noamals alles Gute u. viele hezeide Wüsse u. Wüsse Danne Ank lüber Josef! Ich bin gerade bei Ruth und Mar, was ich ja desöfteren tue. Ich bin schon so groß wie Ruth jetzt und haffe Deine Größe zu erreichen lb. Uschmun. Viele Hösse Dein Tschütschel! (Gotli) Ausführlicher Brief folgt. Dear Goseple! 8 want so do nothing bet jeining te regerls o Rull auh GobliDe hope to be wille zou in Abe zuiket preible eine, tab depento on cur dect relative Korman i. e. wrbether theg hase eccomplichel ous wiel espremd in eur let letter. - We ere serg glach to have golti here, she is liring guite war sur glab. - Sindert regard feom pour Brue brotber-inle Mer
+
+OCR:
+wesen 10 mal vom Schiff abgeholt und alles möglich andere noh! Hoffentlich klappt bei unge mu alles recht bald zu sehen. werden sie doll von billi sehn mödnsesten Brief. ses macht Du weit es! Ich wuß noch doch sogenn von diesen von Ida lären! Hort Für den Hlundl gefunden? Wie erwarte Du Hansaß? Hoffentlich ist Dein Dienst nicht nur gar er soll, dass Du erbitten fließter hast. Ich berade was bald einmal eine Nachricht von die und situe mich von darauf Ihre noamals alles Gute u. viele fuhrliche Würde u. Wüsse Deine Pohl licher Josef! Ich bin gerade bei Stellen und Meea, was ich ja besäfteren tue. hat bin schon so groß wie Ruhe jetzt und hoffe. Wennen Größe zu erreichen lb. Uschmun. Viele Höre Dein Tschütschel? Cöstli), diesführlicher Brief folgt. ! War Grosse! Wieb so so nöllig des jeininge Ue egerle es Duell auf Götiglkte lasse so de nisse zu in Ue grühlech grübte sind, Rat besecks on cur deer redetiren Formen ist dritten kurz lange eccomplichel vor wirbe ergrund in eur let letter. - We ere org glach so have holte here, she is liring guite war sur glab. - Sindert regard fern paar treue brotter unbe Mer
+
+Corrected:
+wesen 10 mal vom Schiff abgeholt und alles möglich andere noh! Hoffentlich klappt bei unge mu alles recht bald zu sehen. werden sie doll von billi sehn mödnsesten Brief. ses macht Du weit es! Ich wuß noch doch sogenn von diesen von Ida lären! Hort Für den Hlundl gefunden? Wie erwarte Du Hansaß? Hoffentlich ist Dein Dienst nicht nur gar er soll, dass Du erbitten fließter hast. Ich berade was bald einmal eine Nachricht von die und situe mich von darauf Ihre noamals alles Gute u. viele fuhrliche Würde u. Wüsse Deine Pohl licher Josef! Ich bin gerade bei Stellen und Meea, was ich ja besäfteren tue. hat bin schon so groß wie Ruhe jetzt und hoffe. Wennen Größe zu erreichen lb. Uschmun. Viele Höre Dein Tschütschel? Cöstli), diesführlicher Brief folgt. ! War Grosse! Wieb so so nöllig des jeininge Ue egerle es Duell auf Götiglkte lasse so de nisse zu in Ue grühlech grübte sind, Rat besecks on cur deer redetiren Formen ist dritten kurz lange eccomplichel vor wirbe ergrund in eur let letter. - We ere org glach so have holte here, she is liring guite war sur glab. - Sindert regard fern paar treue brotter unbe Mer
+
+--- Page 14: data/raw_data/grandpa_letters/xml/0124_Leter 3 side 1 father.xml ---
+CER (OCR): 0.1894
+CER (corrected): 0.1894
+
+Ground Truth:
+Mpdlear bey! Vemn Sich dieser Brif erreicht bist tro pearr im Bande der unbegreuffen Köglichkeiten. In dieser Leit haft dee schon so manches erlebt, dar Du sonst nicht gesehen lättest. Er muß doch für dich alles von großer Bedeutung sein. Nur hast Sie auch bald die Aussicht nach Mimosota zukommen wo wir uns m. 3. H. alle schen weden. - Für Sich ist auheine besirn u. leichtee Zristeng in Aussicht genommen. In jedem | Falle lerne weiter zu, sei es theoritisch oder praktisch; | damit fällt später aller leichter zur Fellständigkeit. Für Seinen so schnellen Einsatz für mich dacke ich der hrzlich. Onkel Atllenst schricb, daß er zunicht von Der 100 f erhalten hat. Also nochmals bisten Denki Von Cax c Rall haben wir eines solch gute und zu versichtliche Briefe, daß mit die Teilen erquicken. Ich waffe, bald nach England zu sehen u. dan werden wir nur enplisch correnspondiren | Schreubs mal ausführlich u. begl. gegrüßt von gour star W. 18739
+
+OCR:
+ostz war bei! Wie Dich diese, sich verreibt bist. sie gegr im wirde der unbegrachten Schlichkeiten. Wir dieser leid licht um | schon so manches erlebt, das du sonst nicht gesehen lättest. Er muß doch für Dich alles von großer Bedeutung sein. Nur hast du auch bald die Aussicht nach Hindereke zu kommen, wo wir uns an. 3. ist alle schon werden. Für Sich ist ausfüg¬ werde u. leistere Wistenz in Aussicht genommen. In jeden¬ Felle lerne weite zu, sei es theoribisch oder praktisch., | damit füllt später aller leichter zur Selbständigkeit. Für Seinen: so schnellen vorsatz für mich danke ich der | hrzlich. Onkel seit schick, daß er zunicht von Dir 100 8 gelten hat. Also nochmals besten denke | Sie bar in Rest loben wir eine solch gute und zu versichtliche Briefe, daß nur die Zeilen erquicken. Ich wohse, wird noch England zu gehen u. den werden wir nur enplisch correspondiren | Herrnbs- mit ausführlich u. bist. geprüßt von ganr Pestbus N. 18/3 37
+
+Corrected:
+ostz war bei! Wie Dich diese, sich verreibt bist. sie gegr im wirde der unbegrachten Schlichkeiten. Wir dieser leid licht um | schon so manches erlebt, das du sonst nicht gesehen lättest. Er muß doch für Dich alles von großer Bedeutung sein. Nur hast du auch bald die Aussicht nach Hindereke zu kommen, wo wir uns an. 3. ist alle schon werden. Für Sich ist ausfüg¬ werde u. leistere Wistenz in Aussicht genommen. In jeden¬ Felle lerne weite zu, sei es theoribisch oder praktisch., | damit füllt später aller leichter zur Selbständigkeit. Für Seinen: so schnellen vorsatz für mich danke ich der | hrzlich. Onkel seit schick, daß er zunicht von Dir 100 8 gelten hat. Also nochmals besten denke | Sie bar in Rest loben wir eine solch gute und zu versichtliche Briefe, daß nur die Zeilen erquicken. Ich wohse, wird noch England zu gehen u. den werden wir nur enplisch correspondiren | Herrnbs- mit ausführlich u. bist. geprüßt von ganr Pestbus N. 18/3 37
+
+--- Page 15: data/raw_data/grandpa_letters/xml/0090_p001.xml ---
+CER (OCR): 0.1888
+CER (corrected): 0.1888
+
+Ground Truth:
+D M Dear Jor! Diinen Brief obne Aatum - abgestempelt von 19.9. Laben wes erhalten. Zngleich kam auch Brief von Tante Rebeka u. von Warmor aus Tentusa Calf. mit einem Bilde wo Du auch mit posere oben bist. Ihr allesseit gut getroffen, in Ser forks am 18.C.38- Man sieht auch en Geböht eines Gründsichts Den Freude auch darüber war groß. Degen den Arbeit¬ Bänderung auf unbedingt worgetaet worden. Vam Dring dobet nicht auf den Tag verlegt werden. Ihr liebt doch voll auch tagsschickten? — Wem die Einteilung wegen denes Fortbildung nicht berücksichtigt werden kann, dann wird es geändert, werden 1.G.w. wenn Kuth u. Her dert sind?! Ich kam es aber nickt oesstehen, warun das gekindgt wird Botl, soll mal Onkel Alegt vorsprechen, dan Ontel dllorst will es auch waben, daß du Bis Kanhuse
+
+OCR:
+D Messerer For! Diener Brief obne Datum – abgestengelt von 19.9. Laben wes erhalten. Zngleich kam auch Brief von Tante Rebeka u. von Permor aus Textuar Hoff, mit einem Bitte vor du auch mit Mössere oben bist. Ihr allesseit gut getroffen, in Serforks am 18.6.38. - Han sieht auch in Gefücht einer Haundstichke den Freude auch darüber vor groß. Dega derer Weib- Wunderung nicht unbedingt werdeten wäden. Vom Seine Arbeit nicht auf die Tag erlegt werden. Ihr liebt doch voll auch dachschaften. - Vom den Euteilung wegen Sohnes Förtbildung nicht berücksichtigt werden kann, dann wird es geäudgt, werden s. G. w. wenn Fink u. Per dort sind! - Ich kann es aber nicht anstehen, warun das gebindgt wird 3 rt. soll mit Onkel Arbeit versprechen, denn Onkel Albert will es auch laben, daß da Dir Kanlässa |
+
+Corrected:
+D Messerer For! Diener Brief obne Datum – abgestengelt von 19.9. Laben wes erhalten. Zngleich kam auch Brief von Tante Rebeka u. von Permor aus Textuar Hoff, mit einem Bitte vor du auch mit Mössere oben bist. Ihr allesseit gut getroffen, in Serforks am 18.6.38. - Han sieht auch in Gefücht einer Haundstichke den Freude auch darüber vor groß. Dega derer Weib- Wunderung nicht unbedingt werdeten wäden. Vom Seine Arbeit nicht auf die Tag erlegt werden. Ihr liebt doch voll auch dachschaften. - Vom den Euteilung wegen Sohnes Förtbildung nicht berücksichtigt werden kann, dann wird es geäudgt, werden s. G. w. wenn Fink u. Per dort sind! - Ich kann es aber nicht anstehen, warun das gebindgt wird 3 rt. soll mit Onkel Arbeit versprechen, denn Onkel Albert will es auch laben, daß da Dir Kanlässa |
+
+--- Page 16: data/raw_data/grandpa_letters/xml/0118_p002.xml ---
+CER (OCR): 0.3247
+CER (corrected): 0.3247
+
+Ground Truth:
+natürlich aller die Stelle hin. Bei Mäschen von Pichher war inzuischen ebenfalls auf Urlaub in einem Waldesholungshäm. Na und in Berlin selbst geht. auch aller seinen alten Gang, denn die 700 Jahr Fein ist nun auch vorüber. Dar war wieder mal ein Leben und ein Trubel. Sie ganze Charbettenburger Kaune und die Siegesallee mit dem Königsplatz warmn mit leuter bunten Ampehn überdacht, sodesr man wie durch eine Laube führ. Wunderhübsch waren auch der Platz um die Siegesräube und der Pariser Platz sehouert Eberso das Rathaus, da Hindenburgstatz, da Hooth Hitleplatz und der Enie. Wohl noch schöne als zur Olymfüade. Und dann die Eerbzüge und die Bhunenkorro. Lebensgeführlich der Menschengedränge. Die Kiner doch werden sicher Aufnahmen in de Worheschau gebracht haben. Der Vikzlouiafark auf den Kreuzbag war durch bünke Licht- marben und Lichtpulenreihen herrlich erbeuchtet, ebmas du grosse Warm¬ fall und dazu Abends ein Feuerwartz, wie ich er noch nicht erlebt habe. Mi dnöhnen heute noch die Ohren davon. Der Ihrakauer Firchzug fand gleich- zeilig statt, aber diermal wohl sofpelt so georr wie sonst. Wir bemuchten, um einmal bengsem durckzusehen die Zeit von 6h Abends bis Nacher i/ 12. Nun zu meiner Vorwegenreise. Leider konnte ich nicht Winke, winhe machen, das wir führen, wie ih eit am Tage wocher erführ, von Bannerhafen ab. Boch bei de Aurfahrt, hurz vor Hebgobend, kreugte weit vor uns nus der Elbe kommend, ein grorer Parragindempche unsern Kurs. Ich vemutete den Prevident Roorwekl. Sie Fahrt war unbeschreiblich schön, die Vepflegung un¬ anständig sächlich und peime. Er gab nur bis 4 Parmen Kebinen. Ich habe eine 2 Paronenksbine. Die Fjorde sind einfoch unhüttend schön. Wir sehen auch das grössten Sletcher der Wek, 390 gkm. Auch die Mittemachtrame konnten wir sehen. Und 1/21 Naches konnte man en Seck noch Fruckschrift besen. – Nur, mein Jung werde ih schliesen, der Abendbrod warbet. –Ich würde mich einig freuen, wieder einmal von Ihnen zu hösen, wie es Ihnen geht u. wie druben die Veshältnise sind, aber auch wenn Sie für mich mal wieder ein fraas Briefmantzen sammeln würden, wäre ich Ihnen schr dankbar Also aller Guhe u. iisle Büse van meiner Frau u. mir waln dühr
+
+OCR:
+natürlich alles die Stelle beim. Das Mäschen von Pichher war bezwirkten ebenfalls aus Urbeib in einem bild erholungsbedien¬ sie und in Berlin, aber geht werde alles einen alten Gang, denn die 700 Jahr Fein, ich wenn auch vorüber. Bei war wieder mal ein Leben und ein Trubel. Sie ganze Unbedeutungen binnen und die Diejeillon mit den Körigsplatz wam mit lieben bieten. Amsachen überdeckt, oder man wie durch eine Laube führ. Und ausbote wann auch da Platz in die Siegewähle und die keinen Platz schreibt Ebenen der Rettelus, die Wiedenkürpfelosz, da Rath Hüblensbesch und der Eine. Wohl noch schöne als zur Olymfüade. Und denn die Fützuge und die Kleinenkorro. Lebensgeführlich der Menschengedränge¬ Die Kiner doch werden sicher Aufnahmen in die Worte werde ein gebankt haben. Der Viktauesaete auf dem Kneuzberg war durch bunte Bibel¬ merkte und Lichtsenkenreiben herrlich erbeutet, aber sie gern beim¬ falls und dazu Abends wie Faummals, werde Er werde nicht erlebt habe. ein Seiten Brube noch die Stein deren. Der Wirkung Fertzig fand glaube¬ zeitig Leute, aber dirmal nochl wesselt so zwar nie sind. Wie bewundern, um einmal langsem Dürtzigkein die Bibel von 6½ Abends bis Natur in St. Nun zu meiner Vorngmanise. Leider konnte ich nicht Winke, nicht metete, um ein hübsen, wie ich auf den Tage werden erführt, von Bewahrsche ab- Bote bei de Sachelat, heg vor Hlzebend, benügen weit vor uns aus da Alle samand, ein geringer Beregürd um schon werden. Kurs. Die ermübliche den kindmal Kommell ''. Die Felat war unbestaublich schön, die Nafftigung um- entändig rühlich und seine. Er gab nur bis 4hörnen. Ich hatte eine 2. herrenkation. Bei Fgrde wird nieherte verbütsend schön. Wie ckele auch den grächen Blübenen de, hell,390 zum. Tode die Mittworalksinne, konnte ein oben- Am sind stellt konnte von an Fahe noch Fütschrift lerte. - Nur, wie Jung werde ich erklären, der Abendbrod warbot. - Die würde mich freuen, nieder einmal von Ihnen zu höchte, wie es Ihnen geht u. wie drüben die Vatellerie wird, alle auch wenn Dir für weite mal würde nie sehenragen sinnmaln würden, wenn ich Berlin als Tauschen, obber alles Brube u. ächte. Zuvor von meinen Frau u. mir hatte Leibe
+
+Corrected:
+natürlich alles die Stelle beim. Das Mäschen von Pichher war bezwirkten ebenfalls aus Urbeib in einem bild erholungsbedien¬ sie und in Berlin, aber geht werde alles einen alten Gang, denn die 700 Jahr Fein, ich wenn auch vorüber. Bei war wieder mal ein Leben und ein Trubel. Sie ganze Unbedeutungen binnen und die Diejeillon mit den Körigsplatz wam mit lieben bieten. Amsachen überdeckt, oder man wie durch eine Laube führ. Und ausbote wann auch da Platz in die Siegewähle und die keinen Platz schreibt Ebenen der Rettelus, die Wiedenkürpfelosz, da Rath Hüblensbesch und der Eine. Wohl noch schöne als zur Olymfüade. Und denn die Fützuge und die Kleinenkorro. Lebensgeführlich der Menschengedränge¬ Die Kiner doch werden sicher Aufnahmen in die Worte werde ein gebankt haben. Der Viktauesaete auf dem Kneuzberg war durch bunte Bibel¬ merkte und Lichtsenkenreiben herrlich erbeutet, aber sie gern beim¬ falls und dazu Abends wie Faummals, werde Er werde nicht erlebt habe. ein Seiten Brube noch die Stein deren. Der Wirkung Fertzig fand glaube¬ zeitig Leute, aber dirmal nochl wesselt so zwar nie sind. Wie bewundern, um einmal langsem Dürtzigkein die Bibel von 6½ Abends bis Natur in St. Nun zu meiner Vorngmanise. Leider konnte ich nicht Winke, nicht metete, um ein hübsen, wie ich auf den Tage werden erführt, von Bewahrsche ab- Bote bei de Sachelat, heg vor Hlzebend, benügen weit vor uns aus da Alle samand, ein geringer Beregürd um schon werden. Kurs. Die ermübliche den kindmal Kommell ''. Die Felat war unbestaublich schön, die Nafftigung um- entändig rühlich und seine. Er gab nur bis 4hörnen. Ich hatte eine 2. herrenkation. Bei Fgrde wird nieherte verbütsend schön. Wie ckele auch den grächen Blübenen de, hell,390 zum. Tode die Mittworalksinne, konnte ein oben- Am sind stellt konnte von an Fahe noch Fütschrift lerte. - Nur, wie Jung werde ich erklären, der Abendbrod warbot. - Die würde mich freuen, nieder einmal von Ihnen zu höchte, wie es Ihnen geht u. wie drüben die Vatellerie wird, alle auch wenn Dir für weite mal würde nie sehenragen sinnmaln würden, wenn ich Berlin als Tauschen, obber alles Brube u. ächte. Zuvor von meinen Frau u. mir hatte Leibe
+
+--- Page 17: data/raw_data/grandpa_letters/xml/0114_p002.xml ---
+CER (OCR): 0.2972
+CER (corrected): 0.2972
+
+Ground Truth:
+einig, dass sie die St. Pauler lieben wir haben viele Broadcast ui Radio litz 1BG. geschen und des hat uns am besten gefallen. Auf der Tarm waren vo 2 Tage und haben Steinhardts und Freedel gesthen, der sid sehr gut zausgemaht hat. Indessen ist Fred angekonnen und alles ist in Branner Butter! wir haffen, dars er hier die richtige Arbeit findet, sondt müssen sit wold nach Pennzglvanit, wo aben rein alter gob offen steht. Des Säcke geschaft macht sich, so venheden, wnn man die Sieken gewedlen Kate und Mr zedlen Somitag tiat, kann könnte mh dertenn en hrenkelt alt eine Knde ganz schönen Könzem! No kilding, turtid gelart zu allem, und dem klinsten Gestiht diee niötige Uelegung eh Aro mah's gut herzlicht Deine Bette
+
+OCR:
+einig, dass sie die St. Pauler lieben wir haben viele Broadcastch im Percilio litz W30. geschen und der hat mit am besten Gefallen. Auf der Form waren von 2 15 Tage und haben Steinhardts und Friedel gieben, das sind ihre gut eingewebt Kraf. Indessen ist Fred angekommen mit alles ist in kranna Butter! wir hoffen, denn es dass die richtige Arbeit findet, was meine ich dort nur keinzig werden, wo ihnen sein alte hob offen steht. Das Lecke gesetzt macht sich, er kaupe von Blen das Dirken¬ gerücken hatte und Kurz jeden Sonntag hat, dann kommt man danken, es handelt sich nun einen ganz schönen Könzem! Wohlding, plastärlich fast zu allen, und dem klinsten Blötz ist, die nötige Uelegung ste, Dir mahr ich gut! serndt ein ein
+
+Corrected:
+einig, dass sie die St. Pauler lieben wir haben viele Broadcastch im Percilio litz W30. geschen und der hat mit am besten Gefallen. Auf der Form waren von 2 15 Tage und haben Steinhardts und Friedel gieben, das sind ihre gut eingewebt Kraf. Indessen ist Fred angekommen mit alles ist in kranna Butter! wir hoffen, denn es dass die richtige Arbeit findet, was meine ich dort nur keinzig werden, wo ihnen sein alte hob offen steht. Das Lecke gesetzt macht sich, er kaupe von Blen das Dirken¬ gerücken hatte und Kurz jeden Sonntag hat, dann kommt man danken, es handelt sich nun einen ganz schönen Könzem! Wohlding, plastärlich fast zu allen, und dem klinsten Blötz ist, die nötige Uelegung ste, Dir mahr ich gut! serndt ein ein
+
+--- Page 18: data/raw_data/grandpa_letters/xml/0121_Leter 1 Side 1 .xml ---
+CER (OCR): 0.2561
+CER (corrected): 0.2561
+
+Ground Truth:
+Tante Rebekka und alle Lieben dat Liebe Josef mit). Wa unch tun Saum Rippur heier und da madse iht dir nicht versäumen relt herzlich nachgglich zu Deinem Geburtstag zu gratulieren Hoffentlic leabt Ihr die Teintage rect gut verlebt Mine peso rect herzlide Putl lüre herrliche zeum Eier Rer.
+
+OCR:
+Tante Rebekke und alle Lieben dat Liebe Wolf mit ) d sind eine Zaum Kippun lief und da möchte ich Dir mit obräumen erst herzlich nackköglich zu Deinem Geburtstag zu gratulieren Hoffentlich habt. In die Teinsage reit gut verlebt Grüne also recht herzlich Putl Rüre Vorliebe Grüne leseit der¬
+
+Corrected:
+Tante Rebekke und alle Lieben dat Liebe Wolf mit ) d sind eine Zaum Kippun lief und da möchte ich Dir mit obräumen erst herzlich nackköglich zu Deinem Geburtstag zu gratulieren Hoffentlich habt. In die Teinsage reit gut verlebt Grüne also recht herzlich Putl Rüre Vorliebe Grüne leseit der¬
+
+--- Page 19: data/raw_data/grandpa_letters/xml/0116_p002.xml ---
+CER (OCR): 0.2711
+CER (corrected): 0.2711
+
+Ground Truth:
+1 Vrkabeln Er meint Grüber Källe man es so geragt und man münsze Naunen, sie schnelt sich so'ne Sprach verän¬ dert. Die zeit stebl es eigentlich mit Dir im Englischen? - Über Deiner Ferich von „Tsrael Gläch" labe ich herzlich gelacht. Dein Brief ist lärgr als 10 Tage unterwegs gewesen. - Rita schrieb mir heut aus Dinzig und kille mir eine kleinstädlische Sensation mit. Es geht um keinen Geringesen as um den Dentisten Giesel, der nie junge Licbshap hat und sich von seiner Alten scheiden lassen will, – bei seinen 11 Min- der. Ma. unsern Segen hat er. - Rita uind meine Mütter waren kranz, es geh aber schon der Bessrung entgegen. Grech, wenn ich jetzt, shon schließt, er liegt dass ledlig- So mein lich am traditimnellen Bacerasser, dass eben über die Danne tritt und heif nach mir verlögt. Schreibe mir, wenn di die Gents besammen hast, die eine Kriffmarke hostet, recht schnell. Im nächster Brief an Dich streite ich Dir wieder meh ind besser dann Nachs weiter gut und sei gegruß vom Walle Haset Liebes Ich hn gerade bei Enkel barl, und da sehe ich, dass ein Brief an dich viem Stapel gelassen werd. Vom Griesskuchen- Architekt dus tü jetzt zum Semmel-Stuckates avanciert. Alles Inte lass mal ewas von bis horen, lege ein paar Bulen zu Walusi Brief für anh An¬ Herzl. Sonnse + alles Sule dein Jon
+
+OCR:
+1 Vrkabeln Dir meint Grüber hätte man es so gesagt und man keiner Mannen, die erhielt sich, er ihre Sprache verdrie¬ dert. Dir weit alles sie eigentlich mit Dir im Beglechten? - Als- Deine Ferick wie „ Bereit Blick! habe ich kerzlich Gelacht, Dein Brief ist länger als 10 Tage unterlegt gelange. - Eile etrich- mir kalt aus Urweig und Auge wir eine Wunderseitädtliche Sensation war. Bei geht um keinen Geringen als um den bewiesen Hiesel, das die Zuge Liebstahr hat und sich vor seiner Alle Freiben lassen soll, - bei seinen 11stein¬ dern. Wie unsere Gegen hat er. - Seite und meine Mütke waren krank, es geht aber werde der Klärrig entgegen. Irief, wenn ich jetzt schon schließt, es liegt. dass ledig- Er, mein lich am tratitirkelbe Buderossaç, dass eben über die Danne gritt uns fast nett mir versögt. Lebte war, wenn Du die Buchs blumenen hast, die eine Kirchsausse niht, reibt schnell. Im nächster Brief an Dich steite ich Dir wieder mehr und lassen dann Nachs weitr gut und sei gegruß vom Walle Josef Lieber Ich sein gerade bei Enkel barl und da sehe ich, dass um Brief an dich dann Kuppel gelassen werst. Dein Freukenken-Ordukt für die jetzt Zenn himmel- Umklaus abendet. Aber Gute, fand dabei mal etwas von bis hören, lcht ein paar Teilen und Er aus Brief für eink bei¬ Herzl. Freime + alles Sule. Dein Gode
+
+Corrected:
+1 Vrkabeln Dir meint Grüber hätte man es so gesagt und man keiner Mannen, die erhielt sich, er ihre Sprache verdrie¬ dert. Dir weit alles sie eigentlich mit Dir im Beglechten? - Als- Deine Ferick wie „ Bereit Blick! habe ich kerzlich Gelacht, Dein Brief ist länger als 10 Tage unterlegt gelange. - Eile etrich- mir kalt aus Urweig und Auge wir eine Wunderseitädtliche Sensation war. Bei geht um keinen Geringen als um den bewiesen Hiesel, das die Zuge Liebstahr hat und sich vor seiner Alle Freiben lassen soll, - bei seinen 11stein¬ dern. Wie unsere Gegen hat er. - Seite und meine Mütke waren krank, es geht aber werde der Klärrig entgegen. Irief, wenn ich jetzt schon schließt, es liegt. dass ledig- Er, mein lich am tratitirkelbe Buderossaç, dass eben über die Danne gritt uns fast nett mir versögt. Lebte war, wenn Du die Buchs blumenen hast, die eine Kirchsausse niht, reibt schnell. Im nächster Brief an Dich steite ich Dir wieder mehr und lassen dann Nachs weitr gut und sei gegruß vom Walle Josef Lieber Ich sein gerade bei Enkel barl und da sehe ich, dass um Brief an dich dann Kuppel gelassen werst. Dein Freukenken-Ordukt für die jetzt Zenn himmel- Umklaus abendet. Aber Gute, fand dabei mal etwas von bis hören, lcht ein paar Teilen und Er aus Brief für eink bei¬ Herzl. Freime + alles Sule. Dein Gode
+
+--- Page 20: data/raw_data/grandpa_letters/xml/0088_p001.xml ---
+CER (OCR): 0.1167
+CER (corrected): 0.1167
+
+Ground Truth:
+Venzig den 20/947. Liebe Schwester. Gestern ist Dein uns immer liebe Brief- hinsern Besitz gelangt und denken Dir herzlichst fi denselben, freuen und vor allem, daß die Gettlob- sind bist was wir von uns auch schreiben können daß die 85 enzekommen sind habe ich dir auch be- stätigt und auch mitgeteilt, daß Bruder Fellg der An war und heut danke Dur henzlichst im Voraus, für die aeisinnten s. Alse Trief wird doch bei der Neiisprocke arbeiten, na - zu bekomst je aller fetig, er wird sich dort auch einer- ten mir seine Soche machen, denn er ist wit und will keinen, mit Deinem Witle sche nen sie besonders gute Freunde zu sein und wriedelchen und jetzt zu kurz komene wenn er erst fort sein wird, das muß eine ganz völliges Sind sein - die Kannst ihrem Eeltern agen, os sie uns auch mal eine Wildchen von unserer Groß nichte mitschicken gkönnen wir werden mnr damit sehr freuen + Nun sind die Feiertage ziemlich zu Ende im waren mir die glücklichsten wenn mir ve nein Jahr im klein wenig Heffnung süh zu ernehren bringen wende. 8. Jetzt recht herzlichen Dank und beste Gräße für Dich liebe Schwester sowie alle Deine l Kinder u Inkelchen von der lieben Frude u Deinen Brude Oudolf
+
+OCR:
+Winzig, den 20/9 37. Liebe Schwester Gestern ist Dein uns immer lieber Brief- Funsern Besitz gelangt und denken Dir herzlichst für denselben, freuen uns vor allem, daß Du Gettlob und bist was wir von uns auch schreiben können daß die 85 anzekommen sind habe ich dir auch be- stätigt und auch mitgeteitt, daß Bruder Fellg der Auf war und heut danke Dir herzlichst im Voraus, d für die avisierten b. Also Jnef nein doch bei Ihr Maritwerte arbeiten, ne Du bekommst ja alles fertig, er wird sich dort auch einer so ten uns seine Sache machen, denn er ist wir und will lernen, mit Deinem Wille schon nen sie besonders gute Freunde zu sein und Friedelchen wir jetzt zu kurz komme wenn er echt fort sein wird, daß muß ein ganz derwilliges Kind sein, Du Kannst ihren Eltern sagen, dß sie uns auch mal ein Büdchen von unserer Groß nichte mitschicken können wir werden uns damit sehr freuen Nun sind die Feiertage ziemlich zu Ende und wären und Sie glücklichsten wenn uns der neue Jehr ein klein wenig Hoffnung sich zu erwähren bringen würde. . Jetzt recht herzlichen Dank und beste Gräße für Dich liebe Schwester sowie alle Deine l Kinder u Inkelchen von der lieben Tracke u Deinen Brüde O Wolf
+
+Corrected:
+Winzig, den 20/9 37. Liebe Schwester Gestern ist Dein uns immer lieber Brief- Funsern Besitz gelangt und denken Dir herzlichst für denselben, freuen uns vor allem, daß Du Gettlob und bist was wir von uns auch schreiben können daß die 85 anzekommen sind habe ich dir auch be- stätigt und auch mitgeteitt, daß Bruder Fellg der Auf war und heut danke Dir herzlichst im Voraus, d für die avisierten b. Also Jnef nein doch bei Ihr Maritwerte arbeiten, ne Du bekommst ja alles fertig, er wird sich dort auch einer so ten uns seine Sache machen, denn er ist wir und will lernen, mit Deinem Wille schon nen sie besonders gute Freunde zu sein und Friedelchen wir jetzt zu kurz komme wenn er echt fort sein wird, daß muß ein ganz derwilliges Kind sein, Du Kannst ihren Eltern sagen, dß sie uns auch mal ein Büdchen von unserer Groß nichte mitschicken können wir werden uns damit sehr freuen Nun sind die Feiertage ziemlich zu Ende und wären und Sie glücklichsten wenn uns der neue Jehr ein klein wenig Hoffnung sich zu erwähren bringen würde. . Jetzt recht herzlichen Dank und beste Gräße für Dich liebe Schwester sowie alle Deine l Kinder u Inkelchen von der lieben Tracke u Deinen Brüde O Wolf
+
+--- Page 21: data/raw_data/grandpa_letters/xml/0104_p001.xml ---
+CER (OCR): 0.1788
+CER (corrected): 0.1788
+
+Ground Truth:
+16. II 39 st. Paul Mein lieber Foset. In aller Eile will ich Dir mir unsen gute Ankunft in St. P. mitteilen. wir wurden von netten Leuten abgeholt und wohnen voläu fig vorübergehend in einem zhotel. Deshalb sscreibe uns bitte und sende uus die Vost an die Adesse der Rrganisation ehalten: von der var sil c/o. Mt. zion Temple Max Banstein Avonstreet loner Holly Stret St. Paul nummerotar Wir wissen vorläufig noch nicht viel was los ist etc. Ich schreibe da bald wenn ich merr weiss- Seute Abend also jetzt bald) siind wir bei den Lenten eingeladen und werden p. Auf abgeralt. Da werden wir alles weitere dsen. Was ist bei Dir Neuer
+
+OCR:
+16. III 39. St. Paul Mein lieber Josef! In aller deile will ich Dir mich unver gute Ankunft in St. P. ein Heilen. wir werden von netten Leuten abgeholt und wohnen voläu fig voraubcappend in einem Frostel. Deshalb sscreibe uns bitte und sende uns die Vost an die Fassade der Rrganisation erhalten : von der wir sie: c/o. Mt. zion Tempel Maxenstein Avonistent loner Holly Stret St. Paul stimmerotar wir wirste voräufig noch nicht viel war lor ist ehe. Ids schreibe Dir bald schen Ida nehre sollen Blute Abend ( Der jetzt bald) sind wir bei den behaupten. Ein geladen und werden p. Natur abgeralt. Da war den wir alles sollten hören. Das ist bei Dir Neue
+
+Corrected:
+16. III 39. St. Paul Mein lieber Josef! In aller deile will ich Dir mich unver gute Ankunft in St. P. ein Heilen. wir werden von netten Leuten abgeholt und wohnen voläu fig voraubcappend in einem Frostel. Deshalb sscreibe uns bitte und sende uns die Vost an die Fassade der Rrganisation erhalten : von der wir sie: c/o. Mt. zion Tempel Maxenstein Avonistent loner Holly Stret St. Paul stimmerotar wir wirste voräufig noch nicht viel war lor ist ehe. Ids schreibe Dir bald schen Ida nehre sollen Blute Abend ( Der jetzt bald) sind wir bei den behaupten. Ein geladen und werden p. Natur abgeralt. Da war den wir alles sollten hören. Das ist bei Dir Neue
+
+--- Page 22: data/raw_data/grandpa_letters/xml/0137_Letter 6 gustel.xml ---
+CER (OCR): 0.4091
+CER (corrected): 0.4091
+
+Ground Truth:
+4 Ditae Moxete auch freuen, das Du werst dich gewoß sättt mit nir ensent und ein sprochen ten: Bercheo in Rokol 116 attener Jahren getuugt hast, auch als s gewirtsche ha e Mt es 1 Aut 1r 7 st ratest ein le 4 hettzt 305 e
+
+OCR:
+4 Liebe Wozek auch freuen, daß Du wirst Dich gewiß statt mit mir mich ein und wir sprechen die Bercheo in Dokor eel hütte vor Jahren getrugt hast, euch als s gewirtsch 8i zu Mt statt ist für zettel t nicht Trenne im weite ist nutzt Tod läu- |
+
+Corrected:
+4 Liebe Wozek auch freuen, daß Du wirst Dich gewiß statt mit mir mich ein und wir sprechen die Bercheo in Dokor eel hütte vor Jahren getrugt hast, euch als s gewirtsch 8i zu Mt statt ist für zettel t nicht Trenne im weite ist nutzt Tod läu- |
+
+--- Page 23: data/raw_data/grandpa_letters/xml/0126_Letter 1 - Page 1.xml ---
+CER (OCR): 0.1473
+CER (corrected): 0.1473
+
+Ground Truth:
+4 wieber bei Deine Zeilen braben und wrust. Die l. Unki lst dor alles bericktet. - Nicht walr? Ieho habe einen Wunsch u. zwar, möchtest Dud Onkel Mazin Turg Fachowa 137.- nicht vor¬ gessen, es freut sich auch sehr, wenn er von 2es war härst. Du krannst den Brief Onkel Algt abgeben, weil von dost wohl täglich Post abgeht. Die Versicht für Netl u. Has sind gonstigis ge¬ worden u. werden sie l. G. W. Ende Jannat dort eintrudeln. - Ich labe folgenden Vorschlag, wenn es dar möglich ist, u. Ihr doch zusammen eine Wohnung nehmen wordet, so überraschl.
+
+OCR:
+4 Lieber bei, Seine Zeilen haben, wie es ruht. die l. Ecke lst das alles bericktet. - Sieht wohl Ieber habe einen Wunsch u. zwar, möchtest Du Onkel usa in Burg Fachowa 137 – nicht wir passen, erfreut sich auch sehr, wenn er von den was ließ. Du kannst den Brief 3 Onkel selbst Eheben, weil von dort wohl täglich Ist irgelt. Die Vorsicht für Netl u. Mar sind günstiges ge- worden u. werden sie l. G. W. Ende Jannert dort eintrudeln. - Ich labe folgenden Vorschlag, wenn es das möglich ist, u. Ihr doch zusammen eine Wohnung nehmen wußt, so überrasche
+
+Corrected:
+4 Lieber bei, Seine Zeilen haben, wie es ruht. die l. Ecke lst das alles bericktet. - Sieht wohl Ieber habe einen Wunsch u. zwar, möchtest Du Onkel usa in Burg Fachowa 137 – nicht wir passen, erfreut sich auch sehr, wenn er von den was ließ. Du kannst den Brief 3 Onkel selbst Eheben, weil von dort wohl täglich Ist irgelt. Die Vorsicht für Netl u. Mar sind günstiges ge- worden u. werden sie l. G. W. Ende Jannert dort eintrudeln. - Ich labe folgenden Vorschlag, wenn es das möglich ist, u. Ihr doch zusammen eine Wohnung nehmen wußt, so überrasche
+
+--- Page 24: data/raw_data/grandpa_letters/xml/0107_p001.xml ---
+CER (OCR): 0.1312
+CER (corrected): 0.1312
+
+Ground Truth:
+Lieber Josef hoffentlich bist du neulich gut nach Haus gekommen u. hast didh ausgeschlefen. Anbei die letzte Vost aus Winzig die wir gestrn bei Tante Rebekka in Empfang nahmen. Melde dich bald bei uns Herzlihst put u, Ma¬
+
+OCR:
+Lieber Brief hoffentlich bist Du weilich gut nach Haus gekämnen u. hast Du d aungeklafen. — Anbei die letzte Vost nun Winzig die wir gekommen bei Tante Rebekka in Empfang nahmen. Nalde Dich bald bei uns Herzlihst put u, Ma¬
+
+Corrected:
+Lieber Brief hoffentlich bist Du weilich gut nach Haus gekämnen u. hast Du d aungeklafen. — Anbei die letzte Vost nun Winzig die wir gekommen bei Tante Rebekka in Empfang nahmen. Nalde Dich bald bei uns Herzlihst put u, Ma¬
+
+--- Page 25: data/raw_data/grandpa_letters/xml/0099_p002.xml ---
+CER (OCR): 0.0590
+CER (corrected): 0.0590
+
+Ground Truth:
+behalten, und das schlechtere habe ich natürlich bekommen. Wenn Du kannst schicke uns wie der Bilder. Du Du an nach Gaus geschickt hast habe ich auch gesehen. Mit Ankel Albert und Ean¬ Ke flora haben wir uns sehr ge¬ freut. Er wird Wir ja viel von sns erzählen. In den Herbstferien fahren wir nach Gaus es sind 14. Tage Gerien. Gerenkinder werden auch wieder da sein. Wer Verwandte läßt Dich recht herzlich grüßen. zn Ostern komme ich waihr-
+
+OCR:
+behalten, mal des schlechtene habe ich natürlich bekommen wen. Wenn Du kannst schicke uns wieder Bilder. Du Du ein noch Gaus geschickt hast habe ich auch gesehen. mit Onkel Albert und Can¬ Die Glara haben wir uns sehr ge¬ freut. Er wird Dir ja viel von uns erzählen. In den Herbstferien fahren wir nach Gaus es sind 14. Tage Gerien. Gerenkinder werden auch wieder da sein. Der Verwandte läßt Dich recht herzlich grüßen. In Ostern komme ich, wahr-
+
+Corrected:
+behalten, mal des schlechtene habe ich natürlich bekommen wen. Wenn Du kannst schicke uns wieder Bilder. Du Du ein noch Gaus geschickt hast habe ich auch gesehen. mit Onkel Albert und Can¬ Die Glara haben wir uns sehr ge¬ freut. Er wird Dir ja viel von uns erzählen. In den Herbstferien fahren wir nach Gaus es sind 14. Tage Gerien. Gerenkinder werden auch wieder da sein. Der Verwandte läßt Dich recht herzlich grüßen. In Ostern komme ich, wahr-
+
+--- Page 26: data/raw_data/grandpa_letters/xml/0130_Letter 3 - Page 2.xml ---
+CER (OCR): 0.4595
+CER (corrected): 0.4595
+
+Ground Truth:
+z erla Heuße Akseite von frr Eee 2. 7
+
+OCR:
+7 keite Heuß Akseite von Jen Gruch FJ 2
+
+Corrected:
+7 keite Heuß Akseite von Jen Gruch FJ 2
+
+--- Page 27: data/raw_data/grandpa_letters/xml/0139_Letter 15 side 2.xml ---
+CER (OCR): 0.0429
+CER (corrected): 0.0429
+
+Ground Truth:
+Lieber Skozek. Ich freue mich, daß es dir gut geht, du hast wohl schon von Deine Eltern gehört, daß ich mich jetzt hier auf halte. Wenn ich erst meinen Edu auch draußen hätte, er sollte nach Rube leider ist es durch die Sperre nichts geworden und nach unser Nummer kommen wir erst 41. Fran. Von Gine u. Hans habe ich gute Nachricht, sie verdienen dieses Jahr, viel mehr, als Und vorige Jahr u. haben eine leichte Stelle¬ Bleibe gesund u. herzlich gegrüßt von Deiner Tanle Gusiel Weist du nach, als du den Berthor in Dökör getanker hast?
+
+OCR:
+Lieber Skozek. Ich freue mich, daß es Dir gut geht, du hast wohl schon von Deine Eltern gehört, daß ich mich jetzt hier auf halte. Wenn ich erst meinen Sie auch drausnen hätte, er sollte nach Rube leider ist es durch die Speare nichts geworden und noch unser Nummer kommen wir erst 41. Frau. Von Gine u. Hans habe ich gute Nachricht, sie verdienen Führt Jahr, viel mehr, als dud vorige Jahr u. haben eine leichte Stelle- Bleibe gesund u. herzlich gegrüßt von Deiner Tanle Gustel Weist du noch, als du den Berthor in Lökör getunken hast?
+
+Corrected:
+Lieber Skozek. Ich freue mich, daß es Dir gut geht, du hast wohl schon von Deine Eltern gehört, daß ich mich jetzt hier auf halte. Wenn ich erst meinen Sie auch drausnen hätte, er sollte nach Rube leider ist es durch die Speare nichts geworden und noch unser Nummer kommen wir erst 41. Frau. Von Gine u. Hans habe ich gute Nachricht, sie verdienen Führt Jahr, viel mehr, als dud vorige Jahr u. haben eine leichte Stelle- Bleibe gesund u. herzlich gegrüßt von Deiner Tanle Gustel Weist du noch, als du den Berthor in Lökör getunken hast?
+
+--- Page 28: data/raw_data/grandpa_letters/xml/0119_Handwritten Letter - Father.xml ---
+CER (OCR): 0.1356
+CER (corrected): 0.1356
+
+Ground Truth:
+lieber sonf, ich frube mich über Sii Anschrift in englischer. Spracke u. Labe Keuntins genommen, daß Du mir Rücksicht Zeine vooms schicken werst. Er tut uns leid, daß Dirch die Spwandten so ausnutgen Dazurch wast Du für Dich vonz Zeit, med etoas, fus dene Fostkommen zu tun. lage es Onkel Albegt möchte es andern - l ihren nechnals, auch das er mein Wunsch ist Jenperste Fabrt war früher in Puststermina auch Eotl. setze Sichsmit Eukle Karl Fördes den 2 Der Hamburg kennen gelgnt fast in Vos¬ binkung. Recht Fegl Grüse in Alle u. an Dich von Beul Fathez
+
+OCR:
+Lieber sonf, ich frube mich über Sein Anschrift in englischer. Sprache u. Probe Sonastius genommen, daß Du mir die Absicht eine voome schicken werst. Er tut uns leid, daß dich die Spwandten so ausnutgen Dadurch bist Du für Dich wenig Zeit, und etwas für Deine Fostkommen zu tun. lage es Onkel Albegt möchte es andern, a l ihr nechnals, auch das in mein Wunsch ist Segenherzte Fabzek war früher in Puststermina | auch Eotl. setze Sichmit Eukle Karl Fördes, den uns Der Hamburg komme gelgnt fast in Vos¬ binkung. Keckt Fosl Grügse im Alle u. an Dich von denen Fathl
+
+Corrected:
+Lieber sonf, ich frube mich über Sein Anschrift in englischer. Sprache u. Probe Sonastius genommen, daß Du mir die Absicht eine voome schicken werst. Er tut uns leid, daß dich die Spwandten so ausnutgen Dadurch bist Du für Dich wenig Zeit, und etwas für Deine Fostkommen zu tun. lage es Onkel Albegt möchte es andern, a l ihr nechnals, auch das in mein Wunsch ist Segenherzte Fabzek war früher in Puststermina | auch Eotl. setze Sichmit Eukle Karl Fördes, den uns Der Hamburg komme gelgnt fast in Vos¬ binkung. Keckt Fosl Grügse im Alle u. an Dich von denen Fathl
+
+--- Page 29: data/raw_data/grandpa_letters/xml/0174_p002.xml ---
+CER (OCR): 0.2182
+CER (corrected): 0.2182
+
+Ground Truth:
+sie mit einers completten, mobleisten 2. 3 Junn wahu damist sie gleichs vom 1 Tager ein, zu Haufe lirbau. Ich denke, daß man dort ſo eure festige Daherg Ban mirten. Bespreche es mit der Tante Rebeka u. Tante Grete, die werden Des schon behilflich sind. Wee gesagt, Bernsteins dürfen davon keine Sthen, haben, die Freue ist groß und der Unbergang ist lietter. - Ven Pirl mein Vorschlag ausführen läßt so schreibes nur darüber gan For Hech nach lagl Größe Denne Tat tes Juis 11 38. Vielricht ist bei dem Subslörten ein 2 zu lrben
+
+OCR:
+sie mit einers complellen, verbstiften 2-3 Einen wohnig damist si gliedt vom 1 Tage ein zu Hause? werde Ich denke, daß man dort so eine festige Cobung Bogen meisten u. als Bancha es mit de Tante Rebeka u. 5. Tante Grete, die werden des schon behilflich sind Wie gesagt, Berichteins dürfen davon keine Ah nur, haben, die Freuke ist grogt und der Uebrang ist lieber. - Von sich meine Vorschlag ausführen läßt so schreibend mir darüber von Frr Heuk noch lagl Größe, Wenn Fatf zur Friedung 711 38. Vielricht ist bei denen Sutsleuten, ein 2 zu lrben
+
+Corrected:
+sie mit einers complellen, verbstiften 2-3 Einen wohnig damist si gliedt vom 1 Tage ein zu Hause? werde Ich denke, daß man dort so eine festige Cobung Bogen meisten u. als Bancha es mit de Tante Rebeka u. 5. Tante Grete, die werden des schon behilflich sind Wie gesagt, Berichteins dürfen davon keine Ah nur, haben, die Freuke ist grogt und der Uebrang ist lieber. - Von sich meine Vorschlag ausführen läßt so schreibend mir darüber von Frr Heuk noch lagl Größe, Wenn Fatf zur Friedung 711 38. Vielricht ist bei denen Sutsleuten, ein 2 zu lrben
+
+--- Page 30: data/raw_data/grandpa_letters/xml/0173_p001.xml ---
+CER (OCR): 0.1512
+CER (corrected): 0.1512
+
+Ground Truth:
+Bieber bei Dinne Teilen haber um streut. Sie l. Unki lst dor alles bericktet. - Nicht wahr? Irto habe einen Wunsch u. zwar, möchtest Du Onkel Max in Turg Fachowa, 137.- nicht vor¬ gessen, is freut sich auch sehr, wenn er von Tes war härß. Du krannft den Briefb) Onkel Mlgt abgeben, weil von dos wohl täglich Post abgeht. die Versicht für Katle u. Mass sind gonstigis ge¬ worden u. werden sie l. G. W. Ende Jannat dort eintrudeln. - Ich labe folgenden Vorschlag, wenn es vos möglich iſt, u. Ihr doch zusammen eine wohnung nehmen werdet, so überraschl
+
+OCR:
+Lieber bei, Seine Zeilen haben um Druck, die l. Unki lst Dir alles bericktet. - Nicht wohl Meld habe einen Wunsch u. zwar, möchtest Du Enkel' 424 in Prag Dachowa 137 – nicht vor gessen, es freut sich auch sehr, wenn er von das war härß. Du kannst den Brief 3 Onkel so Abgt eheben, weil von dort wohl täglich Pfl ergeht. ihn Vorsicht für Netls. Was sind gräfigig ge worden u. werden sie l. G. W. Ende Jannert dort eintrudeln. - Ich labe folgenden Vorschlag, wenn es das möglich ist, u. Ihr doch zusammen eine Wohnung nehmen werst, so überraschl
+
+Corrected:
+Lieber bei, Seine Zeilen haben um Druck, die l. Unki lst Dir alles bericktet. - Nicht wohl Meld habe einen Wunsch u. zwar, möchtest Du Enkel' 424 in Prag Dachowa 137 – nicht vor gessen, es freut sich auch sehr, wenn er von das war härß. Du kannst den Brief 3 Onkel so Abgt eheben, weil von dort wohl täglich Pfl ergeht. ihn Vorsicht für Netls. Was sind gräfigig ge worden u. werden sie l. G. W. Ende Jannert dort eintrudeln. - Ich labe folgenden Vorschlag, wenn es das möglich ist, u. Ihr doch zusammen eine Wohnung nehmen werst, so überraschl
+
+--- Page 31: data/raw_data/grandpa_letters/xml/0092_p001.xml ---
+CER (OCR): 0.2061
+CER (corrected): 0.2061
+
+Ground Truth:
+Lieber sonf, ich frube mich über Seing Anschrift in englischer. Sprache u. labe Kreuntiers genommen, daß Du mur rücksicht Dei sooms schicken wirst. Er tät uns lend, daß Dirh die Vrwandten so ausnüstgen, Dadurch wast Du für Dich wonig Zeit, me etwas, fus Deine Fostkommen zu tun. 1age es Onkel Albegt möchte es andern uns ihr nechnerls, auch das emen Wunsch ist Jumperrte Fabek war früher in Puststerminal, auch Eotl. setze Suhsmit Eukle Karl Fördes, den Du E.er Hambeerg Keunen gelgnt fast in Vos¬ bindung. Recht fogl Grüfe in Alle u. an Dich von Welnl Fathl
+
+OCR:
+Lieber sonf, ich freute mich über durch Anschrift in englischer. Sprache u. Woche Konatius genommen, daß Du mir die Ansicht Keine vooms scheken wist. Er tut uns leid, daß dich die Spwandten so ausnützen, Dadurch wohl du für Dich wonig Zeit nach zwar für Deine Fostkommen zu tun. 1age es Onkel Albegt möchte es andern, sog ist nechnals, auch das in mein Wunsch ist Gemperstr, Fabrik war früher in Pustistorminal. auch Eotl. setze Sich seit Onkel Karl foriz, den 15 Der Hamburg kommt fast in Vos¬ bindung. Recht Fegl Grüße in Alle u. an Dich vontswuns Fathl
+
+Corrected:
+Lieber sonf, ich freute mich über durch Anschrift in englischer. Sprache u. Woche Konatius genommen, daß Du mir die Ansicht Keine vooms scheken wist. Er tut uns leid, daß dich die Spwandten so ausnützen, Dadurch wohl du für Dich wonig Zeit nach zwar für Deine Fostkommen zu tun. 1age es Onkel Albegt möchte es andern, sog ist nechnals, auch das in mein Wunsch ist Gemperstr, Fabrik war früher in Pustistorminal. auch Eotl. setze Sich seit Onkel Karl foriz, den 15 Der Hamburg kommt fast in Vos¬ bindung. Recht Fegl Grüße in Alle u. an Dich vontswuns Fathl
+
+--- Page 32: data/raw_data/grandpa_letters/xml/0109_p001.xml ---
+CER (OCR): 0.1186
+CER (corrected): 0.1186
+
+Ground Truth:
+Charlottenbg. I. d. 1. III. 38. Mein lieber Josef! hotdem ich leider nichts von Dir liöre, will ich du wie der einmal schreiben denn ich kann mir Shon gut vorstellen das Du bei Deiner vielen Arbeit und ausserdem sicher noch englischen Stunden kaum zum Schreiben kommst. Aber um eins bitte ich Dich shreib daa immer regel- massig nach Hause demn Du weisst doch, wie sch die Mtan auf Deinen Brief immer warten und wieviel er für sie bedeutet. Jetzt hablei wir schon 5 Voden keine nadriat von Dir. Hoffentlich
+
+OCR:
+Charlottenbg. I. d. 1. III. 38. Mein lieber Josef! Sicht den ich leider nicht von Dir höre, will ich Du wie der einmal schreiben, denn ich kann mir Man gut vorstellen dass Du bei Deiner vielen Arbeit und Anna dem wider noch englischen Stunden kaum zum Schreiben kommt. Aber um eins bitte ich Sich wird doch immer wohl¬ würdig nach Hause dem Du stinst doch, wie ich die Eltern auf Weise Brief immer werden und wieviel er für sie bedeutet. Jetzt haben wir schon 5 Woden keine nadriat von Dir. Hoffentlich
+
+Corrected:
+Charlottenbg. I. d. 1. III. 38. Mein lieber Josef! Sicht den ich leider nicht von Dir höre, will ich Du wie der einmal schreiben, denn ich kann mir Man gut vorstellen dass Du bei Deiner vielen Arbeit und Anna dem wider noch englischen Stunden kaum zum Schreiben kommt. Aber um eins bitte ich Sich wird doch immer wohl¬ würdig nach Hause dem Du stinst doch, wie ich die Eltern auf Weise Brief immer werden und wieviel er für sie bedeutet. Jetzt haben wir schon 5 Woden keine nadriat von Dir. Hoffentlich
+
+--- Page 33: data/raw_data/grandpa_letters/xml/0093_p001.xml ---
+CER (OCR): 0.3411
+CER (corrected): 0.3411
+
+Ground Truth:
+press vouezagt opinion,jou don't pick up our questions or thenes,jou fürtte xutrwith tine and thorougkly. Please, for the future, take your time when writing to us. Vou see,i don't blame you in our interest, ut because we- want to have more contact with you,because we believe that we,being quite older than you ,can sometimes give you a good advice. I hope you don't get the wrong expression about our interest,we don't want to supervise you,for you are indepen dant enough.We only want to help you. Enclosed you will find a nice photo of Father that he- sent us for vou ime gat our onn.Docen't he kette grand,like a natire Anericen? Sojnhen you can spare tine,weite us,me are almays han- py to get nens fron you.Mith kind regards Lan- very sincerely vorrs Mar. Joseh Lieber natürlich sind wir sehr lntt auscht dass Du nicht herkommen willst, abee das ist höffentlich nur aufgeschöben und wenn di seeand haudt ewor. den bist, reden wir wie der darüber. Jedenfalls weisst di ja wenn es die dort dod mier wird dass wir alles tun werden nur dirhier eine gute Stelle zu verschaffen. - Scheib bitte bald, wie weit Vasters Angelegenheit steht und was sich sondt so tut. Jeht bist Du gerade 2 Sehre in U SA. Congratulatid. hun Iro vile Larzliche Zeie Rutt
+
+OCR:
+Praes! gegs gebraunschaften, oder denkenkenkenkenken 4 pichsagen er thenes, goubitte paßmita time and thorochenly, Please, for the tuture, Ecke ganz tone wegen wirkliche To us! Warquet grosse paume ganz dur interes, ut becauze ne wank to haue more contack win ja, beecesse vor mehrere That vere, doeung ruzte oder frun ganz, cann sinnetimes eine voa a. geh abrice, I hope von don! 4 geb the Vorung engpension abgab sogar intereset, sie don! you's! you's! you's geworben sie dant endlich, nie only ruht to help you. Enclosed you will find a nice photo of Putiner that ne sentire Anerage wie vor voar arm, wenn'sreihe eine gegend, liebe a notire American? So,ven you can are tine, arzte us,wo are auswage nach- py to get nens fron you. ich kind vegerd's I am very sincerely vorrs Max. Joseh Lieber natürlich sind wir wir lebt auf man Du nicht durkommen wühst dass das ist höffentlich nur aufgeschoben und wenn Du s Lebrnad bewertete ich den bist werden wir wie der darüber. Tatsenfalls wirst du ja wem bin dort doch nie wird dass wir alles für werden umschreibt eine gute Stelle zu verschaffen. - Scheib bitte hold, wie weit Vortus Angelegenheit statt und was sich sondt so tut. Tlkt! Ich Du gerade, 2 Er reise in U. P. Congratulatiden. junne Ihr will herzliche Eine Rück
+
+Corrected:
+Praes! gegs gebraunschaften, oder denkenkenkenkenken 4 pichsagen er thenes, goubitte paßmita time and thorochenly, Please, for the tuture, Ecke ganz tone wegen wirkliche To us! Warquet grosse paume ganz dur interes, ut becauze ne wank to haue more contack win ja, beecesse vor mehrere That vere, doeung ruzte oder frun ganz, cann sinnetimes eine voa a. geh abrice, I hope von don! 4 geb the Vorung engpension abgab sogar intereset, sie don! you's! you's! you's geworben sie dant endlich, nie only ruht to help you. Enclosed you will find a nice photo of Putiner that ne sentire Anerage wie vor voar arm, wenn'sreihe eine gegend, liebe a notire American? So,ven you can are tine, arzte us,wo are auswage nach- py to get nens fron you. ich kind vegerd's I am very sincerely vorrs Max. Joseh Lieber natürlich sind wir wir lebt auf man Du nicht durkommen wühst dass das ist höffentlich nur aufgeschoben und wenn Du s Lebrnad bewertete ich den bist werden wir wie der darüber. Tatsenfalls wirst du ja wem bin dort doch nie wird dass wir alles für werden umschreibt eine gute Stelle zu verschaffen. - Scheib bitte hold, wie weit Vortus Angelegenheit statt und was sich sondt so tut. Tlkt! Ich Du gerade, 2 Er reise in U. P. Congratulatiden. junne Ihr will herzliche Eine Rück
+
+--- Page 34: data/raw_data/grandpa_letters/xml/0112_p004.xml ---
+CER (OCR): 0.2917
+CER (corrected): 0.2917
+
+Ground Truth:
+wenn sie jetzt des Affidarit ab- gebene. Weisst Du ausserdern habene wir doch die Eltern & bilti hie legeshiert und die Regestilung verfallt nach einer gewissen Seits Id denke Du wirst Dich schan dafür eins etwen und höffentlich hast Du Glück! – Mit Gotte snd wie dauernd zusammen. Ih geht es sehr gut und sie ist überall vo sie hnkammt, sofat beliebt, sie ist sehr lieb und vergnügt! khat sich scon unser Freund Haus Bloch bei Dir gemeldet- was machst Du sonst? wie geht es Da 2 Anbei eine Answartmarken sind deine Wirtsleute nett? also soefden, lan es dir gut gehen, bleib gesund und vergnügt. Lieber Zonf! Alerzlichst Kürssa kurss Deie Ret aude ich wundere mich uhr dan Du gerichts von die lürene Ecd. Du weleb dorle, wenn Post von Dir kommt, wann sch „Freuder im Faher Höffentliche bedeubet dein Abweigen nur Beschäßig und Mengel an Zeit, nichts crleres. Also. burog upt, Pocliach gränt zich dein Her.
+
+OCR:
+wenn sie jetzt des Affidarit ab¬ haben. Wirst Du wurden neben wir doch die Alten u Geste hier bezukiert und die Regierung verfällt nach einer gewissen Mit Ich denke, Du wirst Dich schon dafür eine Frauen und lebenschaften lassen Du Glück! – Mit Götte sind wie Neuernde zusammen. Wir geht es sehr gut und sie ist überall vor die Auskannt, sofort bliebt. sie ist sehr lieb und vergnügt! Welt sich schon dass zu beend am Glocke bei Dir geschmeldet? war macht Du weit? Wie gelt es Dir? Ambei eine Antwortmarken sind Deine Wirtsleute nett?  also treffen, bin es die gut Allen, bleib gründ und vergnügt. Lieber Zonf! Herzlichst Kürse kam eine Rache hatte ich wundern will, aber die gewirkte von die einen eine Sele. Wortenklich, wenn doch wie dir kranken, kein Wir zwecken den Solle. Nffentlicke bedeutet dein Ubrigen nur Unbesti¬ und Mögel an Seite, nicht sicherer. Aber Burg nach Vortäblich grund Dich Dein Mer.
+
+Corrected:
+wenn sie jetzt des Affidarit ab¬ haben. Wirst Du wurden neben wir doch die Alten u Geste hier bezukiert und die Regierung verfällt nach einer gewissen Mit Ich denke, Du wirst Dich schon dafür eine Frauen und lebenschaften lassen Du Glück! – Mit Götte sind wie Neuernde zusammen. Wir geht es sehr gut und sie ist überall vor die Auskannt, sofort bliebt. sie ist sehr lieb und vergnügt! Welt sich schon dass zu beend am Glocke bei Dir geschmeldet? war macht Du weit? Wie gelt es Dir? Ambei eine Antwortmarken sind Deine Wirtsleute nett?  also treffen, bin es die gut Allen, bleib gründ und vergnügt. Lieber Zonf! Herzlichst Kürse kam eine Rache hatte ich wundern will, aber die gewirkte von die einen eine Sele. Wortenklich, wenn doch wie dir kranken, kein Wir zwecken den Solle. Nffentlicke bedeutet dein Ubrigen nur Unbesti¬ und Mögel an Seite, nicht sicherer. Aber Burg nach Vortäblich grund Dich Dein Mer.
+
+--- Page 35: data/raw_data/grandpa_letters/xml/0044_Letter 4 March 39 father.xml ---
+CER (OCR): 0.0744
+CER (corrected): 0.0744
+
+Ground Truth:
+Dear fos! Den Brief von 10. ist est laute eng¬ kömmin. Er ist doch schön, daß Ta auch mit der ss wir lieben bich chax u. Meschene schreibens Huble dort eingelebt? Zühlken si sich glücklich | u. zufrieden.  Von St. Taul wirf du wohl schon Vadericht laben. - Am nächsten Brief wüensche ich vor dach in Englisch, den aus Briefen lerert man u. eignist sich Alle¬ | Asser an. Beiben gesund ih gegrißt from | Hone Jather monday 27/3. 39
+
+OCR:
+Dear fos! Den Brief von 10. ist est laute eng¬ kommen. Es ist doch schön, daß du auch mit der | htes wir lieben bich chax u. Meschene schreiben Huble dort eingelebt? fühlten si sich glücklich | u. zufrieden. Von St. Taul wirf du woll schon Vadericht laben. - Am nächsten Brief wünsche ich vor dach in Englisch, den aus Briefen lernt man u. eignist sich Alle¬ Asser an. Beiben gesund u gegrüßt from | Haus. Justiz monday 27/3. 39
+
+Corrected:
+Dear fos! Den Brief von 10. ist est laute eng¬ kommen. Es ist doch schön, daß du auch mit der | htes wir lieben bich chax u. Meschene schreiben Huble dort eingelebt? fühlten si sich glücklich | u. zufrieden. Von St. Taul wirf du woll schon Vadericht laben. - Am nächsten Brief wünsche ich vor dach in Englisch, den aus Briefen lernt man u. eignist sich Alle¬ Asser an. Beiben gesund u gegrüßt from | Haus. Justiz monday 27/3. 39
+
+--- Page 36: data/raw_data/grandpa_letters/xml/0134_Letter 5 - Page 2.xml ---
+CER (OCR): 0.2023
+CER (corrected): 0.2023
+
+Ground Truth:
+aneignest, die Duspäter dringend gebrauthen wies, daß de zu den Testtagen in der Spurzahl warst liat mich gefreut. Wie wal dir die Fedacht zufallen. Ist der Ritusgenau so wie hier Wor braft du Fis für im Auzurg gekrauft, ich hatte Dich gene denist auf einen Bilde gesehen. Kaufe Dis uur gute Sachen dern die guten sind die billigsten¬ De l. Mitti schreibt an Dich auf der Maschens ganz ausführlich; – daher möchte ich schließen! Eebe weit e sreht woll u. sei herzlicht ven Dinam Tathe gegrößt Vorje Doche war ich einige Vrgem Barher. bis auf Iedarte Hilleg ist O- all-right: es gest ihr aber schon besek
+
+OCR:
+oneignest, die du später dringend gebrauchere wistußen du den Schlesen in der Spurzahl warst, liat mich gefreut. Wir wal dir die Gedacht | zufallen. Ist der Ritusgenau so wie will Du lärst du Tiefer für ein Burg gekrauft, ich bitte Buch grad denst auf einen Bilde gesehen. Kaufe Seit und jetzt Sachen denn die guten sind die billigsten¬ In l. Mitti schreibt an Dich auf der Maschien- ganz ausführlich. ; daher möchte ich schliegten. Es habe geist wort woll u. sei herzlich von denen Fasch gegrößt Vorje Woche war ich einige Tepend Berlin. wie auch betonte billg ist, - all-right. es geht ihr aber schon besseht
+
+Corrected:
+oneignest, die du später dringend gebrauchere wistußen du den Schlesen in der Spurzahl warst, liat mich gefreut. Wir wal dir die Gedacht | zufallen. Ist der Ritusgenau so wie will Du lärst du Tiefer für ein Burg gekrauft, ich bitte Buch grad denst auf einen Bilde gesehen. Kaufe Seit und jetzt Sachen denn die guten sind die billigsten¬ In l. Mitti schreibt an Dich auf der Maschien- ganz ausführlich. ; daher möchte ich schliegten. Es habe geist wort woll u. sei herzlich von denen Fasch gegrößt Vorje Woche war ich einige Tepend Berlin. wie auch betonte billg ist, - all-right. es geht ihr aber schon besseht
+
+--- Page 37: data/raw_data/grandpa_letters/xml/0115_p001.xml ---
+CER (OCR): 0.3013
+CER (corrected): 0.3013
+
+Ground Truth:
+Sülberstr. 178 N. 55. Mein Freund! wie umgetend ich Deinen Brief erwidere. Bin zu siehst auch grad bei Zunr – Fische. Der englishe Teil fällt weg. ich zu wenig Zeit hab, die einzehnen Urkabeln zusam¬ da menzuhlauben. Eigentlich vermisse ich in dem Frief, pecht viel z. B. über Verdienst, Arbeitszeit, Bekannte u. dergl. ESchlns traf ich einige Raike aus dem Fund, die sich nach 5. Dir erkündigten. Heite vergaß ich ihre Namen, dler sie saren mit Dir in einer Grußpe, z. B.: Der Zruch von Zwie. wie ist übrigens im Lande seiner Sehnsuch. Talästina Frech ist in der Bundesleitung als Oberster tälie. Ansristens schläft der Frund einen spießihe. Schlaf. Bei Piekte kam ich vor paar Taggen worber, bin aber niht seingegangen. Mit Hanni Gluck¬ zstern, die zu doch hennst, war ich im Staatsthealr zu Amilia Galotti berringe großen Freuerspiel. Dicher be3 Rabale und Liebe! Wir wnd Z Abilbers „Dallenslein wollen diesen Wintr alle ersthlassigen Süche sehen, zumal die Aufführungen erstäunlich gur sind. „Hambel mit Grüntgen kommt das nächste Mal ran. Freilich sehn wir es hier übersehe, rährend Du es doch im Shakespeare-Tesel Hlat Dir Snkel Albet gesagt, dass lären könntest. ich rüber kommen werda, nach M. S.? Er hal es fert versprochen und ich bin bereit, zu gehen. Das ware die Fest für uns beide. Dir würden bestimmt zu¬ sammenschnen. Da, hoffentlich wirds Dichlicheit und bald. Mein aller Professor, bei dem ich Erglint lerne, spricht
+
+OCR:
+Aulberstr., 1.8 N. 65. Mein Freund! wie umgebend ich Deinen Brief erwidere. Von Du sieht auch grad bei Hans – Fische. Der englirte Teil fällt weg. ich zu wenig Zeit hab, die einzehnen Urkabeln zumm der meinzukläuben. Binigkeit; werde ich in dem Brief seit viel z. B. über Verdiess, Arbeitszeit, Bekannte u. dergl. I hastes froh ist einige kalt aus dem Sommer wie sie viel 5. der Bekanntigke. Worte vergaß ist, ihn kamen, der sie wäre mit Dir in einer Grüßpe, z. B. Der Zweck von Zwie. Zeit in übrigern im Land darin. Dieser erstens Dabei nach er im die Niedenblickung als Abrede tätig. Unrichten entläht 5. der Sicht einen richtige. Mensch. Bei Riete kam ich der paar Tage erben, bin die will! eingegangen. Mit Hans Glaub- Ja wäre, sie Du doch fannen, vor et dem Staatsstatt zu Brachim. Gotts! Königs große! erträgt. `` Kabale Dies Liebe! Wir wird B. Adalters Du allenstein vollen davon Dich alle! erschänige Stücke geben, zumal die Aufführige erstäulich gur sind. - Handel mit Grundge¬ herzens das, nächst Mal, ran. Frlich, Über wir sich übersehe, rähnest Du es dick im Shakespeare- Teseel Dir Dir Onkel Arbeit gewißt, dass hören könntest. jetzender kommen werde, weit. I. I. Er hat es seit versich sagen und ich bin krank, zu guten. Das von die Fort für uns beide! Der Märke bedient zu- wiederweiten. Die, hoffentlich dass Dirklichkeit und hatte Mein alte Professor, bei dem ich Englint lerne. Spricht
+
+Corrected:
+Aulberstr., 1.8 N. 65. Mein Freund! wie umgebend ich Deinen Brief erwidere. Von Du sieht auch grad bei Hans – Fische. Der englirte Teil fällt weg. ich zu wenig Zeit hab, die einzehnen Urkabeln zumm der meinzukläuben. Binigkeit; werde ich in dem Brief seit viel z. B. über Verdiess, Arbeitszeit, Bekannte u. dergl. I hastes froh ist einige kalt aus dem Sommer wie sie viel 5. der Bekanntigke. Worte vergaß ist, ihn kamen, der sie wäre mit Dir in einer Grüßpe, z. B. Der Zweck von Zwie. Zeit in übrigern im Land darin. Dieser erstens Dabei nach er im die Niedenblickung als Abrede tätig. Unrichten entläht 5. der Sicht einen richtige. Mensch. Bei Riete kam ich der paar Tage erben, bin die will! eingegangen. Mit Hans Glaub- Ja wäre, sie Du doch fannen, vor et dem Staatsstatt zu Brachim. Gotts! Königs große! erträgt. `` Kabale Dies Liebe! Wir wird B. Adalters Du allenstein vollen davon Dich alle! erschänige Stücke geben, zumal die Aufführige erstäulich gur sind. - Handel mit Grundge¬ herzens das, nächst Mal, ran. Frlich, Über wir sich übersehe, rähnest Du es dick im Shakespeare- Teseel Dir Dir Onkel Arbeit gewißt, dass hören könntest. jetzender kommen werde, weit. I. I. Er hat es seit versich sagen und ich bin krank, zu guten. Das von die Fort für uns beide! Der Märke bedient zu- wiederweiten. Die, hoffentlich dass Dirklichkeit und hatte Mein alte Professor, bei dem ich Englint lerne. Spricht
+
+--- Page 38: data/raw_data/grandpa_letters/xml/0101_p004.xml ---
+CER (OCR): 0.1028
+CER (corrected): 0.1028
+
+Ground Truth:
+Oein-lieber Josef! Alles Gute zum Gebärtssage und zum neuen Jahr. Gefundheit und viel Glück vor Allem Hoffendlich findest Du in Deiner Arbeist zeifrie¬ den heit. Hier bei uns ist alles deim Alten – mokürlich, denn es konn sich her gaernichts andere. ja wenn ich nur waßte was ich dir schreiben sollt, Gotte hat mir alles eosgegesappt. Also entschik dige müh. Nahmals alles nur mögli¬ he Güte von Riß
+
+OCR:
+Mein lieber Josef! Alles Gute zum Gebärtssage und zum neuen Jahr; Gefundheit und wird Glück vor Allem Hoffendlich findest Du in Deiner Arbeist gefrie¬ den Zeit. Hier bei uns ist alles deine Alten – mokürlich- denn es kann sich ja garnichts hindern- ja, wenn ich nur müßte was ich Dir schreiben sollt, Gotti hat mir alles eingegäppt. Also entscheid dige mich- Nachmals alles nur möglichte he Güte von Riß
+
+Corrected:
+Mein lieber Josef! Alles Gute zum Gebärtssage und zum neuen Jahr; Gefundheit und wird Glück vor Allem Hoffendlich findest Du in Deiner Arbeist gefrie¬ den Zeit. Hier bei uns ist alles deine Alten – mokürlich- denn es kann sich ja garnichts hindern- ja, wenn ich nur müßte was ich Dir schreiben sollt, Gotti hat mir alles eingegäppt. Also entscheid dige mich- Nachmals alles nur möglichte he Güte von Riß
+
+--- Page 39: data/raw_data/grandpa_letters/xml/0136_Letter 5 side 2 Rosa.xml ---
+CER (OCR): 0.1977
+CER (corrected): 0.1977
+
+Ground Truth:
+zu bun. Augenblnklich ist auch bei uns nicht viel zu Arbeiten u. wird Onkel Gemann schin alleine lertig. Mutter Samm muß halt melten helfen. Erch Tettler ist beim Arbeitsdienst. Schreibt nicht besonders. Züer ist alles noch wie es maren Nadichen wie in der Umgebung. Von dicken hoffen mur alle Tage, daß er auswundeert. Mohnd 1/ noch umbestimmt. Fuedel u. Rita geht es weiter gub, zer Hospat werden wir uns alle fejen, bleib ueter
+
+OCR:
+zu tun. Augenblicklich ist auch bei uns nicht viel zu Arbeiten u. wird Onkel Gemann sind alleine fertisch. Mutter denn muß Gott vielken helfen. Beihe. Tettler ist keine Arbeitsdienst, Ich will näht hat erstens. Zier ist alles noch wie es mir im Nüdchen wir in der Umgebung. Von dicken hoffen mir alle Tage, daß er auswundeit. Mögend ist noch unbestimmte und ab u. Rita geht es wieder gab, zur gescheit werden wir uns alle sagen, bleib weiter
+
+Corrected:
+zu tun. Augenblicklich ist auch bei uns nicht viel zu Arbeiten u. wird Onkel Gemann sind alleine fertisch. Mutter denn muß Gott vielken helfen. Beihe. Tettler ist keine Arbeitsdienst, Ich will näht hat erstens. Zier ist alles noch wie es mir im Nüdchen wir in der Umgebung. Von dicken hoffen mir alle Tage, daß er auswundeit. Mögend ist noch unbestimmte und ab u. Rita geht es wieder gab, zur gescheit werden wir uns alle sagen, bleib weiter
+
+--- Page 40: data/raw_data/grandpa_letters/xml/0098_p001.xml ---
+CER (OCR): 0.0400
+CER (corrected): 0.0400
+
+Ground Truth:
+Mein l. Josef! Wie allerherzlichsten Glückwünsche zu Deinem ersten Geburtstag um, in U. S. 4. Mögest Du in Deinem Bereif weiter gute Fortschritte machen. Weitere Wünsche brauche ich Wir je nicht zu schreiben, denn es sind doch immer wieder die sel¬ ben.- Die Briefe von Dir habe ich immer gelesen, denn sn Mntti schreibt sie mir immer mit der Maschine ab. Auch den allerbesten Dank für Deinen Brief den Du an Ruth und mich geschrieben hast. Über die Bilder haben wir uns riesig gefreut. Eins hat sich
+
+OCR:
+Mein l. Josef! Die allerherzlichsten Glückwünsche zu Deinem ersten Geburtstag ein; in U. S. 4. Mögert Du in Deinem Beruf weiter gute Fortschritte machen. Weitere Wünsche brauche ich Dir je nicht zu schreiben, denn es sind doch immer wieder die sel? ben.- Die Briefe von Dir habe ich immer gelesen, denn war Mutti schreibt sie wir immer mit der Maschine ab. Auch den allerbesten Dank für Deinen Brief die Du an Rath und mich geschrieben hast. Über die Bilder haben wir uns rössig gefreut. Eins hat sich
+
+Corrected:
+Mein l. Josef! Die allerherzlichsten Glückwünsche zu Deinem ersten Geburtstag ein; in U. S. 4. Mögert Du in Deinem Beruf weiter gute Fortschritte machen. Weitere Wünsche brauche ich Dir je nicht zu schreiben, denn es sind doch immer wieder die sel? ben.- Die Briefe von Dir habe ich immer gelesen, denn war Mutti schreibt sie wir immer mit der Maschine ab. Auch den allerbesten Dank für Deinen Brief die Du an Rath und mich geschrieben hast. Über die Bilder haben wir uns rössig gefreut. Eins hat sich
+
+--- Page 41: data/raw_data/grandpa_letters/xml/0113_p001.xml ---
+CER (OCR): 0.3752
+CER (corrected): 0.3752
+
+Ground Truth:
+1es 1nt on 1516 SRAND AVENUE SAINT PAUL 5. MINNESOFA 1-23-46 Lieber Joe vielen Dank für Deinen Kitf. zu dem Inhalt kann ich mich nitt weiter aussen, mur, dass das Dane Entschechung und Deine Angelegen¬ heit ist mic du ain besten wesst was niltig war. Mir soweit kann ich For mir sagen, dass bei so einer Sade beide Teile grosszüzig sein senerter wnd nicht mit eine erngt gelt y edrief, und in Kege mee fraert den zu ande setandelt 3d glaube, Du hart Dir vele zoes bespart. Sie Du welisst waren wir inher Gak auc ltten viel fun. Die grnze Mores Meschpode ist so zwenlich zersticken und giftig aufinbndhe, abe all sind sich
+
+OCR:
+Ieres. Meeres 1516 Brand Avenue SAint Pal. G. Minwesore 1-23-46 Lieber Joe vielen Dank für Deinen Rukf. Ihn denn Inhalt kann ich mich nicht richten daneben, mir, dass das Deine Entscheidung und Deine Angelegen- seit ist mich Du am besten werde das richtig vor, Una weit kann ich Dir mir sagen, denn die so eine dabe beide! Lebe gebraizüzig sein schnende mich nicht eine eine Sonnt hat es geht, und ein Blumen, himmel drauße Du zu und herzensklt. 20. heute zu sagt die mele gernst aßer E. Die Dir erleucht werde wir im Uhr Gak auch ließen viel fein die ganze Mores Rechpode ist unserend nicht zwecken und geistig verstierenden, aber alle sind sich
+
+Corrected:
+Ieres. Meeres 1516 Brand Avenue SAint Pal. G. Minwesore 1-23-46 Lieber Joe vielen Dank für Deinen Rukf. Ihn denn Inhalt kann ich mich nicht richten daneben, mir, dass das Deine Entscheidung und Deine Angelegen- seit ist mich Du am besten werde das richtig vor, Una weit kann ich Dir mir sagen, denn die so eine dabe beide! Lebe gebraizüzig sein schnende mich nicht eine eine Sonnt hat es geht, und ein Blumen, himmel drauße Du zu und herzensklt. 20. heute zu sagt die mele gernst aßer E. Die Dir erleucht werde wir im Uhr Gak auch ließen viel fein die ganze Mores Rechpode ist unserend nicht zwecken und geistig verstierenden, aber alle sind sich
+
+--- Page 42: data/raw_data/grandpa_letters/xml/0100_p003.xml ---
+CER (OCR): 0.0405
+CER (corrected): 0.0405
+
+Ground Truth:
+scheinlich in einen Kinder¬ garten. Dann hoffe ich läng- lingsschwester zu erlernen. Nun für dieses Mal recht herzliche Grüße und Kürse von Deiner jüngeren Schwester Gotti Besondere Grüße an alte Bevevand. ten dort. Bitte Genog nicht zu vergessen.
+
+OCR:
+scheinlich in einen Kinder¬ garten. Dann hoffe ich Läng¬ lingschwester zu erlernen. Nun für dieses Mal recht herzliche Grüße und Hürse von Deiner jüngeren Schwester Gotti Besondere Grüße an alle Verwand¬ ten dort. Bitte Genog nicht zu vergessen.
+
+Corrected:
+scheinlich in einen Kinder¬ garten. Dann hoffe ich Läng¬ lingschwester zu erlernen. Nun für dieses Mal recht herzliche Grüße und Hürse von Deiner jüngeren Schwester Gotti Besondere Grüße an alle Verwand¬ ten dort. Bitte Genog nicht zu vergessen.
+
+--- Page 43: data/raw_data/grandpa_letters/xml/0103_p002.xml ---
+CER (OCR): 0.3415
+CER (corrected): 0.3415
+
+Ground Truth:
+8Jnsa vershiedenes von Orkel Mbert na abringen 55 3/ Paulia wurden beim konsulat 1½2 Tage lang die 753! Ia wcht auch bekannten Registaumgebogen ausge¬ sfesgtilt und wir haben für Gatti und die Eltern 57 wlede besarffen können, damit sie sich auf die .3 wartung list engtragen werden können und + darn, wenn sie einmal das Affidarit bekan¬ Inen, nicht so eeig warten müssen. Und 1½2 Tagen hab es keinen einzigen Bagen mehr und 3E wie wien natürsid überglüchlih (und die Altern? g Gatte auch) dass wir welde beschafft haten. un Schluss Mase will and noch gratuheren Lars Trh herzlichst wenn auch nur im Bief ummnen und sie herzlichst gegrüsst + gekasst vinn Flnal Luth 1 1 Lieber Josef! also hoffentlich können wir Dir nächstes Jaler schon drüben persönlihe grabulieren. Für leute be¬ schränke ich mich derauf, Dir auf dienen Weze von Dessen S zum Geburkstage glück zu wünschen. Möge Dir die Zukunft alles des bringen, was Du selbst von ihr erhoffst. Den Start Ed hast Du ja und Du wirt es shon schaffen. – Ruble hat 7 Wir shor alles geshrieben. Wenn alles klappt, nnh wir "sie im Deseuber zenuer lrüben. Des das beleubet kennt . die Lrüben gerniht ermessen, denn Leube, die leube Affilerit neu bringen, kommen vielleibt in 2 Jahren heraus so sicht es hier aus! Deshalb sind wir ja den lb. Derwankten so denhber, 13len sie um unseren Start ermöglicht haben und Dir, weil Due Ltbide für uns so bemüht hast. — Demnährt wird sich ein güber 7 Freund von mir, Hans Werner Bloch zur Neine, bei Dir melden: Iß und Dir Grüne von uns überbringen. — Dann noch eine Bille: 3 Du hast einmal so einen neten Subwag-sahoplen nach Hause. 3 geschickt. Kannst Du uns niht einmal als Drucksache diresse
+
+OCR:
+Wir werde verwiedenen von Sessel Arbeit ewährenden 5 3. Paulik werden beim krankat 1½ Tage lang die Für ihr nicht auch bekannten Vapierung übergenwungen ausge Wir will uns von hohen für Gotti und die Wirn zu aller beschaffen können, damit sie wir uns die 5 5 windung bist ungegen mäden können und kann, wenn ein einmal das Affidarit klein¬ mein nicht so ewig warten würden. Na lt! Tagen hab es keinen hindzigen Wochen nichts und 3) wie wenn natürlich eiblichlück ( und die Abend Das Gotte auch), dass wir rechte beschafft haben. thun Bluss, statt will auch noch gratuliren len Seit herzlichst. Denn auch nur im Brief um dannen und sie sanftvorkt gegiert gekürrt von Deiner tut 7 1 Duber Josef! Ober hoffentlich können wir die nächster Jahr, aber beiden persirlich gratilien. Für Cäcke Oe- ich glückt ih nehmen bereif. Wir geht beim lange von denen ein Geburtstage Glück zu wünschen. Köge die die Zukunft alles der bringen, wie die selbst von der erhoffet. den Stadt 3. hat die ja dat du wird es ihre Fechsen.- Ruhle hat Wir dem alles gebrieben. Einen aller Mapps, aus wir ihn im Verender Jener könten. Die hier bedeutet, kannt 3. die Arten gewebt werde, eine Leute, an heute Aselerd ein bringen, kommen vielleibt in 2 Februar heraus, erübt Dabei ein. Verhebt sind wir je den lb. Berwankten so beider, lei so ja einem stand grüchtigt haben und dir, weil du Wie für uns er leidlnd. - wandet werde ich ein guter Kiel von mir, Nun udrer Start zu Deine, sei Dir nehlen ist und die Grün von uns überbringen. - Dann noch ein Bitte. zu hat einmal es einen netten Subraz- betragen nach Hause 3. geschickt. Kannt Du uns mild einmal el. Druckvolle dihere
+
+Corrected:
+Wir werde verwiedenen von Sessel Arbeit ewährenden 5 3. Paulik werden beim krankat 1½ Tage lang die Für ihr nicht auch bekannten Vapierung übergenwungen ausge Wir will uns von hohen für Gotti und die Wirn zu aller beschaffen können, damit sie wir uns die 5 5 windung bist ungegen mäden können und kann, wenn ein einmal das Affidarit klein¬ mein nicht so ewig warten würden. Na lt! Tagen hab es keinen hindzigen Wochen nichts und 3) wie wenn natürlich eiblichlück ( und die Abend Das Gotte auch), dass wir rechte beschafft haben. thun Bluss, statt will auch noch gratuliren len Seit herzlichst. Denn auch nur im Brief um dannen und sie sanftvorkt gegiert gekürrt von Deiner tut 7 1 Duber Josef! Ober hoffentlich können wir die nächster Jahr, aber beiden persirlich gratilien. Für Cäcke Oe- ich glückt ih nehmen bereif. Wir geht beim lange von denen ein Geburtstage Glück zu wünschen. Köge die die Zukunft alles der bringen, wie die selbst von der erhoffet. den Stadt 3. hat die ja dat du wird es ihre Fechsen.- Ruhle hat Wir dem alles gebrieben. Einen aller Mapps, aus wir ihn im Verender Jener könten. Die hier bedeutet, kannt 3. die Arten gewebt werde, eine Leute, an heute Aselerd ein bringen, kommen vielleibt in 2 Februar heraus, erübt Dabei ein. Verhebt sind wir je den lb. Berwankten so beider, lei so ja einem stand grüchtigt haben und dir, weil du Wie für uns er leidlnd. - wandet werde ich ein guter Kiel von mir, Nun udrer Start zu Deine, sei Dir nehlen ist und die Grün von uns überbringen. - Dann noch ein Bitte. zu hat einmal es einen netten Subraz- betragen nach Hause 3. geschickt. Kannt Du uns mild einmal el. Druckvolle dihere
+
+--- Page 44: data/raw_data/grandpa_letters/xml/0133_Letter 5 - Page 1.xml ---
+CER (OCR): 0.1603
+CER (corrected): 0.1603
+
+Ground Truth:
+D Mg Dear Sor! Dinn brief obne Datum – abgestempelt von 19.9. Laben wes erhalten. Zngleich kam auch Brief von Tante Rebeka u. von Harmor aus Tentura Calf. mit einem Bilde wo Du auch mit Mosere. oben bist. Ihr allesseit gut getroffen, in derforks am 18.C.38- Man sieht auch im Geböht eines Grünkstichts Die Freude auch darüber war groß. Degen deme Arbeit Wänderung auß unbedingt worgetan werden. Wam denng Arbeit nicht auf den Tag verlegt werden. Ihr liebt doch voll auch Tagsschickten. - Vom die Einteilung wegen dens Fortbildung niht berücksichtigt werden kann, dann wird es geändgt werden 1.G. w. wenn Luth u. ker dort sind?! Ich kam es aber nickt vesstehen, warund das gebindt wird. | Botl. soll mal Onkel Aleist vorsprechen, denn Ontal dllweit will es auch haben, daß du Dis Kantise
+
+OCR:
+D Messerer Dor! Dinn Brief beim Wartwe – abgestengelt von 19.9. Laben wes erhalten. Zngleich kam auch Brief von Tante Rebeka u. von Harmor aus Textuem Hoff. mit einem Bilde wo Du auch mit sondern oben bist. Ihr allerseit gut getroffen, in der forts am 18.6.38.- Han sieht auch in Gebüht einer Präfinfte den Freude auch darube, war groß. Degen Deine Arbeits- Wunderung nicht unbedingt wer getan wäden. kam Seine Arbeit nicht auf der Vag erlegt werden. Ihr liebt doch voll auch Dachsschickten. - Vom den Einteilung wegen denes Fortbildung nicht berücksichtigt werden kann, dann wird es geändigt werden s.g. w. wenn Fink u. Per der sind. Was kam es aber nicht anstehen, warum das gebindgt wird. Eil. soll mit Onkel selbst versprechen, denn Onkel Albert will es auch waben, daß da Dir Kanläss
+
+Corrected:
+D Messerer Dor! Dinn Brief beim Wartwe – abgestengelt von 19.9. Laben wes erhalten. Zngleich kam auch Brief von Tante Rebeka u. von Harmor aus Textuem Hoff. mit einem Bilde wo Du auch mit sondern oben bist. Ihr allerseit gut getroffen, in der forts am 18.6.38.- Han sieht auch in Gebüht einer Präfinfte den Freude auch darube, war groß. Degen Deine Arbeits- Wunderung nicht unbedingt wer getan wäden. kam Seine Arbeit nicht auf der Vag erlegt werden. Ihr liebt doch voll auch Dachsschickten. - Vom den Einteilung wegen denes Fortbildung nicht berücksichtigt werden kann, dann wird es geändigt werden s.g. w. wenn Fink u. Per der sind. Was kam es aber nicht anstehen, warum das gebindgt wird. Eil. soll mit Onkel selbst versprechen, denn Onkel Albert will es auch waben, daß da Dir Kanläss
+
+--- Page 45: data/raw_data/grandpa_letters/xml/0097_p002.xml ---
+CER (OCR): 0.1297
+CER (corrected): 0.1297
+
+Ground Truth:
+Frau Friedländer ist riesig nett zu mir und ich bin nocl d2 Tochter im Haure. Acht Pensionöe sind hier wohn¬ sz, alles ältere Damen und Herren. Tratz des Alters, der leute ist es immer ganz gemutlich. Mit Onkel. Karl bin ich gleich am esten Tag in Berlin herus gefahren. Das war wie der etwas für ihre, jemandem wieder itwas zu Zeigen. Walder habe ich ert durch? Tehen gesprochen. Nun noch- mals alles Gute und für alles Herzl. Banka und viele Früse und Herzl. Rüsse zendet ber Deine jrr gute Schwester Gotti.
+
+OCR:
+Frau Friedländer ist riesig nett zu mir und ich bin will die Tochter im Haure. steht Pensionäre sind hier schen¬ kahst. aller ältere Damen und Herren. Trotz des Alters, das Leute ist er immer ganz gemutlich. Mit Onkel Karl bin ich gleich am ersten Tag in Berlin herum gefahren. Der war wie der etwas für ihre, jemandem wieder Ferns zu zeigen. Vetter habe ich ert durch! Schloja gesprochen. Nun noch¬ mals aller Gute und für alles harrt. Danka und viele Grisse und herzl. Küsse von der Deine Idir gute Schwester Gotti.
+
+Corrected:
+Frau Friedländer ist riesig nett zu mir und ich bin will die Tochter im Haure. steht Pensionäre sind hier schen¬ kahst. aller ältere Damen und Herren. Trotz des Alters, das Leute ist er immer ganz gemutlich. Mit Onkel Karl bin ich gleich am ersten Tag in Berlin herum gefahren. Der war wie der etwas für ihre, jemandem wieder Ferns zu zeigen. Vetter habe ich ert durch! Schloja gesprochen. Nun noch¬ mals aller Gute und für alles harrt. Danka und viele Grisse und herzl. Küsse von der Deine Idir gute Schwester Gotti.
+
+--- Page 46: data/raw_data/grandpa_letters/xml/0135_Letter 5 side 1.xml ---
+CER (OCR): 0.3316
+CER (corrected): 0.3316
+
+Ground Truth:
+Mint lieber Josef Wir fieuen und stofs wenn ent dir ein Luf kannt. Alle müssen mir hn lesen und immer uind wiedersolt: der Eute junge! Walter frauk sich, baßim die Aussicht gestellt wird doh skkt zusehen. Wir nollen hossen dage auch er seine neue hammt so schnell lieb verihnt als du! - – Ich gabe taeses Jahr 120 Rt Synig gekiht vielleicht kannst du mir einige Nezepte schiken um den Shutp lassens zu verwenden. Wichnagten ist bei Tant auch Isupt. Morta heientet den Fuhst ein Juckel. d ie Berliner-Verwandten knnmen alle. Sgpe ist sper 8 tage der Beslun Gat auf dem pbl. s enselbt
+
+OCR:
+Mint lieber Joseph wir kennen und stets wenn von dir ein Brief kommt. Alle. müssen mir ihn lassen und immer sind müdethelt. Das gute junger Walter freut sich, daß ihm ein aus sicht gestellt wird daß sich sich sogar. Wie warten gegen daß auch er kaum neue Himmens so schnell lieb Hausdank aus du. - Ich gabe Dich es Jahr 120 M. Dizung geweiht vielleicht kannst du nur einige Negypte schicken, denn den Skgung bestens zu erwenden. vielmüssen ist bei Raume nach Glugt. Monate gekanntet den 5. meist von Jückel. die Berliner-Verwandten kuchen alle 3 gewisse ist schon 3 Tage an Vorschau, gut auf dem geb. u unzulat
+
+Corrected:
+Mint lieber Joseph wir kennen und stets wenn von dir ein Brief kommt. Alle. müssen mir ihn lassen und immer sind müdethelt. Das gute junger Walter freut sich, daß ihm ein aus sicht gestellt wird daß sich sich sogar. Wie warten gegen daß auch er kaum neue Himmens so schnell lieb Hausdank aus du. - Ich gabe Dich es Jahr 120 M. Dizung geweiht vielleicht kannst du nur einige Negypte schicken, denn den Skgung bestens zu erwenden. vielmüssen ist bei Raume nach Glugt. Monate gekanntet den 5. meist von Jückel. die Berliner-Verwandten kuchen alle 3 gewisse ist schon 3 Tage an Vorschau, gut auf dem geb. u unzulat

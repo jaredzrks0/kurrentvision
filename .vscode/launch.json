@@ -144,7 +144,8 @@
             "request": "launch",
             "program": "${workspaceFolder}/src/modeling/training/error_correction.py",
             "console": "integratedTerminal",
-            "args": ["--data", "both"],
+            "args": ["--data", "both",
+                     "--ocr-model", "models/kurrent_ocr/trocr_both_best"],
             "justMyCode": false,
             "cwd": "${workspaceFolder}",
             "env": {"PYTHONPATH": "${workspaceFolder}/src"}
@@ -196,6 +197,7 @@
                 "--data", "raw",
                 "--split", "test",
                 "--exclude", "Digitale Schriftkunde Archive Bayerns", "DTA Handwritten OCR", "UGreifswald Senatsprotokolle", "grandpa_letters_2",
+                //"--ocr-model", "models/kurrent_ocr/trocr_both_best",
                 "--ocr-model", "dh-unibe/trocr-kurrent",
                 //"--corrector-model", "models/grammar_corrector/corrector_both_best"
                 "--save-text"
@@ -203,15 +205,6 @@
             "justMyCode": false,
             "cwd": "${workspaceFolder}",
             "env": {"PYTHONPATH": "${workspaceFolder}/src"}
-        },
-        {
-            "name": "OCR Predict",
-            "type": "debugpy",
-            "request": "launch",
-            "module": "src.modeling.ocr_preds",
-            "console": "integratedTerminal",
-            "args": ["data/raw_data/grandpa_letters/images/0044_Letter 4 March 39 father.jpg"],
-            "justMyCode": false
         },
     ]
 }
