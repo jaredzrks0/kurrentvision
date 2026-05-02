@@ -178,28 +178,30 @@
             "args": [
                 "--mode", "dataset",
                 "--data", "both",
-                "--split", "test",
-                "--ocr-model", "models/kurrent_ocr/trocr_both",
-                "--corrector-model", "models/grammar_corrector/corrector_both_best"
+                "--split", "train",
+                "--ocr-model", "dh-unibe/trocr-kurrent",
+                "--save-text"
+                //"--corrector-model", "models/grammar_corrector/corrector_both_best"
             ],
             "justMyCode": false,
             "cwd": "${workspaceFolder}",
             "env": {"PYTHONPATH": "${workspaceFolder}/src"}
         },
         {
-            "name": "XML Inference - Grandpa Letters",
+            "name": "XML Inference",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/src/modeling/inference/xml_inference.py",
             "console": "integratedTerminal",
             "args": [
                 "--mode", "dataset",
-                "--data", "raw",
-                "--split", "test",
+                "--data", "both",
+                "--split", "train",
+                //"--exclude", "grandpa_letters_2",
                 "--exclude", "Digitale Schriftkunde Archive Bayerns", "DTA Handwritten OCR", "UGreifswald Senatsprotokolle", "grandpa_letters_2",
-                //"--ocr-model", "models/kurrent_ocr/trocr_both_best",
-                "--ocr-model", "dh-unibe/trocr-kurrent",
-                //"--corrector-model", "models/grammar_corrector/corrector_both_best"
+                "--ocr-model", "models/kurrent_ocr/trocr_both_best",
+                //"--ocr-model", "dh-unibe/trocr-kurrent",
+                //"--corrector-model", "models/grammar_corrector/corrector_raw_best",
                 "--save-text"
             ],
             "justMyCode": false,

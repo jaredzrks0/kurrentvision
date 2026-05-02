@@ -148,8 +148,9 @@ if __name__ == "__main__":
 
     corrector, tokenizer = None, None
     if args.corrector_model:
-        tokenizer = MBart50TokenizerFast.from_pretrained(args.corrector_model, src_lang="de_DE", tgt_lang="de_DE")
-        corrector = MBartForConditionalGeneration.from_pretrained(args.corrector_model).to(device)
+        corrector_path = str(Path(args.corrector_model).resolve())
+        tokenizer = MBart50TokenizerFast.from_pretrained(corrector_path, src_lang="de_DE", tgt_lang="de_DE")
+        corrector = MBartForConditionalGeneration.from_pretrained(corrector_path).to(device)
 
     inferencer = XmlInference(ocr_model, ocr_processor, device, corrector=corrector, tokenizer=tokenizer)
 
