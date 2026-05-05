@@ -142,7 +142,7 @@ When looking through the results, two things become immedietly clear. First, whe
 
 The second thing that stands out is that the error correction model is not working super well. In fact, the CER for those runs is actually a little higher than without it. I believe the main reason for this, is that the specific model we are using, while powerful, might not be correctly suited for the problem at hand. The model is techincally trained to correct grammer. While this might be helpful for some outputs, most often the errors we see from the models are simply incorrect characters resulting in non-words, which are not a grammer issue and are likely to not be corrected by this model. For this reason, we consider the 'final' model for the purposes of this project to be the Fine Tuned TrOCR the we have further finetuned. That said, due to the reasons outlined above, I do still believe that there is good reason to find and implement a more direct error correction model in future work. With the final model in hand, we can also take a closer look at its outputs and identify cases in which it works and does not work. 
 
-Note, for additional training loss and CER results, training images can be found in /OCR_Training_Pics
+Note, for additional training loss and CER results, training images can be found in /OCR_Training_Pics. To run either training or inference, see the scripts in src/modeling/training or /inference.
 
 #### Successful Transcription
 ![](readme_images/suc1.png.png)
